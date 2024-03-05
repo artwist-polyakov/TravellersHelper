@@ -89,6 +89,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				AFA305C42B97AD2E00759357 /* PBXTargetDependency */,
 			);
 			name = Rzhd;
 			packageProductDependencies = (
@@ -162,6 +163,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AFA305C42B97AD2E00759357 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = AFA305C32B97AD2E00759357 /* OpenAPIGenerator */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		AFE252B62B92136B007E5FFF /* Debug */ = {
@@ -411,6 +419,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = AFA305C02B97ACDC00759357 /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */;
 			productName = OpenAPIURLSession;
+		};
+		AFA305C32B97AD2E00759357 /* OpenAPIGenerator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AFA305B82B97AC7A00759357 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */;
+			productName = "plugin:OpenAPIGenerator";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
