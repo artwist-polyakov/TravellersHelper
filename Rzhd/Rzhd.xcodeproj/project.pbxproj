@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AFA305BA2B97AC7A00759357 /* _OpenAPIGeneratorCore in Frameworks */ = {isa = PBXBuildFile; productRef = AFA305B92B97AC7A00759357 /* _OpenAPIGeneratorCore */; };
-		AFA305BC2B97AC7A00759357 /* swift-openapi-generator in Frameworks */ = {isa = PBXBuildFile; productRef = AFA305BB2B97AC7A00759357 /* swift-openapi-generator */; };
 		AFA305BF2B97AC9700759357 /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = AFA305BE2B97AC9700759357 /* OpenAPIRuntime */; };
 		AFA305C22B97ACDC00759357 /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = AFA305C12B97ACDC00759357 /* OpenAPIURLSession */; };
 		AFA305C62B97AD9200759357 /* openapi.yaml in Resources */ = {isa = PBXBuildFile; fileRef = AFA305C52B97AD9200759357 /* openapi.yaml */; };
+		AFA305C92B97AE4400759357 /* NearestStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA305C82B97AE4400759357 /* NearestStations.swift */; };
+		AFA305D42B97B17A00759357 /* openapi-generator-config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = AFA305D32B97B17A00759357 /* openapi-generator-config.yaml */; };
 		AFE252AE2B921369007E5FFF /* RzhdApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252AD2B921369007E5FFF /* RzhdApp.swift */; };
 		AFE252B02B921369007E5FFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252AF2B921369007E5FFF /* ContentView.swift */; };
 		AFE252B22B92136B007E5FFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE252B12B92136B007E5FFF /* Assets.xcassets */; };
@@ -20,7 +20,8 @@
 
 /* Begin PBXFileReference section */
 		AFA305C52B97AD9200759357 /* openapi.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = openapi.yaml; sourceTree = "<group>"; };
-		AFA305C72B97ADE200759357 /* openapi-generator-config.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
+		AFA305C82B97AE4400759357 /* NearestStations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestStations.swift; sourceTree = "<group>"; };
+		AFA305D32B97B17A00759357 /* openapi-generator-config.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
 		AFE252AA2B921369007E5FFF /* Rzhd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rzhd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE252AD2B921369007E5FFF /* RzhdApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RzhdApp.swift; sourceTree = "<group>"; };
 		AFE252AF2B921369007E5FFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,9 +35,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFA305C22B97ACDC00759357 /* OpenAPIURLSession in Frameworks */,
-				AFA305BA2B97AC7A00759357 /* _OpenAPIGeneratorCore in Frameworks */,
 				AFA305BF2B97AC9700759357 /* OpenAPIRuntime in Frameworks */,
-				AFA305BC2B97AC7A00759357 /* swift-openapi-generator in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,12 +61,13 @@
 		AFE252AC2B921369007E5FFF /* Rzhd */ = {
 			isa = PBXGroup;
 			children = (
+				AFA305D32B97B17A00759357 /* openapi-generator-config.yaml */,
 				AFA305C52B97AD9200759357 /* openapi.yaml */,
 				AFE252AD2B921369007E5FFF /* RzhdApp.swift */,
 				AFE252AF2B921369007E5FFF /* ContentView.swift */,
 				AFE252B12B92136B007E5FFF /* Assets.xcassets */,
 				AFE252B32B92136B007E5FFF /* Preview Content */,
-				AFA305C72B97ADE200759357 /* openapi-generator-config.yaml */,
+				AFA305C82B97AE4400759357 /* NearestStations.swift */,
 			);
 			path = Rzhd;
 			sourceTree = "<group>";
@@ -94,12 +94,10 @@
 			buildRules = (
 			);
 			dependencies = (
-				AFA305C42B97AD2E00759357 /* PBXTargetDependency */,
+				AFA305D82B97B2CF00759357 /* PBXTargetDependency */,
 			);
 			name = Rzhd;
 			packageProductDependencies = (
-				AFA305B92B97AC7A00759357 /* _OpenAPIGeneratorCore */,
-				AFA305BB2B97AC7A00759357 /* swift-openapi-generator */,
 				AFA305BE2B97AC9700759357 /* OpenAPIRuntime */,
 				AFA305C12B97ACDC00759357 /* OpenAPIURLSession */,
 			);
@@ -151,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFE252B52B92136B007E5FFF /* Preview Assets.xcassets in Resources */,
+				AFA305D42B97B17A00759357 /* openapi-generator-config.yaml in Resources */,
 				AFE252B22B92136B007E5FFF /* Assets.xcassets in Resources */,
 				AFA305C62B97AD9200759357 /* openapi.yaml in Resources */,
 			);
@@ -163,6 +162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFA305C92B97AE4400759357 /* NearestStations.swift in Sources */,
 				AFE252B02B921369007E5FFF /* ContentView.swift in Sources */,
 				AFE252AE2B921369007E5FFF /* RzhdApp.swift in Sources */,
 			);
@@ -171,9 +171,9 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		AFA305C42B97AD2E00759357 /* PBXTargetDependency */ = {
+		AFA305D82B97B2CF00759357 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = AFA305C32B97AD2E00759357 /* OpenAPIGenerator */;
+			productRef = AFA305D72B97B2CF00759357 /* OpenAPIGenerator */;
 		};
 /* End PBXTargetDependency section */
 
@@ -406,16 +406,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AFA305B92B97AC7A00759357 /* _OpenAPIGeneratorCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AFA305B82B97AC7A00759357 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */;
-			productName = _OpenAPIGeneratorCore;
-		};
-		AFA305BB2B97AC7A00759357 /* swift-openapi-generator */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AFA305B82B97AC7A00759357 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */;
-			productName = "swift-openapi-generator";
-		};
 		AFA305BE2B97AC9700759357 /* OpenAPIRuntime */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AFA305BD2B97AC9700759357 /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */;
@@ -426,7 +416,7 @@
 			package = AFA305C02B97ACDC00759357 /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */;
 			productName = OpenAPIURLSession;
 		};
-		AFA305C32B97AD2E00759357 /* OpenAPIGenerator */ = {
+		AFA305D72B97B2CF00759357 /* OpenAPIGenerator */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AFA305B82B97AC7A00759357 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */;
 			productName = "plugin:OpenAPIGenerator";
