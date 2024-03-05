@@ -20,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		AFA305C52B97AD9200759357 /* openapi.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = openapi.yaml; sourceTree = "<group>"; };
+		AFA305C72B97ADE200759357 /* openapi-generator-config.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
 		AFE252AA2B921369007E5FFF /* Rzhd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rzhd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE252AD2B921369007E5FFF /* RzhdApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RzhdApp.swift; sourceTree = "<group>"; };
 		AFE252AF2B921369007E5FFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -66,6 +67,7 @@
 				AFE252AF2B921369007E5FFF /* ContentView.swift */,
 				AFE252B12B92136B007E5FFF /* Assets.xcassets */,
 				AFE252B32B92136B007E5FFF /* Preview Content */,
+				AFA305C72B97ADE200759357 /* openapi-generator-config.yaml */,
 			);
 			path = Rzhd;
 			sourceTree = "<group>";
