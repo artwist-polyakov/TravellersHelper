@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import OpenAPIURLSession
 
 struct ContentView: View {
     var body: some View {
@@ -16,7 +17,34 @@ struct ContentView: View {
             Text("Hello, world!")
         }
         .padding()
+        
+        .onAppear {
+                     stations()
+                 }
     }
+    
+    func stations() {
+             let client = Client(
+                 serverURL: try! Servers.server1(),
+                 transport: URLSessionTransport()
+             )
+
+             let service = NearestStationsService(
+                 client: client,
+                 apikey: "3b033964-4652-469c-bcda-c5e26afbc1b4"
+             )
+
+             Task {
+                 do {
+                     let stations = try await service.getNearestStations(lat:
+     59.864177, lng: 30.319163, distance: 50)
+                     print(stations)
+                 } catch {
+                     print("Error fetching stations: \(error)")
+                 }
+             }
+         }
+    
 }
 
 #Preview {
