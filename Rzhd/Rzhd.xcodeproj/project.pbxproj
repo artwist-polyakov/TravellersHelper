@@ -11,6 +11,7 @@
 		AFA305BC2B97AC7A00759357 /* swift-openapi-generator in Frameworks */ = {isa = PBXBuildFile; productRef = AFA305BB2B97AC7A00759357 /* swift-openapi-generator */; };
 		AFA305BF2B97AC9700759357 /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = AFA305BE2B97AC9700759357 /* OpenAPIRuntime */; };
 		AFA305C22B97ACDC00759357 /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = AFA305C12B97ACDC00759357 /* OpenAPIURLSession */; };
+		AFA305C62B97AD9200759357 /* openapi.yaml in Resources */ = {isa = PBXBuildFile; fileRef = AFA305C52B97AD9200759357 /* openapi.yaml */; };
 		AFE252AE2B921369007E5FFF /* RzhdApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252AD2B921369007E5FFF /* RzhdApp.swift */; };
 		AFE252B02B921369007E5FFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252AF2B921369007E5FFF /* ContentView.swift */; };
 		AFE252B22B92136B007E5FFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE252B12B92136B007E5FFF /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AFA305C52B97AD9200759357 /* openapi.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = openapi.yaml; sourceTree = "<group>"; };
 		AFE252AA2B921369007E5FFF /* Rzhd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rzhd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE252AD2B921369007E5FFF /* RzhdApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RzhdApp.swift; sourceTree = "<group>"; };
 		AFE252AF2B921369007E5FFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 		AFE252AC2B921369007E5FFF /* Rzhd */ = {
 			isa = PBXGroup;
 			children = (
+				AFA305C52B97AD9200759357 /* openapi.yaml */,
 				AFE252AD2B921369007E5FFF /* RzhdApp.swift */,
 				AFE252AF2B921369007E5FFF /* ContentView.swift */,
 				AFE252B12B92136B007E5FFF /* Assets.xcassets */,
@@ -147,6 +150,7 @@
 			files = (
 				AFE252B52B92136B007E5FFF /* Preview Assets.xcassets in Resources */,
 				AFE252B22B92136B007E5FFF /* Assets.xcassets in Resources */,
+				AFA305C62B97AD9200759357 /* openapi.yaml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
