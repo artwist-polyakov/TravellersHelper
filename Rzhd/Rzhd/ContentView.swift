@@ -19,8 +19,30 @@ struct ContentView: View {
         .padding()
         
         .onAppear {
-                     stations()
+                    stations()
+                    thread()
                  }
+    }
+    
+    func thread() {
+        let client = Client(
+            serverURL: try! Servers.server1(),
+            transport: URLSessionTransport()
+        )
+
+        let service = ThreadSearchService(
+            client: client,
+            apikey: "3b033964-4652-469c-bcda-c5e26afbc1b4"
+        )
+
+        Task {
+            do {
+                let thread = try await service.search(uid: "176YE_7_2")
+                print(thread)
+            } catch {
+                print("Error fetching thread: \(error)")
+            }
+        }
     }
     
     func stations() {

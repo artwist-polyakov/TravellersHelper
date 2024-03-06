@@ -10,6 +10,8 @@ tags:
   description: Список ближайших станций
 - name: Search of routes
   description: Запрос позволяет получить список рейсов, следующих от указанной станции отправления к указанной станции прибытия и информацию по каждому рейсу.
+- name: List of threads
+  description: Запрос позволяет получить список станций следования нитки по указанному идентификатору нитки, информацию о каждой нитке и о промежуточных станциях нитки.
 paths:
   /v3.0/nearest_stations/:
     get:
@@ -193,7 +195,7 @@ paths:
       - name: date
         in: query
         description: дата YYYY-MM-DD
-        required: true
+        required: false
         schema:
           type: string
 
@@ -243,10 +245,143 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SingleStationRoutes'
+    
+  /v3.0/thread/:
+    get:
+      tags:
+      - List of threads
+      summary: Поиск рейсов по станции
+      operationId: thread
+      parameters:
+      - name: apikey
+        in: query
+        description: API key
+        required: true
+        schema:
+          type: string
+      - name: uid
+        in: query
+        description: Код нитки.
+        required: true
+        schema:
+          type: string
+      - name: from
+        in: query
+        description: Код станции отправления.
+        required: false
+        schema:
+          type: string
+      - name: to
+        in: query
+        description: Код станции прибытия.
+        required: false
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: json или xml
+        required: false
+        schema:
+          type: string
+          enum:
+            - xml
+            - json
+          default: json
+
+      - name: date
+        in: query
+        description: дата YYYY-MM-DD
+        required: false
+        schema:
+          type: string
+
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SingleThread'
+    
+
+
 
 
 components:
   schemas:
+
+    SingleThread:
+        type: object
+        properties:
+          except_days:
+            type: string
+          arrival_date:
+            type: string
+          from:
+            type: string
+          uid:
+            type: string
+          title:
+            type: string
+          interval:
+            $ref: '#/components/schemas/SingleInterval'
+          departure_date:
+            type: string
+          start_time:
+            type: string
+          number:
+            type: string
+          short_title:
+            type: string
+          days:
+            type: string
+          to:
+            type: string
+          carrier:
+            $ref: '#/components/schemas/Carrier'
+          transport_type:
+            type: string
+          stops:
+            type: array
+            items:
+              $ref: '#/components/schemas/Stop'
+          vehicle:
+            type: string
+          start_date:
+            type: string
+          transport_subtype:
+            $ref: '#/components/schemas/TransportSubtype'
+          express_type:
+            type: string
+    
+    Stop:
+        type: object
+        properties:
+          arrival:
+            type: string
+          departure:
+            type: string
+          duration:
+            type: number
+          stop_time:
+            type: number
+          station:
+            type: string
+          terminal:
+            type: string
+          platform:
+            type: string
+
+    
+    SingleInterval:
+        type: object
+        properties:
+          density:
+            type: string
+          end_time:
+            type: string
+          begin_time:
+            type: number
     SingleStationRoutes:
         type: object
         properties:
