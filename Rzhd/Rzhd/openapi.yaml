@@ -6,13 +6,15 @@ info:
 servers:
 - url: https://api.rasp.yandex.net
 tags:
-- name: Список ближайших станций
+- name: Nearest Stations
   description: Список ближайших станций
+- name: Search of routes
+  description: Запрос позволяет получить список рейсов, следующих от указанной станции отправления к указанной станции прибытия и информацию по каждому рейсу.
 paths:
   /v3.0/nearest_stations/:
     get:
       tags:
-      - getNearestStations
+      - Nearest Stations
       summary: Список ближайших станций
       operationId: getNearestStations
       parameters:
@@ -59,8 +61,274 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Stations'
+
+  /v3.0/search/:
+    get:
+      tags:
+      - Search of routes
+      summary: Поиск рейсов между
+      operationId: search
+      parameters:
+      - name: apikey
+        in: query
+        description: API key
+        required: true
+        schema:
+          type: string
+      - name: from
+        in: query
+        description: Код станции отправления.
+        required: true
+        schema:
+          type: string
+      - name: to
+        in: query
+        description: Код станции прибытия.
+        required: true
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: json или xml
+        required: false
+        schema:
+          type: string
+          enum:
+            - xml
+            - json
+          default: json
+      - name: date
+        in: query
+        description: дата YYYY-MM-DD
+        required: true
+        schema:
+          type: string
+
+      - name: transport_types
+        in: query
+        description: Тип транспортного стредства
+        required: false
+        schema:
+          type: string
+          enum:
+            - plane
+            - train
+            - suburban
+            - bus
+            - water
+            - helicopter
+            
+      - name: offset
+        in: query
+        description: Сдвиг начала реузльататов.
+        required: false
+        schema:
+          type: number
+      
+      - name: limit
+        in: query
+        description: Максимальное количество отдаваемых результатов.
+        required: false
+        schema:
+          type: number
+
+      - name: add_days_mask
+        in: query
+        description: Показать расписания.
+        required: false
+        schema:
+          type: boolean
+
+      - name: result_timezone
+        in: query
+        description: Часовой пояс.
+        required: false
+        schema:
+          type: string
+
+      - name: transfers
+        in: query
+        description: Показывать результаты с пересадками.
+        required: false
+        schema:
+          type: boolean
+
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Routes'
 components:
   schemas:
+    Routes:
+      type: object
+      properties:
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+        interval_segments:
+          type: array
+          items:
+            $ref: '#/components/schemas/IntervalSegment'
+        segments:
+          type: array
+          items:
+            $ref: '#/components/schemas/Segment'
+        search:
+          $ref: '#/components/schemas/Search'
+    Pagination:
+      type: object
+      properties:
+        date:
+          type: string
+        from:
+          type: string
+        to:
+          type: string
+    Search:
+      type: object
+      properties:
+        total:
+          type: integer
+        limit:
+          type: integer
+        offset:
+          type: integer
+    IntervalSegment:
+      type: object
+      properties:
+        from:
+          $ref: '#/components/schemas/Station'
+        thread:
+          $ref: '#/components/schemas/Thread'
+        departure_platform:
+          type: string
+        stops:
+          type: string
+        departure_terminal:
+          type: string
+        to:
+          $ref: '#/components/schemas/Station'
+        has_transfers:
+          type: boolean
+        tickets_info:
+          $ref: '#/components/schemas/TicketsInfo'
+        duration:
+          type: integer
+        arrival_terminal:
+          type: string
+        start_date:
+          type: string
+        arrival_platform:
+          type: string
+    Segment:
+      allOf:
+        - $ref: '#/components/schemas/IntervalSegment'
+        - type: object
+          properties:
+            arrival:
+              type: string
+            departure:
+              type: string
+    Thread:
+      type: object
+      properties:
+        uid:
+          type: string
+        title:
+          type: string
+        interval:
+          $ref: '#/components/schemas/Interval'
+        number:
+          type: string
+        short_title:
+          type: string
+        thread_method_link:
+          type: string
+        carrier:
+          $ref: '#/components/schemas/Carrier'
+        transport_type:
+          type: string
+        vehicle:
+          type: string
+        transport_subtype:
+          $ref: '#/components/schemas/TransportSubtype'
+        express_type:
+          type: string
+    Interval:
+      type: object
+      properties:
+        density:
+          type: string
+        end_time:
+          type: string
+        begin_time:
+          type: string
+    Carrier:
+      type: object
+      properties:
+        code:
+          type: integer
+        contacts:
+          type: string
+        url:
+          type: string
+        logo_svg:
+          type: string
+        title:
+          type: string
+        phone:
+          type: string
+        codes:
+          $ref: '#/components/schemas/CarrierCodes'
+        address:
+          type: string
+        logo:
+          type: string
+        email:
+          type: string
+    CarrierCodes:
+      type: object
+      properties:
+        icao:
+          type: string
+        sirena:
+          type: string
+        iata:
+          type: string
+    TransportSubtype:
+      type: object
+      properties:
+        color:
+          type: string
+        code:
+          type: string
+        title:
+          type: string
+    TicketsInfo:
+      type: object
+      properties:
+        et_marker:
+          type: boolean
+        places:
+          type: array
+          items:
+            $ref: '#/components/schemas/Place'
+    Place:
+      type: object
+      properties:
+        currency:
+          type: string
+        price:
+          $ref: '#/components/schemas/Price'
+        name:
+          type: string
+    Price:
+      type: object
+      properties:
+        cents:
+          type: string
     Stations:
       type: object
       properties:
@@ -70,15 +338,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Station'
-    Pagination:
-      type: object
-      properties:
-        total:
-          type: integer
-        limit:
-          type: integer
-        offset:
-          type: integer
     Station:
       type: object
       properties:
