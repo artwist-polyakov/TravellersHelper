@@ -160,8 +160,168 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Routes'
+
+  /v3.0/schedule/:
+    get:
+      tags:
+      - Search of routes
+      summary: Поиск рейсов по станции
+      operationId: schedule
+      parameters:
+      - name: apikey
+        in: query
+        description: API key
+        required: true
+        schema:
+          type: string
+      - name: station
+        in: query
+        description: Код станции.
+        required: true
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: json или xml
+        required: false
+        schema:
+          type: string
+          enum:
+            - xml
+            - json
+          default: json
+      - name: date
+        in: query
+        description: дата YYYY-MM-DD
+        required: true
+        schema:
+          type: string
+
+      - name: transport_types
+        in: query
+        description: Тип транспортного стредства
+        required: false
+        schema:
+          type: string
+          enum:
+            - plane
+            - train
+            - suburban
+            - bus
+            - water
+            - helicopter
+            
+      - name: direction
+        in: query
+        description: Код направления.
+        required: false
+        schema:
+          type: string
+          
+      - name: event
+        in: query
+        description: Событие для которого ищем расписание.
+        required: false
+        schema:
+          type: string
+          enum:
+            - arrival
+            - departure
+      
+
+      - name: result_timezone
+        in: query
+        description: Часовой пояс.
+        required: false
+        schema:
+          type: string
+
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SingleStationRoutes'
+
+
 components:
   schemas:
+    SingleStationRoutes:
+        type: object
+        properties:
+          date:
+              type: string
+              format: date
+              example: "2017-01-01"
+          pagination:
+            $ref: '#/components/schemas/Pagination'
+          station:
+             $ref: '#/components/schemas/Station'
+          schedule:
+             type: array
+             items:
+               $ref: '#/components/schemas/ScheduleItem'
+          interval_schedule:
+             type: array
+             items:
+               $ref: '#/components/schemas/IntervalScheduleItem'
+          schedule_direction:
+             $ref: '#/components/schemas/Direction'
+          directions:
+             type: array
+             items:
+               $ref: '#/components/schemas/Direction'
+    ScheduleItem:
+       type: object
+       properties:
+         except_days:
+           type: string
+         arrival:
+           type: string
+           format: date-time
+         thread:
+           $ref: '#/components/schemas/Thread'
+         is_fuzzy:
+           type: boolean
+         days:
+           type: string
+         stops:
+           type: string
+         departure:
+           type: string
+           format: date-time
+         terminal:
+           type: string
+         platform:
+           type: string
+    
+    IntervalScheduleItem:
+       type: object
+       properties:
+         except_days:
+           type: string
+         thread:
+           $ref: '#/components/schemas/Thread'
+         is_fuzzy:
+           type: boolean
+         days:
+           type: string
+         stops:
+           type: string
+         terminal:
+           type: string
+         platform:
+           type: string
+           
+    Direction:
+       type: object
+       properties:
+         code:
+           type: string
+         title:
+           type: string
+  
     Routes:
       type: object
       properties:
