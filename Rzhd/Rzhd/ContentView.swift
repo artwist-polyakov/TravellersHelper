@@ -29,7 +29,7 @@ struct ContentView: View {
                  transport: URLSessionTransport()
              )
 
-             let service = RoutesSearchService(
+             let service = ScheduleSearchService(
                  client: client,
                  apikey: "3b033964-4652-469c-bcda-c5e26afbc1b4"
              )
@@ -46,7 +46,7 @@ struct ContentView: View {
         
             Task {
                 do {
-                    let result = try await service.search(from:"c213", to: "c239", date: "2024-03-08")
+                    let result = try await service.search(station: "s9600216", date: "2024-03-08")
                     print(result)
                 } catch {
                     print("Error fetching stations: \(error)")

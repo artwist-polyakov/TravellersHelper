@@ -13,6 +13,7 @@
 		AFA305C92B97AE4400759357 /* NearestStations.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA305C82B97AE4400759357 /* NearestStations.swift */; };
 		AFA305D42B97B17A00759357 /* openapi-generator-config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = AFA305D32B97B17A00759357 /* openapi-generator-config.yaml */; };
 		AFA305DB2B98F53400759357 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA305DA2B98F53400759357 /* Routes.swift */; };
+		AFA305DF2B99025B00759357 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA305DE2B99025B00759357 /* Schedule.swift */; };
 		AFE252AE2B921369007E5FFF /* RzhdApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252AD2B921369007E5FFF /* RzhdApp.swift */; };
 		AFE252B02B921369007E5FFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252AF2B921369007E5FFF /* ContentView.swift */; };
 		AFE252B22B92136B007E5FFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE252B12B92136B007E5FFF /* Assets.xcassets */; };
@@ -24,6 +25,7 @@
 		AFA305C82B97AE4400759357 /* NearestStations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestStations.swift; sourceTree = "<group>"; };
 		AFA305D32B97B17A00759357 /* openapi-generator-config.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
 		AFA305DA2B98F53400759357 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
+		AFA305DE2B99025B00759357 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		AFE252AA2B921369007E5FFF /* Rzhd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rzhd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE252AD2B921369007E5FFF /* RzhdApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RzhdApp.swift; sourceTree = "<group>"; };
 		AFE252AF2B921369007E5FFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 				AFE252B32B92136B007E5FFF /* Preview Content */,
 				AFA305C82B97AE4400759357 /* NearestStations.swift */,
 				AFA305DA2B98F53400759357 /* Routes.swift */,
+				AFA305DE2B99025B00759357 /* Schedule.swift */,
 			);
 			path = Rzhd;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 				AFA305C92B97AE4400759357 /* NearestStations.swift in Sources */,
 				AFA305DB2B98F53400759357 /* Routes.swift in Sources */,
 				AFE252B02B921369007E5FFF /* ContentView.swift in Sources */,
+				AFA305DF2B99025B00759357 /* Schedule.swift in Sources */,
 				AFE252AE2B921369007E5FFF /* RzhdApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
