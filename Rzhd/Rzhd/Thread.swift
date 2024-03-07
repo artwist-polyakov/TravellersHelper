@@ -12,25 +12,25 @@ import OpenAPIURLSession
 typealias Thread = Components.Schemas.SingleThread
 
 protocol ThreadSearchProtocol {
-  func search(uid: String) async throws -> Thread
+    func search(uid: String) async throws -> Thread
 }
 
 final class ThreadSearchService: ThreadSearchProtocol {
-  private let client: Client
-  private let apikey: String
-  
-  init(client: Client, apikey: String) {
-    self.client = client
-    self.apikey = apikey
-  }
-  
-func search(uid: String) async throws -> Thread {
-
-    let response = try await client.thread(query: .init(
-        apikey: apikey,
-        uid: uid
-    ))
-    return try response.ok.body.json
-  }
+    private let client: Client
+    private let apikey: String
+    
+    init(client: Client, apikey: String) {
+        self.client = client
+        self.apikey = apikey
+    }
+    
+    func search(uid: String) async throws -> Thread {
+        
+        let response = try await client.thread(query: .init(
+            apikey: apikey,
+            uid: uid
+        ))
+        return try response.ok.body.json
+    }
 }
 

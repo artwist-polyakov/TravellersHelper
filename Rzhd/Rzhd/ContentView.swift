@@ -20,13 +20,13 @@ struct ContentView: View {
         
         .onAppear {
             copyright()
-            // нужна помощь с обработкой
+//            нужна помощь с обработкой
 //            allStations() // тут возвращается 33мб данных и десериализация не выполняется корректно.
-//                    stations()
-//                    thread()
+//            stations()
+//            thread()
 //            settlement()
 //            carrier()
-                 }
+        }
     }
     
     func allStations() {
@@ -35,12 +35,12 @@ struct ContentView: View {
             serverURL: try! Servers.server1(),
             transport: URLSessionTransport()
         )
-
+        
         let service = AllStationsService(
             client: client,
             apikey: API_KEY
         )
-
+        
         Task {
             do {
                 let stations = try await service.get()
@@ -56,12 +56,12 @@ struct ContentView: View {
             serverURL: try! Servers.server1(),
             transport: URLSessionTransport()
         )
-
+        
         let service = CarrierSearchService(
             client: client,
             apikey: API_KEY
         )
-
+        
         Task {
             do {
                 let thread = try await service.search(code: "MS", system: .iata)
@@ -77,12 +77,12 @@ struct ContentView: View {
             serverURL: try! Servers.server1(),
             transport: URLSessionTransport()
         )
-
+        
         let service = ThreadSearchService(
             client: client,
             apikey: API_KEY
         )
-
+        
         Task {
             do {
                 let thread = try await service.search(uid: "176YE_7_2")
@@ -94,48 +94,48 @@ struct ContentView: View {
     }
     
     func stations() {
-             let client = Client(
-                 serverURL: try! Servers.server1(),
-                 transport: URLSessionTransport()
-             )
-
-             let service = ScheduleSearchService(
-                 client: client,
-                 apikey: API_KEY
-             )
+        let client = Client(
+            serverURL: try! Servers.server1(),
+            transport: URLSessionTransport()
+        )
+//        let service = NearestStationsService(
+        let service = ScheduleSearchService(
+            client: client,
+            apikey: API_KEY
+        )
         
         
-
-//             Task {
-//                 do {
-//                     let stations = try await service.getNearestStations(lat:
-//     59.864177, lng: 30.319163, distance: 50)
-//                     print(stations)
-//                 } catch {
-//                     print("Error fetching stations: \(error)")
-//                 }
-//             }
         
-            Task {
-                do {
-                    let result = try await service.search(station: "s9600216", date: "2024-03-08")
-                    print(result)
-                } catch {
-                    print("Error fetching stations: \(error)")
-                }
+        //             Task {
+        //                 do {
+        //                     let stations = try await service.getNearestStations(lat:
+        //     59.864177, lng: 30.319163, distance: 50)
+        //                     print(stations)
+        //                 } catch {
+        //                     print("Error fetching stations: \(error)")
+        //                 }
+        //             }
+        
+        Task {
+            do {
+                let result = try await service.search(station: "s9600216", date: "2024-03-08")
+                print(result)
+            } catch {
+                print("Error fetching stations: \(error)")
             }
-         }
+        }
+    }
     func settlement() {
         let client = Client(
             serverURL: try! Servers.server1(),
             transport: URLSessionTransport()
         )
-
+        
         let service = NearestSettlementService(
             client: client,
             apikey: API_KEY
         )
-
+        
         Task {
             do {
                 let result = try await service.getNearestSSettlement(lat:59.864177, lng: 30.319163)
@@ -151,12 +151,12 @@ struct ContentView: View {
             serverURL: try! Servers.server1(),
             transport: URLSessionTransport()
         )
-
+        
         let service = CopyrightService(
             client: client,
             apikey: API_KEY
         )
-
+        
         Task {
             do {
                 let result = try await service.get()

@@ -19,22 +19,22 @@ protocol AllStationsInfoProtocol {
 }
 
 final class AllStationsService: AllStationsInfoProtocol {
-  private let client: Client
-  private let apikey: String
-  
-  init(client: Client, apikey: String) {
-    self.client = client
-    self.apikey = apikey
-  }
-  
+    private let client: Client
+    private let apikey: String
+    
+    init(client: Client, apikey: String) {
+        self.client = client
+        self.apikey = apikey
+    }
+    
     func get(format: Operations.getAllStations.Input.Query.formatPayload = .json) async throws -> StationList {
-
-    let response = try await client.getAllStations(query: .init(
-        apikey: apikey,
-        format: format
-    ))
-    return try response.ok.body.json
-  }
+        
+        let response = try await client.getAllStations(query: .init(
+            apikey: apikey,
+            format: format
+        ))
+        return try response.ok.body.json
+    }
 }
 
 
