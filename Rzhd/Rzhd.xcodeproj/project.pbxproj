@@ -19,6 +19,7 @@
 		AFE252B22B92136B007E5FFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE252B12B92136B007E5FFF /* Assets.xcassets */; };
 		AFE252B52B92136B007E5FFF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE252B42B92136B007E5FFF /* Preview Assets.xcassets */; };
 		AFE252BC2B992284007E5FFF /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252BB2B992284007E5FFF /* Thread.swift */; };
+		AFE252C02B99AA04007E5FFF /* NearestSettlement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252BF2B99AA04007E5FFF /* NearestSettlement.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		AFE252B12B92136B007E5FFF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFE252B42B92136B007E5FFF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AFE252BB2B992284007E5FFF /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
+		AFE252BF2B99AA04007E5FFF /* NearestSettlement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestSettlement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				AFA305DA2B98F53400759357 /* Routes.swift */,
 				AFA305DE2B99025B00759357 /* Schedule.swift */,
 				AFE252BB2B992284007E5FFF /* Thread.swift */,
+				AFE252BF2B99AA04007E5FFF /* NearestSettlement.swift */,
 			);
 			path = Rzhd;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				AFA305C92B97AE4400759357 /* NearestStations.swift in Sources */,
 				AFA305DB2B98F53400759357 /* Routes.swift in Sources */,
 				AFE252B02B921369007E5FFF /* ContentView.swift in Sources */,
+				AFE252C02B99AA04007E5FFF /* NearestSettlement.swift in Sources */,
 				AFA305DF2B99025B00759357 /* Schedule.swift in Sources */,
 				AFE252BC2B992284007E5FFF /* Thread.swift in Sources */,
 				AFE252AE2B921369007E5FFF /* RzhdApp.swift in Sources */,

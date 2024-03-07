@@ -20,7 +20,8 @@ struct ContentView: View {
         
         .onAppear {
 //                    stations()
-                    thread()
+//                    thread()
+            settlement()
                  }
     }
     
@@ -75,6 +76,26 @@ struct ContentView: View {
                 }
             }
          }
+    func settlement() {
+        let client = Client(
+            serverURL: try! Servers.server1(),
+            transport: URLSessionTransport()
+        )
+
+        let service = NearestSettlementService(
+            client: client,
+            apikey: "3b033964-4652-469c-bcda-c5e26afbc1b4"
+        )
+
+        Task {
+            do {
+                let result = try await service.getNearestSSettlement(lat:59.864177, lng: 30.319163)
+                print(result)
+            } catch {
+                print("Error fetching stations: \(error)")
+            }
+        }
+    }
     
 }
 

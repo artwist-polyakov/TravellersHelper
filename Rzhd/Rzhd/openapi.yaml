@@ -6,7 +6,7 @@ info:
 servers:
 - url: https://api.rasp.yandex.net
 tags:
-- name: Nearest Stations
+- name: Nearest
   description: Список ближайших станций
 - name: Search of routes
   description: Запрос позволяет получить список рейсов, следующих от указанной станции отправления к указанной станции прибытия и информацию по каждому рейсу.
@@ -16,7 +16,7 @@ paths:
   /v3.0/nearest_stations/:
     get:
       tags:
-      - Nearest Stations
+      - Nearest
       summary: Список ближайших станций
       operationId: getNearestStations
       parameters:
@@ -303,12 +303,80 @@ paths:
               schema:
                 $ref: '#/components/schemas/SingleThread'
     
-
+  /v3.0/nearest_settlement/:
+    get:
+      tags:
+      - Nearest
+      summary: Список ближайших станций
+      operationId: getNearestSettlement
+      parameters:
+      - name: apikey
+        in: query
+        description: API key
+        required: true
+        schema:
+          type: string
+      - name: lat
+        in: query
+        description: широта
+        required: true
+        schema:
+          type: number
+      - name: lng
+        in: query
+        description: долгота
+        required: true
+        schema:
+          type: number
+      - name: distance
+        in: query
+        description: радиус охвата
+        required: false
+        schema:
+          type: integer
+      - name: format
+        in: query
+        description: json или xml
+        required: false
+        schema:
+          type: string
+          enum:
+            - json
+            - xml
+          default: json
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Settlement'
 
 
 
 components:
   schemas:
+
+    Settlement:
+        type: object
+        properties:
+          distance:
+            type: number
+          code:
+            type: string
+          title:
+            type: string
+          popular_title:
+            type: string
+          short_title:
+            type: string
+          lat:
+            type: number
+          lng:
+            type: number
+          type:
+            type: string
+
 
     SingleThread:
         type: object
