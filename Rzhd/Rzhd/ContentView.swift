@@ -19,11 +19,11 @@ struct ContentView: View {
         .padding()
         
         .onAppear {
-            allStations()
+//            allStations() // тут возвращается 33мб данных и десериализация не выполняется корректно.
 //                    stations()
 //                    thread()
 //            settlement()
-//            carrier()
+            carrier()
                  }
     }
     
@@ -36,7 +36,7 @@ struct ContentView: View {
 
         let service = AllStationsService(
             client: client,
-            apikey: "3b033964-4652-469c-bcda-c5e26afbc1b4"
+            apikey: API_KEY
         )
 
         Task {
@@ -57,7 +57,7 @@ struct ContentView: View {
 
         let service = CarrierSearchService(
             client: client,
-            apikey: "3b033964-4652-469c-bcda-c5e26afbc1b4"
+            apikey: API_KEY
         )
 
         Task {
@@ -78,7 +78,7 @@ struct ContentView: View {
 
         let service = ThreadSearchService(
             client: client,
-            apikey: "3b033964-4652-469c-bcda-c5e26afbc1b4"
+            apikey: API_KEY
         )
 
         Task {
@@ -99,7 +99,7 @@ struct ContentView: View {
 
              let service = ScheduleSearchService(
                  client: client,
-                 apikey: "3b033964-4652-469c-bcda-c5e26afbc1b4"
+                 apikey: API_KEY
              )
 
 //             Task {
@@ -129,7 +129,7 @@ struct ContentView: View {
 
         let service = NearestSettlementService(
             client: client,
-            apikey: "3b033964-4652-469c-bcda-c5e26afbc1b4"
+            apikey: API_KEY
         )
 
         Task {
