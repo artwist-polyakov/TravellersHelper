@@ -20,6 +20,7 @@
 		AFE252B52B92136B007E5FFF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE252B42B92136B007E5FFF /* Preview Assets.xcassets */; };
 		AFE252BC2B992284007E5FFF /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252BB2B992284007E5FFF /* Thread.swift */; };
 		AFE252C02B99AA04007E5FFF /* NearestSettlement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252BF2B99AA04007E5FFF /* NearestSettlement.swift */; };
+		AFE252C32B99AFDB007E5FFF /* Carrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252C22B99AFDB007E5FFF /* Carrier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		AFE252B42B92136B007E5FFF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AFE252BB2B992284007E5FFF /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		AFE252BF2B99AA04007E5FFF /* NearestSettlement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestSettlement.swift; sourceTree = "<group>"; };
+		AFE252C22B99AFDB007E5FFF /* Carrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carrier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				AFA305DE2B99025B00759357 /* Schedule.swift */,
 				AFE252BB2B992284007E5FFF /* Thread.swift */,
 				AFE252BF2B99AA04007E5FFF /* NearestSettlement.swift */,
+				AFE252C22B99AFDB007E5FFF /* Carrier.swift */,
 			);
 			path = Rzhd;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFE252C32B99AFDB007E5FFF /* Carrier.swift in Sources */,
 				AFA305C92B97AE4400759357 /* NearestStations.swift in Sources */,
 				AFA305DB2B98F53400759357 /* Routes.swift in Sources */,
 				AFE252B02B921369007E5FFF /* ContentView.swift in Sources */,

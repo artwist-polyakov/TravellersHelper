@@ -21,8 +21,30 @@ struct ContentView: View {
         .onAppear {
 //                    stations()
 //                    thread()
-            settlement()
+//            settlement()
+            carrier()
                  }
+    }
+    
+    func carrier() {
+        let client = Client(
+            serverURL: try! Servers.server1(),
+            transport: URLSessionTransport()
+        )
+
+        let service = CarrierSearchService(
+            client: client,
+            apikey: "3b033964-4652-469c-bcda-c5e26afbc1b4"
+        )
+
+        Task {
+            do {
+                let thread = try await service.search(code: "MS", system: .iata)
+                print(thread)
+            } catch {
+                print("Error fetching thread: \(error)")
+            }
+        }
     }
     
     func thread() {
