@@ -366,7 +366,7 @@ components:
           stop_time:
             type: number
           station:
-            type: string
+            $ref: '#/components/schemas/Station'
           terminal:
             type: string
           platform:

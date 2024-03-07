@@ -19,7 +19,7 @@ struct ContentView: View {
         .padding()
         
         .onAppear {
-                    stations()
+//                    stations()
                     thread()
                  }
     }
