@@ -19,11 +19,13 @@ struct ContentView: View {
         .padding()
         
         .onAppear {
+            copyright()
+            // нужна помощь с обработкой
 //            allStations() // тут возвращается 33мб данных и десериализация не выполняется корректно.
 //                    stations()
 //                    thread()
 //            settlement()
-            carrier()
+//            carrier()
                  }
     }
     
@@ -101,6 +103,8 @@ struct ContentView: View {
                  client: client,
                  apikey: API_KEY
              )
+        
+        
 
 //             Task {
 //                 do {
@@ -135,6 +139,27 @@ struct ContentView: View {
         Task {
             do {
                 let result = try await service.getNearestSSettlement(lat:59.864177, lng: 30.319163)
+                print(result)
+            } catch {
+                print("Error fetching stations: \(error)")
+            }
+        }
+    }
+    
+    func copyright() {
+        let client = Client(
+            serverURL: try! Servers.server1(),
+            transport: URLSessionTransport()
+        )
+
+        let service = CopyrightService(
+            client: client,
+            apikey: API_KEY
+        )
+
+        Task {
+            do {
+                let result = try await service.get()
                 print(result)
             } catch {
                 print("Error fetching stations: \(error)")

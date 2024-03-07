@@ -434,11 +434,65 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AllStations'
-
+                
+  /v3.0/copyright/:
+    get:
+      tags:
+      - Information
+      summary: Запрос позволяет получить информацию о перевозчике по указанному коду перевозчика.
+      operationId: getCopyright
+      parameters:
+      - name: apikey
+        in: query
+        description: API key
+        required: true
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: json или xml
+        required: false
+        schema:
+          type: string
+          enum:
+            - json
+            - xml
+          default: json
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CopyrightAnswer'
 
 components:
   schemas:
-  
+    CopyrightAnswer:
+      type: object
+      properties:
+        copyright:
+           $ref: '#/components/schemas/Copyright'
+    Copyright:
+        type: object
+        properties:
+          logo_vm:
+            type: string
+          url:
+            type: string
+          logo_vd:
+            type: string
+          logo_hy:
+            type: string
+          logo_hd:
+            type: string
+          logo_vy:
+            type: string
+          text:
+            type: string
+          logo_hm:
+            type: string
+            
     AllStations:
         type: object
         properties:
@@ -446,7 +500,6 @@ components:
             type: array
             items:
                 $ref: '#/components/schemas/Country'
-            
     Country:
         type: object
         properties:

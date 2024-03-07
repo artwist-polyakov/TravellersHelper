@@ -23,6 +23,7 @@
 		AFE252C32B99AFDB007E5FFF /* Carrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252C22B99AFDB007E5FFF /* Carrier.swift */; };
 		AFE252C62B99BF2E007E5FFF /* StationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252C52B99BF2E007E5FFF /* StationList.swift */; };
 		AFE252C92B99C319007E5FFF /* API_KEY.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252C82B99C319007E5FFF /* API_KEY.swift */; };
+		AFE252CD2B99DF7B007E5FFF /* Copyright.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252CC2B99DF7B007E5FFF /* Copyright.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		AFE252C22B99AFDB007E5FFF /* Carrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carrier.swift; sourceTree = "<group>"; };
 		AFE252C52B99BF2E007E5FFF /* StationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationList.swift; sourceTree = "<group>"; };
 		AFE252C82B99C319007E5FFF /* API_KEY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_KEY.swift; sourceTree = "<group>"; };
+		AFE252CC2B99DF7B007E5FFF /* Copyright.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Copyright.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				AFE252C22B99AFDB007E5FFF /* Carrier.swift */,
 				AFE252C52B99BF2E007E5FFF /* StationList.swift */,
 				AFE252C82B99C319007E5FFF /* API_KEY.swift */,
+				AFE252CC2B99DF7B007E5FFF /* Copyright.swift */,
 			);
 			path = Rzhd;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				AFA305DB2B98F53400759357 /* Routes.swift in Sources */,
 				AFE252C62B99BF2E007E5FFF /* StationList.swift in Sources */,
 				AFE252B02B921369007E5FFF /* ContentView.swift in Sources */,
+				AFE252CD2B99DF7B007E5FFF /* Copyright.swift in Sources */,
 				AFE252C02B99AA04007E5FFF /* NearestSettlement.swift in Sources */,
 				AFE252C92B99C319007E5FFF /* API_KEY.swift in Sources */,
 				AFA305DF2B99025B00759357 /* Schedule.swift in Sources */,
