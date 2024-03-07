@@ -404,9 +404,139 @@ paths:
               schema:
                 $ref: '#/components/schemas/OptionalListOfCarriers'
 
+  /v3.0/stations_list/:
+    get:
+      tags:
+      - Information
+      summary: Запрос позволяет получить информацию о перевозчике по указанному коду перевозчика.
+      operationId: getAllStations
+      parameters:
+      - name: apikey
+        in: query
+        description: API key
+        required: true
+        schema:
+          type: string
+      - name: format
+        in: query
+        description: json или xml
+        required: false
+        schema:
+          type: string
+          enum:
+            - json
+            - xml
+          default: json
+      responses:
+        "200":
+          description: success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AllStations'
+
+
 components:
   schemas:
   
+    AllStations:
+        type: object
+        properties:
+          countries:
+            type: array
+            items:
+                $ref: '#/components/schemas/Country'
+            
+    Country:
+        type: object
+        properties:
+          title:
+            type: string
+          codes:
+            type: string
+          regions:
+            type: array
+            items:
+                $ref: '#/components/schemas/Region'
+    
+    Region:
+        type: object
+        properties:
+          title:
+            type: string
+          codes:
+            type: string
+          setlements:
+            type: array
+            items:
+                $ref: '#/components/schemas/SingleSettlement'
+    
+    SingleSettlement:
+        type: object
+        properties:
+          title:
+            type: string
+          codes:
+            type: string
+          stations:
+            type: array
+            items:
+                $ref: '#/components/schemas/DetailedStation'
+    
+    DetailedStation:
+        type: object
+        properties:
+          title:
+            type: string
+          codes:
+            type: array
+            items:
+              $ref: '#/components/schemas/StationCode'
+          direction:
+            type: string
+          longitude:
+            type: number
+          latitude:
+            type: number
+          transport_type:
+            type: string
+            enum:
+                - plane
+                - train
+                - suburban
+                - bus
+                - water
+                - helicopter
+          station_type:
+            type: string
+            enum:
+                - station
+                - stop
+                - platform
+                - checkpoint
+                - post
+                - crossing
+                - overtaking_point
+                - train_station
+                - airport
+                - bus_station
+                - bus_stop
+                - unknown
+                - port
+                - port_point
+                - wharf
+                - river_port
+                - marine_station
+    
+    StationCode:
+        type: object
+        properties:
+          esr_code:
+            type: string
+          yandex_code:
+            type: string
+        
+    
     OptionalListOfCarriers:
         type: object
         properties:

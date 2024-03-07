@@ -19,11 +19,34 @@ struct ContentView: View {
         .padding()
         
         .onAppear {
+            allStations()
 //                    stations()
 //                    thread()
 //            settlement()
-            carrier()
+//            carrier()
                  }
+    }
+    
+    func allStations() {
+        
+        let client = Client(
+            serverURL: try! Servers.server1(),
+            transport: URLSessionTransport()
+        )
+
+        let service = AllStationsService(
+            client: client,
+            apikey: "3b033964-4652-469c-bcda-c5e26afbc1b4"
+        )
+
+        Task {
+            do {
+                let stations = try await service.get()
+                print(stations)
+            } catch {
+                print("Error fetching stations: \(error)")
+            }
+        }
     }
     
     func carrier() {

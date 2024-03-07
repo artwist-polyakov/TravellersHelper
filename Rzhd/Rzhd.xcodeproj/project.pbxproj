@@ -21,6 +21,8 @@
 		AFE252BC2B992284007E5FFF /* Thread.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252BB2B992284007E5FFF /* Thread.swift */; };
 		AFE252C02B99AA04007E5FFF /* NearestSettlement.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252BF2B99AA04007E5FFF /* NearestSettlement.swift */; };
 		AFE252C32B99AFDB007E5FFF /* Carrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252C22B99AFDB007E5FFF /* Carrier.swift */; };
+		AFE252C62B99BF2E007E5FFF /* StationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252C52B99BF2E007E5FFF /* StationList.swift */; };
+		AFE252C92B99C319007E5FFF /* API_KEY.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252C82B99C319007E5FFF /* API_KEY.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		AFE252BB2B992284007E5FFF /* Thread.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thread.swift; sourceTree = "<group>"; };
 		AFE252BF2B99AA04007E5FFF /* NearestSettlement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestSettlement.swift; sourceTree = "<group>"; };
 		AFE252C22B99AFDB007E5FFF /* Carrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Carrier.swift; sourceTree = "<group>"; };
+		AFE252C52B99BF2E007E5FFF /* StationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationList.swift; sourceTree = "<group>"; };
+		AFE252C82B99C319007E5FFF /* API_KEY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API_KEY.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,8 @@
 				AFE252BB2B992284007E5FFF /* Thread.swift */,
 				AFE252BF2B99AA04007E5FFF /* NearestSettlement.swift */,
 				AFE252C22B99AFDB007E5FFF /* Carrier.swift */,
+				AFE252C52B99BF2E007E5FFF /* StationList.swift */,
+				AFE252C82B99C319007E5FFF /* API_KEY.swift */,
 			);
 			path = Rzhd;
 			sourceTree = "<group>";
@@ -180,8 +186,10 @@
 				AFE252C32B99AFDB007E5FFF /* Carrier.swift in Sources */,
 				AFA305C92B97AE4400759357 /* NearestStations.swift in Sources */,
 				AFA305DB2B98F53400759357 /* Routes.swift in Sources */,
+				AFE252C62B99BF2E007E5FFF /* StationList.swift in Sources */,
 				AFE252B02B921369007E5FFF /* ContentView.swift in Sources */,
 				AFE252C02B99AA04007E5FFF /* NearestSettlement.swift in Sources */,
+				AFE252C92B99C319007E5FFF /* API_KEY.swift in Sources */,
 				AFA305DF2B99025B00759357 /* Schedule.swift in Sources */,
 				AFE252BC2B992284007E5FFF /* Thread.swift in Sources */,
 				AFE252AE2B921369007E5FFF /* RzhdApp.swift in Sources */,
