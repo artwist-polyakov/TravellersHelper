@@ -19,7 +19,7 @@ paths:
     get:
       tags:
       - Nearest
-      summary: Список ближайших станций
+      summary: Запрос позволяет получить список станций, находящихся в указанном радиусе от указанной точки. Максимальное количество возвращаемых станций — 50.
       operationId: getNearestStations
       parameters:
       - name: apikey
@@ -70,7 +70,7 @@ paths:
     get:
       tags:
       - Search of routes
-      summary: Поиск рейсов между
+      summary: Запрос позволяет получить список рейсов, следующих от указанной станции отправления к указанной станции прибытия и информацию по каждому рейсу.
       operationId: search
       parameters:
       - name: apikey
@@ -169,7 +169,7 @@ paths:
     get:
       tags:
       - Search of routes
-      summary: Поиск рейсов по станции
+      summary: Запрос позволяет получить список рейсов, отправляющихся от указанной станции и информацию по каждому рейсу.
       operationId: schedule
       parameters:
       - name: apikey
@@ -252,7 +252,7 @@ paths:
     get:
       tags:
       - List of threads
-      summary: Поиск рейсов по станции
+      summary: Запрос позволяет получить список станций следования нитки по указанному идентификатору нитки, информацию о каждой нитке и о промежуточных станциях нитки.
       operationId: thread
       parameters:
       - name: apikey
@@ -408,7 +408,7 @@ paths:
     get:
       tags:
       - Information
-      summary: Запрос позволяет получить информацию о перевозчике по указанному коду перевозчика.
+      summary: Ресурс содержит полный список станций, информацию о которых предоставляют Яндекс Расписания.
       operationId: getAllStations
       parameters:
       - name: apikey
@@ -439,7 +439,7 @@ paths:
     get:
       tags:
       - Information
-      summary: Запрос позволяет получить информацию о перевозчике по указанному коду перевозчика.
+      summary: Позволяет получить данные о Яндекс Расписаниях - URL, беннер, сопроводительный текст.
       operationId: getCopyright
       parameters:
       - name: apikey
