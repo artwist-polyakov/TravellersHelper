@@ -15,7 +15,7 @@ import OpenAPIURLSession
 typealias StationList = Components.Schemas.AllStations
 
 protocol AllStationsInfoProtocol {
-    func get(format: Operations.getAllStations.Input.Query.formatPayload) async throws -> StationList
+    func get(format: Operations.getAllStations.Input.Query.formatPayload) async throws -> Any
 }
 
 final class AllStationsService: AllStationsInfoProtocol {
@@ -27,13 +27,13 @@ final class AllStationsService: AllStationsInfoProtocol {
         self.apikey = apikey
     }
     
-    func get(format: Operations.getAllStations.Input.Query.formatPayload = .json) async throws -> StationList {
+    func get(format: Operations.getAllStations.Input.Query.formatPayload = .json) async throws -> Any {
         
         let response = try await client.getAllStations(query: .init(
             apikey: apikey,
             format: format
         ))
-        return try response.ok.body.json
+        return try response.ok.body
     }
 }
 

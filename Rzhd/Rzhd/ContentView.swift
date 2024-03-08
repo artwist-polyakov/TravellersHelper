@@ -19,10 +19,10 @@ struct ContentView: View {
         .padding()
         
         .onAppear {
-            copyright()
-            search()
+//            copyright()
+//            search()
             //            нужна помощь с обработкой
-            //            allStations() // тут возвращается 33мб данных и десериализация не выполняется корректно.
+                        allStations () // тут возвращается 33мб данных и десериализация не выполняется корректно.
             //            stations()
             //            thread()
             //            settlement()
