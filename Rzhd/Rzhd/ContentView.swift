@@ -7,6 +7,7 @@
 
 import SwiftUI
 import OpenAPIURLSession
+import HTTPTypes
 
 struct ContentView: View {
     var body: some View {
@@ -66,7 +67,10 @@ struct ContentView: View {
         Task {
             do {
                 let stations = try await service.get()
-                print(stations)
+                let data = try await Data(collecting: stations, upTo: 100*1024*1024)
+                print("data size: \(data.count)")
+                let allStations = try JSONDecoder().decode(Components.Schemas.AllStations.self, from: data)
+                print("All stations: \(allStations)")
             } catch {
                 print("Error fetching stations: \(error)")
             }
