@@ -434,6 +434,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AllStations'
+            text/html:
+              schema: {}
                 
   /v3.0/copyright/:
     get:
@@ -506,7 +508,7 @@ components:
           title:
             type: string
           codes:
-            type: string
+            $ref: '#/components/schemas/StationCode'
           regions:
             type: array
             items:
@@ -518,7 +520,7 @@ components:
           title:
             type: string
           codes:
-            type: string
+            $ref: '#/components/schemas/StationCode'
           setlements:
             type: array
             items:
@@ -530,7 +532,7 @@ components:
           title:
             type: string
           codes:
-            type: string
+            $ref: '#/components/schemas/StationCode'
           stations:
             type: array
             items:
@@ -542,9 +544,7 @@ components:
           title:
             type: string
           codes:
-            type: array
-            items:
-              $ref: '#/components/schemas/StationCode'
+            $ref: '#/components/schemas/StationCode'
           direction:
             type: string
           longitude:
@@ -586,8 +586,11 @@ components:
         properties:
           esr_code:
             type: string
+            nullable: true
           yandex_code:
             type: string
+            nullable: true
+        additionalProperties: false
         
     
     OptionalListOfCarriers:
