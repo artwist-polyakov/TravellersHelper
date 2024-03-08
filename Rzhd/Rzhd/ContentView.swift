@@ -22,12 +22,11 @@ struct ContentView: View {
         .onAppear {
 //            copyright()
 //            search()
-            //            нужна помощь с обработкой
-                        allStations () // тут возвращается 33мб данных и десериализация не выполняется корректно.
-            //            stations()
-            //            thread()
-            //            settlement()
-            //            carrier()
+            allStations ()
+//            stations()
+//            thread()
+//            settlement()
+//            carrier()
         }
     }
     
