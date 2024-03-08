@@ -20,12 +20,34 @@ struct ContentView: View {
         
         .onAppear {
             copyright()
-//            нужна помощь с обработкой
-//            allStations() // тут возвращается 33мб данных и десериализация не выполняется корректно.
-//            stations()
-//            thread()
-//            settlement()
-//            carrier()
+            search()
+            //            нужна помощь с обработкой
+            //            allStations() // тут возвращается 33мб данных и десериализация не выполняется корректно.
+            //            stations()
+            //            thread()
+            //            settlement()
+            //            carrier()
+        }
+    }
+    
+    func search() {
+        let client = Client(
+            serverURL: try! Servers.server1(),
+            transport: URLSessionTransport()
+        )
+        
+        let service = RoutesSearchService (
+            client: client,
+            apikey: API_KEY
+        )
+        
+        Task {
+            do {
+                let result = try await service.search(from: "c239", to: "c213",  date: "2024-03-09")
+                print(result)
+            } catch {
+                print("Error fetching stations: \(error)")
+            }
         }
     }
     
@@ -98,32 +120,24 @@ struct ContentView: View {
             serverURL: try! Servers.server1(),
             transport: URLSessionTransport()
         )
-//        let service = NearestStationsService(
-        let service = ScheduleSearchService(
+        let service = NearestStationsService(
             client: client,
             apikey: API_KEY
         )
         
         
         
-        //             Task {
-        //                 do {
-        //                     let stations = try await service.getNearestStations(lat:
-        //     59.864177, lng: 30.319163, distance: 50)
-        //                     print(stations)
-        //                 } catch {
-        //                     print("Error fetching stations: \(error)")
-        //                 }
-        //             }
-        
         Task {
             do {
-                let result = try await service.search(station: "s9600216", date: "2024-03-08")
-                print(result)
+                let stations = try await service.getNearestStations(lat:
+                                                                        59.864177, lng: 30.319163, distance: 50)
+                print(stations)
             } catch {
                 print("Error fetching stations: \(error)")
             }
         }
+        
+        
     }
     func settlement() {
         let client = Client(
