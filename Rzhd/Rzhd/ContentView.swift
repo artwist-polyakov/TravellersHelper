@@ -10,23 +10,41 @@ import OpenAPIURLSession
 import HTTPTypes
 
 struct ContentView: View {
+    
+    @State private var selectedTab = 0
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
+        
+        TabView(selection: $selectedTab) {
+            Color.white
+                .tabItem {
+                    Image("ScheduleIcon")
+                        .renderingMode(.template)
+                }.border(Color.gray)
+                
+                .tag(0)
+                .edgesIgnoringSafeArea(.top)
+                .toolbarBackground(Color("TabBarColor"), for: .tabBar)
+            Color.blue
+                .tabItem {
+                    Image("SettingsIcon")
+                        .renderingMode(.template)
+                }.border(Color.gray)
+                
+                .tag(0)
+                .edgesIgnoringSafeArea(.top)
+                .toolbarBackground(Color("TabBarColor"), for: .tabBar)
+        }.accentColor(.black)
         
         .onAppear {
-            copyright()
-//            search()
-//            allStations ()
-//            stations()
-//            thread()
-//            settlement()
-//            carrier()
+            //                    UITabBar.appearance().barTintColor = .white
+            //            copyright()
+            //            search()
+            //            allStations ()
+            //            stations()
+            //            thread()
+            //            settlement()
+            //            carrier()
         }
     }
     
