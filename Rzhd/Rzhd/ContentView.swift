@@ -20,9 +20,9 @@ struct ContentView: View {
         .padding()
         
         .onAppear {
-//            copyright()
+            copyright()
 //            search()
-            allStations ()
+//            allStations ()
 //            stations()
 //            thread()
 //            settlement()
