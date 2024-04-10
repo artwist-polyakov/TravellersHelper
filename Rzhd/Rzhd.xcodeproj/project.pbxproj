@@ -58,6 +58,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF9AE2162BC723BB00ED667B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AF9AE2172BC723C900ED667B /* API */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AF9AE2172BC723C900ED667B /* API */ = {
+			isa = PBXGroup;
+			children = (
+				AFA305C82B97AE4400759357 /* NearestStations.swift */,
+				AFA305DA2B98F53400759357 /* Routes.swift */,
+				AFA305DE2B99025B00759357 /* Schedule.swift */,
+				AFE252BB2B992284007E5FFF /* Thread.swift */,
+				AFE252BF2B99AA04007E5FFF /* NearestSettlement.swift */,
+				AFE252C22B99AFDB007E5FFF /* Carrier.swift */,
+				AFE252C52B99BF2E007E5FFF /* StationList.swift */,
+				AFE252C82B99C319007E5FFF /* API_KEY.swift */,
+				AFE252CC2B99DF7B007E5FFF /* Copyright.swift */,
+				AFA305D32B97B17A00759357 /* openapi-generator-config.yaml */,
+				AFA305C52B97AD9200759357 /* openapi.yaml */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		AFE252A12B921369007E5FFF = {
 			isa = PBXGroup;
 			children = (
@@ -77,21 +103,11 @@
 		AFE252AC2B921369007E5FFF /* Rzhd */ = {
 			isa = PBXGroup;
 			children = (
-				AFA305D32B97B17A00759357 /* openapi-generator-config.yaml */,
-				AFA305C52B97AD9200759357 /* openapi.yaml */,
+				AF9AE2162BC723BB00ED667B /* Models */,
 				AFE252AD2B921369007E5FFF /* RzhdApp.swift */,
 				AFE252AF2B921369007E5FFF /* ContentView.swift */,
 				AFE252B12B92136B007E5FFF /* Assets.xcassets */,
 				AFE252B32B92136B007E5FFF /* Preview Content */,
-				AFA305C82B97AE4400759357 /* NearestStations.swift */,
-				AFA305DA2B98F53400759357 /* Routes.swift */,
-				AFA305DE2B99025B00759357 /* Schedule.swift */,
-				AFE252BB2B992284007E5FFF /* Thread.swift */,
-				AFE252BF2B99AA04007E5FFF /* NearestSettlement.swift */,
-				AFE252C22B99AFDB007E5FFF /* Carrier.swift */,
-				AFE252C52B99BF2E007E5FFF /* StationList.swift */,
-				AFE252C82B99C319007E5FFF /* API_KEY.swift */,
-				AFE252CC2B99DF7B007E5FFF /* Copyright.swift */,
 			);
 			path = Rzhd;
 			sourceTree = "<group>";
