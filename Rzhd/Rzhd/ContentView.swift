@@ -16,7 +16,7 @@ struct ContentView: View {
     var body: some View {
         
         TabView(selection: $selectedTab) {
-            Color.white
+            ScheduleView()
                 .tabItem {
                     Image("ScheduleIcon")
                         .renderingMode(.template)
@@ -25,7 +25,7 @@ struct ContentView: View {
                 .tag(0)
                 .edgesIgnoringSafeArea(.top)
                 .toolbarBackground(Color("TabBarColor"), for: .tabBar)
-            Color.blue
+            SettingsView()
                 .tabItem {
                     Image("SettingsIcon")
                         .renderingMode(.template)
