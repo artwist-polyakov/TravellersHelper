@@ -15,21 +15,22 @@ struct ScheduleView: View {
                     .fill(Color.searchBackground)
                     .frame(height: 128)
                     .cornerRadius(20)
-                Rectangle()
-                    .fill(Color.white)
-                    .cornerRadius(20)
-                    .frame(height: 96)
-                    .padding(16) // Отступ слева
-                    .padding(.trailing, 68)
                 HStack {
-                    Spacer()
+                    Rectangle()
+                        .fill(Color.white)
+                        .cornerRadius(20)
+                        .frame(height: 96)
+                        .padding(16) // Отступ слева
+
                     
-                    Image("Refresh").renderingMode(.template)
+                    
+                    Image("Refresh")
+                        .renderingMode(.template)
                     
                         .frame(width: 36, height: 36)
                     
-                        .background(Circle().fill(Color.blue))
-                        .padding(.trailing, 16)
+                        .background(Circle().fill(Color.white))
+                        .padding(.trailing, 32)
                 }
                 .frame(height: 128)
             }
