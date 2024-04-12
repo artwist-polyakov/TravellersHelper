@@ -24,7 +24,7 @@ struct ScheduleView: View {
                 HStack {
                     Spacer()
                     
-                    Image(systemName: "arrow.clockwise")
+                    Image("Refresh").renderingMode(.template)
                     
                         .frame(width: 36, height: 36)
                     
