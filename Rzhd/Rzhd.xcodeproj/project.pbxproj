@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AF00F01F2BC944CC00567681 /* ScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF00F01E2BC944CC00567681 /* ScheduleView.swift */; };
 		AF00F0212BC9451B00567681 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF00F0202BC9451B00567681 /* SettingsView.swift */; };
+		AF00F0272BC956F600567681 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF00F0262BC956F600567681 /* Colors.swift */; };
 		AF9AE21D2BC728EC00ED667B /* OpenAPIKit in Frameworks */ = {isa = PBXBuildFile; productRef = AF9AE21C2BC728EC00ED667B /* OpenAPIKit */; };
 		AF9AE21F2BC728EC00ED667B /* OpenAPIKit30 in Frameworks */ = {isa = PBXBuildFile; productRef = AF9AE21E2BC728EC00ED667B /* OpenAPIKit30 */; };
 		AF9AE2212BC728EC00ED667B /* OpenAPIKitCompat in Frameworks */ = {isa = PBXBuildFile; productRef = AF9AE2202BC728EC00ED667B /* OpenAPIKitCompat */; };
@@ -34,6 +35,7 @@
 /* Begin PBXFileReference section */
 		AF00F01E2BC944CC00567681 /* ScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleView.swift; sourceTree = "<group>"; };
 		AF00F0202BC9451B00567681 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		AF00F0262BC956F600567681 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		AF9AE21A2BC7248600ED667B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		AFA305C52B97AD9200759357 /* openapi.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = openapi.yaml; sourceTree = "<group>"; };
 		AFA305C82B97AE4400759357 /* NearestStations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearestStations.swift; sourceTree = "<group>"; };
@@ -76,6 +78,14 @@
 				AF00F0202BC9451B00567681 /* SettingsView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		AF00F0232BC956E500567681 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				AF00F0262BC956F600567681 /* Colors.swift */,
+			);
+			path = DesignSystem;
 			sourceTree = "<group>";
 		};
 		AF9AE2162BC723BB00ED667B /* Models */ = {
@@ -123,6 +133,7 @@
 		AFE252AC2B921369007E5FFF /* Rzhd */ = {
 			isa = PBXGroup;
 			children = (
+				AF00F0232BC956E500567681 /* DesignSystem */,
 				AF00F01D2BC944A600567681 /* View */,
 				AF9AE21A2BC7248600ED667B /* Info.plist */,
 				AF9AE2162BC723BB00ED667B /* Models */,
@@ -231,6 +242,7 @@
 				AFE252C32B99AFDB007E5FFF /* Carrier.swift in Sources */,
 				AFA305C92B97AE4400759357 /* NearestStations.swift in Sources */,
 				AFA305DB2B98F53400759357 /* Routes.swift in Sources */,
+				AF00F0272BC956F600567681 /* Colors.swift in Sources */,
 				AFE252C62B99BF2E007E5FFF /* StationList.swift in Sources */,
 				AFE252B02B921369007E5FFF /* ContentView.swift in Sources */,
 				AF00F01F2BC944CC00567681 /* ScheduleView.swift in Sources */,

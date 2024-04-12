@@ -9,11 +9,36 @@ import SwiftUI
 
 struct ScheduleView: View {
     var body: some View {
-        // Тут будет логика экрана Расписания
-        Text("Расписание")
-            .edgesIgnoringSafeArea(.top)
+        VStack {
+            ZStack(alignment: .top) {
+                Rectangle()
+                    .fill(Color.searchBackground)
+                    .frame(height: 128)
+                    .cornerRadius(20)
+                Rectangle()
+                    .fill(Color.white)
+                    .cornerRadius(20)
+                    .frame(height: 96)
+                    .padding(16) // Отступ слева
+                    .padding(.trailing, 68)
+                HStack {
+                    Spacer()
+                    
+                    Image(systemName: "arrow.clockwise")
+                    
+                        .frame(width: 36, height: 36)
+                    
+                        .background(Circle().fill(Color.blue))
+                        .padding(.trailing, 16)
+                }
+                .frame(height: 128)
+            }
+            .padding(.horizontal, 10)
+            
+        }
     }
 }
+
 
 #Preview {
     ScheduleView()
