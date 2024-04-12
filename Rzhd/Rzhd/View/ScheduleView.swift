@@ -10,6 +10,7 @@ import SwiftUI
 struct ScheduleView: View {
     var body: some View {
         VStack {
+            Spacer()
             ZStack(alignment: .top) {
                 Rectangle()
                     .fill(Color.searchBackground)
@@ -35,7 +36,7 @@ struct ScheduleView: View {
                 .frame(height: 128)
             }
             .padding(.horizontal, 10)
-            
+            Spacer()
         }
     }
 }
