@@ -38,7 +38,7 @@ struct ContentView: View {
             }.accentColor(.black)
                 .navigationDestination(for: String.self) { id in
                     if id == "CitiesList" {
-                        CitiesView()
+                        CitiesView(path: $path)
                     }
                 }
             }

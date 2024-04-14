@@ -8,11 +8,29 @@
 import SwiftUI
 
 struct CitiesView: View {
+    @Binding var path: [String]
+
+    
+    
     var body: some View {
-             Text("Destination")
-         }
+        VStack {
+            Text("Destination")
+        }
+        .navigationTitle("Выбор города")
+                 .navigationBarBackButtonHidden(true)
+                 .toolbar {
+                     ToolbarItem(placement: .navigationBarLeading) {
+                         Button(action: {
+                             self.path.removeLast()
+                         }) {
+                             Image( "NavBackButton")
+                                 .foregroundColor(Color.rzhdGreyBackButton)
+                         }
+                     }
+                 }
+    }
 }
 
 #Preview {
-    CitiesView()
+    CitiesView(path: .constant([]))
 }
