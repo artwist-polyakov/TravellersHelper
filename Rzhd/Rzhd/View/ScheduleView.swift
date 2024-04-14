@@ -26,27 +26,30 @@ struct ScheduleView: View {
                         TextField("Откуда", text: $fromText)
                             .font(.system(size: 17))
                             .foregroundColor(.black)
-                            .onTapGesture {
-                                self.path.append("CityesList")
-                                             }
                             .foregroundColor(.gray)
                             .textFieldStyle(.plain)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding([.horizontal, .top])
                             .multilineTextAlignment(.leading)
+                            .onTapGesture {
+                                self.path.append("CitiesList")
+                                print(path)
+                                             }
                         Spacer()
                         
                         TextField("Куда", text: $toText)
                             .font(.system(size: 17))
                             .foregroundColor(.black)
-                            .onTapGesture {
-                                self.path.append("CityesList")
-                                             }
+                            
                             .foregroundColor(.gray)
                             .textFieldStyle(.plain)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding([.horizontal, .top])
                             .multilineTextAlignment(.leading)
+                            .onTapGesture {
+                                self.path.append("CitiesList")
+                                print(path)
+                                             }
 
                         Spacer()
                     }

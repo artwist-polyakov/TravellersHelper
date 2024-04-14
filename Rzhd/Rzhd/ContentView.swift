@@ -36,7 +36,13 @@ struct ContentView: View {
                     .edgesIgnoringSafeArea(.top)
                     .toolbarBackground(Color("TabBarColor"), for: .tabBar)
             }.accentColor(.black)
-        }
+                .navigationDestination(for: String.self) { id in
+                    if id == "CitiesList" {
+                        CitiesView()
+                    }
+                }
+            }
+        
         .onAppear {
             //                    UITabBar.appearance().barTintColor = .white
             //            copyright()
@@ -208,3 +214,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
