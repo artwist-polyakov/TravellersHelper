@@ -22,6 +22,7 @@ struct ScheduleView: View {
                     VStack {
                         TextField("Откуда", text: $fromText)
                             .font(.system(size: 17))
+                            .foregroundColor(.black)
                             .foregroundColor(.gray)
                             .textFieldStyle(.plain)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -31,6 +32,7 @@ struct ScheduleView: View {
                         
                         TextField("Куда", text: $toText)
                             .font(.system(size: 17))
+                            .foregroundColor(.black)
                             .foregroundColor(.gray)
                             .textFieldStyle(.plain)
                             .frame(maxWidth: .infinity, alignment: .leading)
