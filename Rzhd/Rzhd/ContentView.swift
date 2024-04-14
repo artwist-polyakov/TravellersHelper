@@ -12,30 +12,31 @@ import HTTPTypes
 struct ContentView: View {
     
     @State private var selectedTab = 0
+    @State private var path: [String] = []
     
     var body: some View {
-        
-        TabView(selection: $selectedTab) {
-            ScheduleView()
-                .tabItem {
-                    Image("ScheduleIcon")
-                        .renderingMode(.template)
-                }.border(Color.gray)
+        NavigationStack(path: $path) {
+            TabView(selection: $selectedTab) {
+                ScheduleView(path: $path)
+                    .tabItem {
+                        Image("ScheduleIcon")
+                            .renderingMode(.template)
+                    }.border(Color.gray)
                 
-                .tag(0)
-                .edgesIgnoringSafeArea(.top)
-                .toolbarBackground(Color("TabBarColor"), for: .tabBar)
-            SettingsView()
-                .tabItem {
-                    Image("SettingsIcon")
-                        .renderingMode(.template)
-                }.border(Color.gray)
+                    .tag(0)
+                    .edgesIgnoringSafeArea(.top)
+                    .toolbarBackground(Color("TabBarColor"), for: .tabBar)
+                SettingsView()
+                    .tabItem {
+                        Image("SettingsIcon")
+                            .renderingMode(.template)
+                    }.border(Color.gray)
                 
-                .tag(0)
-                .edgesIgnoringSafeArea(.top)
-                .toolbarBackground(Color("TabBarColor"), for: .tabBar)
-        }.accentColor(.black)
-        
+                    .tag(0)
+                    .edgesIgnoringSafeArea(.top)
+                    .toolbarBackground(Color("TabBarColor"), for: .tabBar)
+            }.accentColor(.black)
+        }
         .onAppear {
             //                    UITabBar.appearance().barTintColor = .white
             //            copyright()

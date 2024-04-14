@@ -10,6 +10,9 @@ import SwiftUI
 struct ScheduleView: View {
     @State private var fromText: String = ""
     @State private var toText: String = ""
+    
+    @Binding var path: [String]
+    
     var body: some View {
         VStack {
             Spacer()
@@ -23,6 +26,9 @@ struct ScheduleView: View {
                         TextField("Откуда", text: $fromText)
                             .font(.system(size: 17))
                             .foregroundColor(.black)
+                            .onTapGesture {
+                                self.path.append("CityesList")
+                                             }
                             .foregroundColor(.gray)
                             .textFieldStyle(.plain)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -33,6 +39,9 @@ struct ScheduleView: View {
                         TextField("Куда", text: $toText)
                             .font(.system(size: 17))
                             .foregroundColor(.black)
+                            .onTapGesture {
+                                self.path.append("CityesList")
+                                             }
                             .foregroundColor(.gray)
                             .textFieldStyle(.plain)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -66,5 +75,5 @@ struct ScheduleView: View {
 
 
 #Preview {
-    ScheduleView()
+    ScheduleView(path: .constant([]))
 }
