@@ -19,7 +19,7 @@ struct CityRowView: View {
             Image( "NavBackButton")
                 .foregroundColor(Color.rzhdGreyBackButton)
                 .rotationEffect(.degrees(180))
-        })
+        }).frame(height: 60)
     }
 }
 
