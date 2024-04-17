@@ -10,19 +10,16 @@ import SwiftUI
 struct CitiesView: View {
     @Binding var path: [String]
     @State private var searchText: String = ""
-    
+    @StateObject var viewModel = CitiesViewModel()
     
     var body: some View {
         VStack {
             
             HStack {
-                
-                // Иконка лупы слева
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(searchText.isEmpty ? .gray : .black)
                     .padding(.leading, 8)
                 TextField("Введите запрос", text: $searchText)
-                     // Явно указываем высоту поля
                     .padding(.vertical, 8)
                 if !searchText.isEmpty {
                     Button(action: {
