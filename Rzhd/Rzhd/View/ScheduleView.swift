@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct ScheduleView: View {
-    @State private var fromText: String = ""
-    @State private var toText: String = ""
+    
+    @Binding var path: [String]
+    
+    @EnvironmentObject var searchData: SearchData
+    
     var body: some View {
         VStack {
             Spacer()
@@ -20,7 +23,7 @@ struct ScheduleView: View {
                     .cornerRadius(20)
                 HStack {
                     VStack {
-                        TextField("Откуда", text: $fromText)
+                        TextField("Откуда", text: $searchData.fromText)
                             .font(.system(size: 17))
                             .foregroundColor(.black)
                             .foregroundColor(.gray)
@@ -28,17 +31,28 @@ struct ScheduleView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding([.horizontal, .top])
                             .multilineTextAlignment(.leading)
+                            .onTapGesture {
+                                searchData.currentlySelectedTextField = .from
+                                self.path.append("CitiesList")
+                                print(path)
+                            }
                         Spacer()
                         
-                        TextField("Куда", text: $toText)
+                        TextField("Куда", text: $searchData.toText)
                             .font(.system(size: 17))
                             .foregroundColor(.black)
+                        
                             .foregroundColor(.gray)
                             .textFieldStyle(.plain)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding([.horizontal, .top])
                             .multilineTextAlignment(.leading)
-
+                            .onTapGesture {
+                                searchData.currentlySelectedTextField = .to
+                                self.path.append("CitiesList")
+                                print(path)
+                            }
+                        
                         Spacer()
                     }
                     .frame(height: 96)
@@ -66,5 +80,6 @@ struct ScheduleView: View {
 
 
 #Preview {
-    ScheduleView()
+    ScheduleView(path: .constant([]))
+        .environmentObject(SearchData())
 }
