@@ -8,9 +8,25 @@
 import SwiftUI
 
 struct CitiesView: View {
+    @EnvironmentObject var searchData: SearchData
+    
     @Binding var path: [String]
     @State private var searchText: String = ""
     @StateObject var viewModel = CitiesViewModel()
+    
+    func proceedCityName(name: String) {
+        switch searchData.currentlySelectedTextField {
+        case .from:
+            searchData.fromText = name
+        case .to:
+            searchData.toText = name
+        case .nothing:
+            break
+        }
+        searchData.currentlySelectedTextField = .nothing
+        self.path.removeLast()
+        
+    }
     
     var body: some View {
         VStack {
@@ -43,9 +59,10 @@ struct CitiesView: View {
                 LazyVStack(spacing: 0) {
                     ForEach(viewModel.filtered_cities) { city in
                         CityRowView(city: city)
-    
+                        
                             .onTapGesture {
-                                self.path.append(city.name)
+                                proceedCityName(name: city.name)
+                                
                             }
                     }
                 }
@@ -57,6 +74,7 @@ struct CitiesView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
+                        searchData.currentlySelectedTextField = .nothing
                         self.path.removeLast()
                     }) {
                         Image( "NavBackButton")
@@ -66,6 +84,9 @@ struct CitiesView: View {
             }
     }
 }
+
+
+
 
 #Preview {
     CitiesView(path: .constant([]))

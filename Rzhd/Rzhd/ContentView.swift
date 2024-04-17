@@ -10,14 +10,14 @@ import OpenAPIURLSession
 import HTTPTypes
 
 struct ContentView: View {
-    
+    @StateObject var searchData = SearchData()
     @State private var selectedTab = 0
     @State private var path: [String] = []
     
     var body: some View {
         NavigationStack(path: $path) {
             TabView(selection: $selectedTab) {
-                ScheduleView(path: $path)
+                ScheduleView(path: $path).environmentObject(searchData)
                     .tabItem {
                         Image("ScheduleIcon")
                             .renderingMode(.template)
@@ -36,12 +36,14 @@ struct ContentView: View {
                     .edgesIgnoringSafeArea(.top)
                     .toolbarBackground(Color("TabBarColor"), for: .tabBar)
             }.accentColor(.black)
+                .environmentObject(searchData)
                 .navigationDestination(for: String.self) { id in
                     if id == "CitiesList" {
-                        CitiesView(path: $path)
+                        CitiesView(path: $path).environmentObject(searchData)
+                        
                     }
                 }
-            }
+        }
         
         .onAppear {
             //                    UITabBar.appearance().barTintColor = .white
