@@ -69,6 +69,9 @@ struct ScheduleView: View {
                     
                         .background(Circle().fill(Color.white))
                         .padding(.trailing, 32)
+                        .onTapGesture {
+                            self.path.append("TransportersList")
+                        }
                 }
                 .frame(height: 128)
             }

@@ -13,6 +13,9 @@
 		AF5019982BD5832300138496 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019972BD5832300138496 /* Station.swift */; };
 		AF50199C2BD58E6F00138496 /* StationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50199B2BD58E6F00138496 /* StationsView.swift */; };
 		AF50199F2BD58F6000138496 /* StationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50199E2BD58F6000138496 /* StationRowView.swift */; };
+		AF5019A42BD5A04700138496 /* Transporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019A32BD5A04700138496 /* Transporter.swift */; };
+		AF5019A82BD5A22200138496 /* Image+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019A72BD5A22200138496 /* Image+ext.swift */; };
+		AF5019AA2BD5A2DE00138496 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019A92BD5A2DE00138496 /* SearchResult.swift */; };
 		AF62FD3E2BCC8422005822A0 /* СitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD3D2BCC8422005822A0 /* СitiesView.swift */; };
 		AF62FD462BCFE8B0005822A0 /* CitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD452BCFE8B0005822A0 /* CitiesViewModel.swift */; };
 		AF62FD492BCFE8F6005822A0 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD482BCFE8F6005822A0 /* City.swift */; };
@@ -48,6 +51,9 @@
 		AF5019972BD5832300138496 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		AF50199B2BD58E6F00138496 /* StationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsView.swift; sourceTree = "<group>"; };
 		AF50199E2BD58F6000138496 /* StationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationRowView.swift; sourceTree = "<group>"; };
+		AF5019A32BD5A04700138496 /* Transporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transporter.swift; sourceTree = "<group>"; };
+		AF5019A72BD5A22200138496 /* Image+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+ext.swift"; sourceTree = "<group>"; };
+		AF5019A92BD5A2DE00138496 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
 		AF62FD3D2BCC8422005822A0 /* СitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СitiesView.swift"; sourceTree = "<group>"; };
 		AF62FD452BCFE8B0005822A0 /* CitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewModel.swift; sourceTree = "<group>"; };
 		AF62FD482BCFE8F6005822A0 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -110,6 +116,14 @@
 			path = DesignSystem;
 			sourceTree = "<group>";
 		};
+		AF5019A62BD5A20E00138496 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AF5019A72BD5A22200138496 /* Image+ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		AF62FD442BCFE8A0005822A0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +140,8 @@
 				AF62FD482BCFE8F6005822A0 /* City.swift */,
 				AF62FD4E2BCFF60E005822A0 /* SearchData.swift */,
 				AF5019972BD5832300138496 /* Station.swift */,
+				AF5019A32BD5A04700138496 /* Transporter.swift */,
+				AF5019A92BD5A2DE00138496 /* SearchResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -167,6 +183,7 @@
 		AFE252AC2B921369007E5FFF /* Rzhd */ = {
 			isa = PBXGroup;
 			children = (
+				AF5019A62BD5A20E00138496 /* Extensions */,
 				AF62FD442BCFE8A0005822A0 /* ViewModel */,
 				AF00F0232BC956E500567681 /* DesignSystem */,
 				AF00F01D2BC944A600567681 /* View */,
@@ -274,6 +291,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF5019A82BD5A22200138496 /* Image+ext.swift in Sources */,
 				AF62FD3E2BCC8422005822A0 /* СitiesView.swift in Sources */,
 				AFE252C32B99AFDB007E5FFF /* Carrier.swift in Sources */,
 				AFA305C92B97AE4400759357 /* NearestStations.swift in Sources */,
@@ -290,8 +308,10 @@
 				AF50199F2BD58F6000138496 /* StationRowView.swift in Sources */,
 				AFE252C92B99C319007E5FFF /* API_KEY.swift in Sources */,
 				AF5019982BD5832300138496 /* Station.swift in Sources */,
+				AF5019A42BD5A04700138496 /* Transporter.swift in Sources */,
 				AF62FD4B2BCFEE62005822A0 /* CityRowView.swift in Sources */,
 				AFA305DF2B99025B00759357 /* Schedule.swift in Sources */,
+				AF5019AA2BD5A2DE00138496 /* SearchResult.swift in Sources */,
 				AF62FD4F2BCFF60E005822A0 /* SearchData.swift in Sources */,
 				AFE252BC2B992284007E5FFF /* Thread.swift in Sources */,
 				AF62FD462BCFE8B0005822A0 /* CitiesViewModel.swift in Sources */,
