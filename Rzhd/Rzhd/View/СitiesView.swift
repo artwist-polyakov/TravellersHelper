@@ -15,6 +15,9 @@ struct CitiesView: View {
     @StateObject var viewModel = CitiesViewModel()
     
     func proceedCityName(name: String) {
+        if ($path.isEmpty) {
+            return
+        }
         switch searchData.currentlySelectedTextField {
         case .from:
             searchData.fromText = name
@@ -29,6 +32,7 @@ struct CitiesView: View {
     }
     
     var body: some View {
+        
         VStack {
             
             HStack {
@@ -49,39 +53,53 @@ struct CitiesView: View {
                     }
                     .padding(.trailing, 6)
                 }
-            }
+            } // Hstack
             .background(Color.rzhdGray)
             .cornerRadius(10)
             .frame(height: 36)
-            
-            Spacer()
-            ScrollView (showsIndicators: false) {
-                LazyVStack(spacing: 0) {
-                    ForEach(viewModel.filtered_cities) { city in
-                        CityRowView(city: city)
-                        
-                            .onTapGesture {
-                                proceedCityName(name: city.name)
+            ZStack {
+                VStack {
+                    Spacer()
+                    ScrollView (showsIndicators: false) {
+                        LazyVStack(spacing: 0) {
+                            ForEach(viewModel.filtered_cities) { city in
+                                CityRowView(city: city)
                                 
+                                    .onTapGesture {
+                                        proceedCityName(name: city.name)
+                                        
+                                    }
                             }
-                    }
+                        }
+                    } // ScrollView
+                    Spacer()
+                }
+                if viewModel.filtered_cities.isEmpty {
+                    VStack {
+                        Spacer()
+                        Text("Город не найден")
+                            .font(.system(size: 24))
+                            .bold()
+                            .frame(maxWidth: .infinity, alignment: .center)
+                        Spacer()
+                    } // VSTACK ALERT
+                    .background(.white)
                 }
             }
-            Spacer()
         }.padding(.horizontal, 16)
-            .navigationTitle("Выбор города")
-            .navigationBarBackButtonHidden(true)
-            .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        searchData.currentlySelectedTextField = .nothing
-                        self.path.removeLast()
-                    }) {
-                        Image( "NavBackButton")
-                            .foregroundColor(Color.rzhdGreyBackButton)
-                    }
+        .navigationTitle("Выбор города").navigationBarTitleDisplayMode(.inline)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    searchData.currentlySelectedTextField = .nothing
+                    self.path.removeLast()
+                }) {
+                    Image( "NavBackButton")
+                        .foregroundColor(Color.rzhdGreyBackButton)
                 }
             }
+        }
     }
 }
 
