@@ -22,14 +22,14 @@ struct StationsView: View {
         }
         switch searchData.currentlySelectedTextField {
         case .from:
-            searchData.fromText += " (\(station.name))"
+            searchData.stationFrom = station
         case .to:
-            searchData.toText += " (\(station.name))"
+            searchData.stationTo = station
         case .nothing:
             break
         }
         searchData.currentlySelectedTextField = .nothing
-        searchData.selectedCity = nil
+        searchData.configureTextValues()
         self.path.removeAll()
     }
     

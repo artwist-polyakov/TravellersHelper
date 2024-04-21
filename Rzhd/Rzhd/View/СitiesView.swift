@@ -20,13 +20,12 @@ struct CitiesView: View {
         }
         switch searchData.currentlySelectedTextField {
         case .from:
-            searchData.fromText = city.name
+            searchData.cityFrom = city
         case .to:
-            searchData.toText = city.name
+            searchData.cityTo = city
         case .nothing:
             break
         }
-        searchData.selectedCity = city
         self.path.append("StationsList")
     }
     
