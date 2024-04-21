@@ -19,6 +19,8 @@
 		AF5019AC2BD5A3B100138496 /* SearchResultRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019AB2BD5A3B100138496 /* SearchResultRowView.swift */; };
 		AF5019AE2BD5B44400138496 /* Date+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019AD2BD5B44400138496 /* Date+ext.swift */; };
 		AF5019B52BD5B91D00138496 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = AF5019B32BD5B91D00138496 /* Localizable.stringsdict */; };
+		AF5019B82BD5BEF500138496 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019B72BD5BEF500138496 /* SearchResultViewModel.swift */; };
+		AF5019BB2BD5C01500138496 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019BA2BD5C01500138496 /* SearchResultView.swift */; };
 		AF62FD3E2BCC8422005822A0 /* СitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD3D2BCC8422005822A0 /* СitiesView.swift */; };
 		AF62FD462BCFE8B0005822A0 /* CitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD452BCFE8B0005822A0 /* CitiesViewModel.swift */; };
 		AF62FD492BCFE8F6005822A0 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD482BCFE8F6005822A0 /* City.swift */; };
@@ -60,6 +62,8 @@
 		AF5019AB2BD5A3B100138496 /* SearchResultRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultRowView.swift; sourceTree = "<group>"; };
 		AF5019AD2BD5B44400138496 /* Date+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ext.swift"; sourceTree = "<group>"; };
 		AF5019B62BD5B94B00138496 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = Rzhd/DesignSystem/ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		AF5019B72BD5BEF500138496 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
+		AF5019BA2BD5C01500138496 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		AF62FD3D2BCC8422005822A0 /* СitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СitiesView.swift"; sourceTree = "<group>"; };
 		AF62FD452BCFE8B0005822A0 /* CitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewModel.swift; sourceTree = "<group>"; };
 		AF62FD482BCFE8F6005822A0 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 				AF50199B2BD58E6F00138496 /* StationsView.swift */,
 				AF50199E2BD58F6000138496 /* StationRowView.swift */,
 				AF5019AB2BD5A3B100138496 /* SearchResultRowView.swift */,
+				AF5019BA2BD5C01500138496 /* SearchResultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -137,6 +142,7 @@
 			children = (
 				AF62FD452BCFE8B0005822A0 /* CitiesViewModel.swift */,
 				AF71039E2BD582B9002E3C45 /* StationsViewModel.swift */,
+				AF5019B72BD5BEF500138496 /* SearchResultViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -316,9 +322,11 @@
 				AF50199C2BD58E6F00138496 /* StationsView.swift in Sources */,
 				AFE252C02B99AA04007E5FFF /* NearestSettlement.swift in Sources */,
 				AF5019AC2BD5A3B100138496 /* SearchResultRowView.swift in Sources */,
+				AF5019B82BD5BEF500138496 /* SearchResultViewModel.swift in Sources */,
 				AF50199F2BD58F6000138496 /* StationRowView.swift in Sources */,
 				AFE252C92B99C319007E5FFF /* API_KEY.swift in Sources */,
 				AF5019982BD5832300138496 /* Station.swift in Sources */,
+				AF5019BB2BD5C01500138496 /* SearchResultView.swift in Sources */,
 				AF5019A42BD5A04700138496 /* Transporter.swift in Sources */,
 				AF62FD4B2BCFEE62005822A0 /* CityRowView.swift in Sources */,
 				AFA305DF2B99025B00759357 /* Schedule.swift in Sources */,

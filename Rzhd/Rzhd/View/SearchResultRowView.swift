@@ -60,7 +60,7 @@ struct SearchResultRowView: View {
                     
                 }
             }.padding(14)
-        }.frame(height: 104)
+        }.frame(height: 104).padding(.vertical, 4)
     }
 }
 
