@@ -22,7 +22,7 @@ struct ContentView: View {
                         Image("ScheduleIcon")
                             .renderingMode(.template)
                     }.border(Color.gray)
-                
+                    
                     .tag(0)
                     .edgesIgnoringSafeArea(.top)
                     .toolbarBackground(Color("TabBarColor"), for: .tabBar)
@@ -41,6 +41,8 @@ struct ContentView: View {
                     if id == "CitiesList" {
                         CitiesView(path: $path).environmentObject(searchData)
                         
+                    } else if id == "StationsList" {
+                        StationsView(path: $path).environmentObject(searchData)
                     }
                 }
         }

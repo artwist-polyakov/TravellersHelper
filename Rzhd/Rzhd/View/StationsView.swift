@@ -1,32 +1,36 @@
 //
-//  СitiesView.swift
+//  StationsView.swift
 //  Rzhd
 //
-//  Created by Александр Поляков on 15.04.2024.
+//  Created by Александр Поляков on 21.04.2024.
 //
 
 import SwiftUI
 
-struct CitiesView: View {
+import SwiftUI
+
+struct StationsView: View {
     @EnvironmentObject var searchData: SearchData
     
     @Binding var path: [String]
     @State private var searchText: String = ""
-    @StateObject var viewModel = CitiesViewModel()
+    @StateObject var viewModel = StationsViewModel()
     
-    func proceedCityName(city: City) {
+    func proceedStation(station: Station) {
         if ($path.isEmpty) {
             return
         }
         switch searchData.currentlySelectedTextField {
         case .from:
-            searchData.cityFrom = city
+            searchData.stationFrom = station
         case .to:
-            searchData.cityTo = city
+            searchData.stationTo = station
         case .nothing:
             break
         }
-        self.path.append("StationsList")
+        searchData.currentlySelectedTextField = .nothing
+        searchData.configureTextValues()
+        self.path.removeAll()
     }
     
     var body: some View {
@@ -60,11 +64,11 @@ struct CitiesView: View {
                     Spacer()
                     ScrollView (showsIndicators: false) {
                         LazyVStack(spacing: 0) {
-                            ForEach(viewModel.filtered_cities) { city in
-                                CityRowView(city: city)
+                            ForEach(viewModel.filtered_stations) { station in
+                                StationRowView(station: station)
                                 
                                     .onTapGesture {
-                                        proceedCityName(city: city)
+                                        proceedStation(station: station)
                                         
                                     }
                             }
@@ -72,10 +76,10 @@ struct CitiesView: View {
                     } // ScrollView
                     Spacer()
                 }
-                if viewModel.filtered_cities.isEmpty {
+                if viewModel.filtered_stations.isEmpty {
                     VStack {
                         Spacer()
-                        Text("Город не найден")
+                        Text("Станция не найдена")
                             .font(.system(size: 24))
                             .bold()
                             .frame(maxWidth: .infinity, alignment: .center)
@@ -85,7 +89,7 @@ struct CitiesView: View {
                 }
             }
         }.padding(.horizontal, 16)
-        .navigationTitle("Выбор города").navigationBarTitleDisplayMode(.inline)
+        .navigationTitle("Выбор станции").navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
@@ -105,5 +109,5 @@ struct CitiesView: View {
 
 
 #Preview {
-    CitiesView(path: .constant([]))
+    StationsView(path: .constant([]))
 }
