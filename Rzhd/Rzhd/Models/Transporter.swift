@@ -17,4 +17,17 @@ struct Transporter: Hashable, Identifiable {
     func getLogo() -> Image {
         return Image.assetLogo(logoUri)
     }
+    
+    static func generateRandom() -> Transporter {
+        let transporters = [
+            Transporter(name: "Экспресс", logoUri: "Aeroexpress"),
+            Transporter(name: "Фликс", logoUri: "Flixbus"),
+            Transporter(name: "Поезд-корпорация", logoUri: "Poezd"),
+            Transporter(name: "Сапсан", logoUri: "Sapsan"),
+            Transporter(name: "Войяж", logoUri: "Voyage"),
+            Transporter(name: "Яндекс", logoUri: "Yandex"),
+            Transporter(name: "РЖД", logoUri: "RZHDLogo")
+        ]
+        return transporters.randomElement()!
+    }
 }
