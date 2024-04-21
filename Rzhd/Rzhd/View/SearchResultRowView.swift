@@ -8,11 +8,62 @@
 import SwiftUI
 
 struct SearchResultRowView: View {
-    var SearchItem: SearchResult
+    var searchItem: SearchResult
     
-    
+    var body: some View {
+        let timeDelta = Int(searchItem.arrivalTime.timeIntervalSince(searchItem.departureTime)/(60*60))
+        ZStack {
+            Rectangle()
+                .fill(Color.greyColor)
+                .cornerRadius(24)
+            VStack {
+                HStack {
+                    searchItem.transporter.getLogo()
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 38, height: 38)
+                        .cornerRadius(12)
+                    VStack(alignment: .leading) {
+                        Text(searchItem.transporter.name)
+                            .font(.system(size: 17))
+                            .foregroundColor(.black)
+                        
+                        if (searchItem.transferComment != ""){
+                            Spacer()
+                            Text(searchItem.transferComment)
+                                .font(.system(size: 12))
+                            .foregroundColor(.red)}
+                    }
+                    Spacer()
+                    VStack {
+                        Text(searchItem.departureTime.toNumberAndMonthRussian())
+                            .font(.system(size: 12))
+                            .foregroundColor(.black)
+                        Spacer()
+                    }
+                    
+                }.frame(height: 36)
+                Spacer()
+                HStack {
+                    Text(searchItem.departureTime.toTime())
+                    Spacer()
+                        .overlay(Rectangle().fill(Color.rzhdGrayUniversal).frame(height: 1)).padding(4)
+                    Text( // delta time
+                        String.localizedStringWithFormat(
+                            NSLocalizedString("hoursDelta", comment: "hours between arrival and departure"),
+                            timeDelta
+                        )
+                    )
+                    Spacer()
+                        .overlay(Rectangle().fill(Color.rzhdGrayUniversal).frame(height: 1)).padding(4)
+                    Text(searchItem.arrivalTime.toTime())
+                    
+                }
+            }.padding(14)
+        }.frame(height: 104)
+    }
 }
 
 #Preview {
-    SearchResultRowView()
+    SearchResultRowView(searchItem: SearchResult.generateRandom())
 }

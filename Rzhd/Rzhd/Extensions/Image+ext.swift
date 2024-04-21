@@ -10,13 +10,12 @@ import SwiftUI
 extension Image {
     static func assetLogo(_ name: String) -> Image {
         // Попытка загрузить изображение из ассетов
-        let assetImage = Image(name)
-        // Проверяем, можно ли загрузить UI изображение из ассетов
-        if UIImage(named: name) != nil {
-            return assetImage
+        if let _ = UIImage(named: name) {
+            // Загружаем изображение, если оно существует
+            return Image(name)
         } else {
             // Возвращаем изображение-заполнитель
-            return Image(systemName: "LogoPlaceholder")
+            return Image("LogoPlaceholder")
         }
     }
 }

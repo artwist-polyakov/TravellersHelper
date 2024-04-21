@@ -14,6 +14,7 @@ struct SearchResult: Hashable, Identifiable {
     var transporter: Transporter
     var departureTime: Date
     var arrivalTime: Date
+    var transferComment: String
     var price: Double
     
     static func generateRandom() -> SearchResult{
@@ -28,12 +29,15 @@ struct SearchResult: Hashable, Identifiable {
             City(name: "Сочи")
         ]
         
+        let transferComments = ["", "Без пересадок", "Пересадка в костроме"]
+        
         return SearchResult (
             from: cities.randomElement()!,
             to: cities.randomElement()!,
             transporter: Transporter.generateRandom(),
             departureTime: Date() + TimeInterval.random(in: 0...100000),
             arrivalTime: Date() + TimeInterval.random(in: 100000...200000),
+            transferComment: transferComments.randomElement()!,
             price: Double.random(in: 1000...5000)
         )
     }
