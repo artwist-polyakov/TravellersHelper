@@ -41,6 +41,8 @@ struct ContentView: View {
                     if id == "CitiesList" {
                         CitiesView(path: $path).environmentObject(searchData)
                         
+                    } else if id == "StationsList" {
+                        StationsView(path: $path).environmentObject(searchData)
                     }
                 }
         }

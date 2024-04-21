@@ -14,7 +14,8 @@ enum CurrentlySelectedTextField {
 }
 
 class SearchData: ObservableObject {
-     @Published var fromText: String = ""
-     @Published var toText: String = ""
-     @Published var currentlySelectedTextField: CurrentlySelectedTextField = .nothing
- }
+    @Published var fromText: String = ""
+    @Published var toText: String = ""
+    @Published var selectedCity: City? = nil
+    @Published var currentlySelectedTextField: CurrentlySelectedTextField = .nothing
+}
