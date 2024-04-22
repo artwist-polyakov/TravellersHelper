@@ -15,7 +15,7 @@ struct CheckboxSettingsRowView: View {
         HStack {
             Text(model.name).font(.system(size:17))
             Spacer()
-            model.getImage()
+            model.getImage().foregroundColor(.rzhdGreyBackButton)
         }.frame(height: 60)
     }
 }

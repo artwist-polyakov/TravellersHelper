@@ -11,7 +11,7 @@ import SwiftUI
 class SelectionModel  : Hashable, Identifiable, ObservableObject {
     var id = UUID()
     var name: String = ""
-    var isSelected: Bool = false
+    @Published var isSelected: Bool = false
     private let isRadio: Bool
     
     init (name: String, isSelected: Bool = false, isRadio: Bool = false) {
