@@ -71,7 +71,7 @@ struct ScheduleView: View {
                         .padding(.trailing, 32)
                         .onTapGesture {
                             
-                            self.path.append("SearchResultsList")
+                            swapFromTo()
                         }
                 }
                 .frame(height: 128)
@@ -96,6 +96,15 @@ struct ScheduleView: View {
         }
     }
 }
+
+extension ScheduleView {
+    func swapFromTo() {
+        swap(&searchData.cityFrom, &searchData.cityTo)
+        swap(&searchData.stationFrom, &searchData.stationTo)
+        swap(&searchData.fromText, &searchData.toText)
+    }
+}
+
 
 
 #Preview {
