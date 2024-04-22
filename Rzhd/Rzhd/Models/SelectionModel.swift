@@ -8,16 +8,39 @@
 import Foundation
 import SwiftUI
 
+enum FilterSection: String, CaseIterable {
+    case time = "Время отправления"
+    case withTransfer = "Показывать варианты с пересадками"
+}
+
+enum NameCases: String, CaseIterable {
+    case morning = "Утро 06:00 - 12:00"
+    case day = "День 12:00 - 18:00"
+    case evening = "Вечер 18:00 - 00:00"
+    case night = "Ночь 00:00 - 06:00"
+    case yes = "Да"
+    case no = "Нет"
+}
+
+
+
 class SelectionModel  : Hashable, Identifiable, ObservableObject {
     var id = UUID()
-    var name: String = ""
+    var name: NameCases
     @Published var isSelected: Bool = false
     private let isRadio: Bool
+    var section: FilterSection
     
-    init (name: String, isSelected: Bool = false, isRadio: Bool = false) {
+    init (
+        name: NameCases,
+        isSelected: Bool = false,
+        isRadio: Bool = false,
+        section: FilterSection = .time
+    ) {
         self.name = name
         self.isSelected = isSelected
         self.isRadio = isRadio
+        self.section = section
     }
     
     
@@ -27,6 +50,10 @@ class SelectionModel  : Hashable, Identifiable, ObservableObject {
     
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
+    }
+    
+    func isRadioButton() -> Bool {
+        return self.isRadio
     }
     
     func getImage() -> Image {

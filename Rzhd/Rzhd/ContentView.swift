@@ -9,6 +9,8 @@ import SwiftUI
 import OpenAPIURLSession
 import HTTPTypes
 
+
+// MARK: - ContentView
 struct ContentView: View {
     @StateObject var searchData = SearchData()
     @State private var selectedTab = 0
@@ -60,7 +62,7 @@ struct ContentView: View {
             //            carrier()
         }
     }
-    
+// MARK: - Search
     func search() {
         let client = Client(
             serverURL: try! Servers.server1(),
@@ -81,7 +83,7 @@ struct ContentView: View {
             }
         }
     }
-    
+// MARK: - AllStations
     func allStations() {
         
         let client = Client(
@@ -106,7 +108,7 @@ struct ContentView: View {
             }
         }
     }
-    
+// MARK: - Carrier
     func carrier() {
         let client = Client(
             serverURL: try! Servers.server1(),

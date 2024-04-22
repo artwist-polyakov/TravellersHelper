@@ -13,7 +13,7 @@ struct CheckboxSettingsRowView: View {
     
     var body: some View {
         HStack {
-            Text(model.name).font(.system(size:17))
+            Text(model.name.rawValue).font(.system(size:17))
             Spacer()
             model.getImage().foregroundColor(.rzhdGreyBackButton)
         }.frame(height: 60)
@@ -21,5 +21,5 @@ struct CheckboxSettingsRowView: View {
 }
 
 #Preview {
-    CheckboxSettingsRowView(model: SelectionModel(name: "До полудня", isSelected: false, isRadio: true))
+    CheckboxSettingsRowView(model: SelectionModel(name: .day, isSelected: false, isRadio: false))
 }
