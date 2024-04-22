@@ -52,6 +52,17 @@ struct SearchResultView: View {
                         .padding(.bottom, 24)
                 }
             }
+            if viewModel.searchResult.isEmpty {
+                VStack {
+                    Spacer()
+                    Text("Нет вариантов")
+                        .font(.system(size: 24))
+                        .bold()
+                        .frame(maxWidth: .infinity, alignment: .center)
+                    Spacer()
+                } // VSTACK ALERT
+                .background(.white)
+            }
         }.padding(.horizontal, 16).navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
