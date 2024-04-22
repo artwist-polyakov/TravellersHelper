@@ -25,7 +25,12 @@ struct ContentView: View {
                     .tabItem {
                         Image("ScheduleIcon")
                             .renderingMode(.template)
-                    }.border(Color.gray)
+                    }.overlay(
+                        Rectangle()
+                            .frame(height: 1)
+                            .foregroundColor(.gray).padding(.bottom, 12),
+                        alignment: .bottom
+                    )
                     
                     .tag(0)
                     .edgesIgnoringSafeArea(.top)
@@ -34,7 +39,13 @@ struct ContentView: View {
                     .tabItem {
                         Image("SettingsIcon")
                             .renderingMode(.template)
-                    }.border(Color.gray)
+                    }  .overlay(
+                        Rectangle()
+                            .frame(height: 1)
+                            .foregroundColor(.gray).padding(.bottom, 12),
+                        alignment: .bottom
+                        
+                    )
                 
                     .tag(0)
                     .edgesIgnoringSafeArea(.top)
