@@ -8,13 +8,24 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @Binding var path: [String]
+    @EnvironmentObject var config: ThemeConfig
+    
     var body: some View {
-           // Тут будет логика экрана Настроек
-           Text("Настройки")
-               .edgesIgnoringSafeArea(.top)
-       }
+        ScrollView {
+            LazyVStack(spacing: 0) {
+                DarkThemeOption().environmentObject(config)
+                AgreementOption()
+                    .onTapGesture {
+                        path.append("Agreement")
+                    }
+            }
+        }.padding(.horizontal, 16).padding(.top, 68)
+    }
 }
 
 #Preview {
-    SettingsView()
+    SettingsView( path: .constant([])
+    ).environmentObject(ThemeConfig())
 }

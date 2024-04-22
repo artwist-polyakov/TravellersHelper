@@ -13,6 +13,8 @@ import HTTPTypes
 // MARK: - ContentView
 struct ContentView: View {
     @StateObject var searchData = SearchData()
+    @StateObject var themeConfig = ThemeConfig()
+    
     @State private var selectedTab = 0
     @State private var path: [String] = []
     
@@ -28,7 +30,7 @@ struct ContentView: View {
                     .tag(0)
                     .edgesIgnoringSafeArea(.top)
                     .toolbarBackground(Color("TabBarColor"), for: .tabBar)
-                SettingsView()
+                SettingsView(path: $path).environmentObject(themeConfig)
                     .tabItem {
                         Image("SettingsIcon")
                             .renderingMode(.template)
@@ -51,6 +53,8 @@ struct ContentView: View {
                         FilterView(path: $path).environmentObject(searchData)
                     case "DetailedTransporter":
                         TransporterView(path: $path).environmentObject(searchData)
+                        case "Agreement":
+                        AgreementView(path:$path)
                     default:
                         EmptyView()
                     }

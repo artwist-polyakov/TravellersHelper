@@ -46,6 +46,8 @@
 		AFA305D42B97B17A00759357 /* openapi-generator-config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = AFA305D32B97B17A00759357 /* openapi-generator-config.yaml */; };
 		AFA305DB2B98F53400759357 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA305DA2B98F53400759357 /* Routes.swift */; };
 		AFA305DF2B99025B00759357 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA305DE2B99025B00759357 /* Schedule.swift */; };
+		AFD1436A2BD709ED00536B96 /* AgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD143692BD709ED00536B96 /* AgreementView.swift */; };
+		AFD1436C2BD70B1600536B96 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD1436B2BD70B1600536B96 /* WebView.swift */; };
 		AFE252AE2B921369007E5FFF /* RzhdApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252AD2B921369007E5FFF /* RzhdApp.swift */; };
 		AFE252B02B921369007E5FFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252AF2B921369007E5FFF /* ContentView.swift */; };
 		AFE252B22B92136B007E5FFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE252B12B92136B007E5FFF /* Assets.xcassets */; };
@@ -97,6 +99,8 @@
 		AFA305D32B97B17A00759357 /* openapi-generator-config.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
 		AFA305DA2B98F53400759357 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		AFA305DE2B99025B00759357 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		AFD143692BD709ED00536B96 /* AgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementView.swift; sourceTree = "<group>"; };
+		AFD1436B2BD70B1600536B96 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		AFE252AA2B921369007E5FFF /* Rzhd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rzhd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE252AD2B921369007E5FFF /* RzhdApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RzhdApp.swift; sourceTree = "<group>"; };
 		AFE252AF2B921369007E5FFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 				AF00F0202BC9451B00567681 /* SettingsView.swift */,
 				AF6DE75D2BD7022F00C48E86 /* AgreementOption.swift */,
 				AF6DE7602BD702BF00C48E86 /* DarkThemeOption.swift */,
+				AFD143692BD709ED00536B96 /* AgreementView.swift */,
+				AFD1436B2BD70B1600536B96 /* WebView.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -420,6 +426,7 @@
 				AF50199C2BD58E6F00138496 /* StationsView.swift in Sources */,
 				AFE252C02B99AA04007E5FFF /* NearestSettlement.swift in Sources */,
 				AF5019AC2BD5A3B100138496 /* SearchResultRowView.swift in Sources */,
+				AFD1436C2BD70B1600536B96 /* WebView.swift in Sources */,
 				AF5019B82BD5BEF500138496 /* SearchResultViewModel.swift in Sources */,
 				AF6DE75B2BD6F8DC00C48E86 /* DetailedTransporter.swift in Sources */,
 				AF50199F2BD58F6000138496 /* StationRowView.swift in Sources */,
@@ -437,6 +444,7 @@
 				AF6DE75E2BD7022F00C48E86 /* AgreementOption.swift in Sources */,
 				AF62FD4F2BCFF60E005822A0 /* SearchData.swift in Sources */,
 				AFE252BC2B992284007E5FFF /* Thread.swift in Sources */,
+				AFD1436A2BD709ED00536B96 /* AgreementView.swift in Sources */,
 				AF62FD462BCFE8B0005822A0 /* CitiesViewModel.swift in Sources */,
 				AFE252AE2B921369007E5FFF /* RzhdApp.swift in Sources */,
 				AF00F0212BC9451B00567681 /* SettingsView.swift in Sources */,
