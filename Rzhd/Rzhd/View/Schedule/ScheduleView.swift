@@ -77,22 +77,26 @@ struct ScheduleView: View {
                 .frame(height: 128)
             }
             .padding(.horizontal, 10)
-            Button {
-                if (searchData.cityFrom == nil || searchData.cityTo == nil) {
-                    return
+            if !((searchData.cityFrom == nil || searchData.cityTo == nil)) {
+                Button {
+                    if (searchData.cityFrom == nil || searchData.cityTo == nil) {
+                        return
+                    }
+                    self.path.append("SearchResultsList")
+                } label: {
+                    Text("Найти")
+                        .foregroundColor(.white)
+                        .font(.system(size: 17)).bold()
+                        .frame(maxWidth: 150)
+                        .frame(height: 60)
+                        .background(Color.searchBackground)
+                        .cornerRadius(16)
+                        .padding(.top, 8)
                 }
-                self.path.append("SearchResultsList")
-            } label: {
-                Text("Найти")
-                    .foregroundColor(.white)
-                    .font(.system(size: 17)).bold()
-                    .frame(maxWidth: 150)
-                    .frame(height: 60)
-                    .background(Color.searchBackground)
-                    .cornerRadius(16)
-                    .padding(.top, 8)
+                
             }
             Spacer()
+            
         }
     }
 }
