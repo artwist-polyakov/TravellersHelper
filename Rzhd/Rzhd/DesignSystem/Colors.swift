@@ -45,7 +45,7 @@ extension Color {
     // Universal colors
     static let searchBackground = Color(uiColor: UIColor(named: "SearchFieldBackground") ?? UIColor.systemGray6)
     static let greyColor =  Color(uiColor: UIColor(named: "RZHDGray") ?? UIColor.systemGray6)
-    static let ypGreen = UIColor(named: "green") ?? UIColor.green
+    static let greyUniversal = UIColor(named: "RZHDGrayUniversal") ?? UIColor.gray
     static let ypBackground = UIColor(named: "background") ?? UIColor.systemBackground
     static let ypBlue = UIColor(named: "blue") ?? UIColor.blue
     static let ypBlackUniversal = UIColor(named: "blackUniversal") ?? UIColor.blue

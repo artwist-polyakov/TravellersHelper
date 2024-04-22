@@ -69,6 +69,12 @@ struct ScheduleView: View {
                     
                         .background(Circle().fill(Color.white))
                         .padding(.trailing, 32)
+                        .onTapGesture {
+                            if (searchData.cityFrom == nil || searchData.cityTo == nil) {
+                                return
+                            }
+                            self.path.append("SearchResultsList")
+                        }
                 }
                 .frame(height: 128)
             }

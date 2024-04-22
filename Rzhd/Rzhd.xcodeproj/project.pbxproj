@@ -13,6 +13,14 @@
 		AF5019982BD5832300138496 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019972BD5832300138496 /* Station.swift */; };
 		AF50199C2BD58E6F00138496 /* StationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50199B2BD58E6F00138496 /* StationsView.swift */; };
 		AF50199F2BD58F6000138496 /* StationRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50199E2BD58F6000138496 /* StationRowView.swift */; };
+		AF5019A42BD5A04700138496 /* Transporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019A32BD5A04700138496 /* Transporter.swift */; };
+		AF5019A82BD5A22200138496 /* Image+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019A72BD5A22200138496 /* Image+ext.swift */; };
+		AF5019AA2BD5A2DE00138496 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019A92BD5A2DE00138496 /* SearchResult.swift */; };
+		AF5019AC2BD5A3B100138496 /* SearchResultRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019AB2BD5A3B100138496 /* SearchResultRowView.swift */; };
+		AF5019AE2BD5B44400138496 /* Date+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019AD2BD5B44400138496 /* Date+ext.swift */; };
+		AF5019B52BD5B91D00138496 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = AF5019B32BD5B91D00138496 /* Localizable.stringsdict */; };
+		AF5019B82BD5BEF500138496 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019B72BD5BEF500138496 /* SearchResultViewModel.swift */; };
+		AF5019BB2BD5C01500138496 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019BA2BD5C01500138496 /* SearchResultView.swift */; };
 		AF62FD3E2BCC8422005822A0 /* СitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD3D2BCC8422005822A0 /* СitiesView.swift */; };
 		AF62FD462BCFE8B0005822A0 /* CitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD452BCFE8B0005822A0 /* CitiesViewModel.swift */; };
 		AF62FD492BCFE8F6005822A0 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD482BCFE8F6005822A0 /* City.swift */; };
@@ -48,6 +56,14 @@
 		AF5019972BD5832300138496 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		AF50199B2BD58E6F00138496 /* StationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsView.swift; sourceTree = "<group>"; };
 		AF50199E2BD58F6000138496 /* StationRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationRowView.swift; sourceTree = "<group>"; };
+		AF5019A32BD5A04700138496 /* Transporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transporter.swift; sourceTree = "<group>"; };
+		AF5019A72BD5A22200138496 /* Image+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+ext.swift"; sourceTree = "<group>"; };
+		AF5019A92BD5A2DE00138496 /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		AF5019AB2BD5A3B100138496 /* SearchResultRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultRowView.swift; sourceTree = "<group>"; };
+		AF5019AD2BD5B44400138496 /* Date+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+ext.swift"; sourceTree = "<group>"; };
+		AF5019B62BD5B94B00138496 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = Rzhd/DesignSystem/ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		AF5019B72BD5BEF500138496 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
+		AF5019BA2BD5C01500138496 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
 		AF62FD3D2BCC8422005822A0 /* СitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СitiesView.swift"; sourceTree = "<group>"; };
 		AF62FD452BCFE8B0005822A0 /* CitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewModel.swift; sourceTree = "<group>"; };
 		AF62FD482BCFE8F6005822A0 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -98,6 +114,8 @@
 				AF62FD4A2BCFEE62005822A0 /* CityRowView.swift */,
 				AF50199B2BD58E6F00138496 /* StationsView.swift */,
 				AF50199E2BD58F6000138496 /* StationRowView.swift */,
+				AF5019AB2BD5A3B100138496 /* SearchResultRowView.swift */,
+				AF5019BA2BD5C01500138496 /* SearchResultView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -110,11 +128,21 @@
 			path = DesignSystem;
 			sourceTree = "<group>";
 		};
+		AF5019A62BD5A20E00138496 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AF5019A72BD5A22200138496 /* Image+ext.swift */,
+				AF5019AD2BD5B44400138496 /* Date+ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		AF62FD442BCFE8A0005822A0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				AF62FD452BCFE8B0005822A0 /* CitiesViewModel.swift */,
 				AF71039E2BD582B9002E3C45 /* StationsViewModel.swift */,
+				AF5019B72BD5BEF500138496 /* SearchResultViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -126,6 +154,8 @@
 				AF62FD482BCFE8F6005822A0 /* City.swift */,
 				AF62FD4E2BCFF60E005822A0 /* SearchData.swift */,
 				AF5019972BD5832300138496 /* Station.swift */,
+				AF5019A32BD5A04700138496 /* Transporter.swift */,
+				AF5019A92BD5A2DE00138496 /* SearchResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -151,6 +181,7 @@
 		AFE252A12B921369007E5FFF = {
 			isa = PBXGroup;
 			children = (
+				AF5019B32BD5B91D00138496 /* Localizable.stringsdict */,
 				AFE252AC2B921369007E5FFF /* Rzhd */,
 				AFE252AB2B921369007E5FFF /* Products */,
 			);
@@ -167,6 +198,7 @@
 		AFE252AC2B921369007E5FFF /* Rzhd */ = {
 			isa = PBXGroup;
 			children = (
+				AF5019A62BD5A20E00138496 /* Extensions */,
 				AF62FD442BCFE8A0005822A0 /* ViewModel */,
 				AF00F0232BC956E500567681 /* DesignSystem */,
 				AF00F01D2BC944A600567681 /* View */,
@@ -233,11 +265,11 @@
 			};
 			buildConfigurationList = AFE252A52B921369007E5FFF /* Build configuration list for PBXProject "Rzhd" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ru;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				ru,
 			);
 			mainGroup = AFE252A12B921369007E5FFF;
 			packageReferences = (
@@ -263,6 +295,7 @@
 				AFE252B52B92136B007E5FFF /* Preview Assets.xcassets in Resources */,
 				AFA305D42B97B17A00759357 /* openapi-generator-config.yaml in Resources */,
 				AFE252B22B92136B007E5FFF /* Assets.xcassets in Resources */,
+				AF5019B52BD5B91D00138496 /* Localizable.stringsdict in Resources */,
 				AFA305C62B97AD9200759357 /* openapi.yaml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -274,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF5019A82BD5A22200138496 /* Image+ext.swift in Sources */,
 				AF62FD3E2BCC8422005822A0 /* СitiesView.swift in Sources */,
 				AFE252C32B99AFDB007E5FFF /* Carrier.swift in Sources */,
 				AFA305C92B97AE4400759357 /* NearestStations.swift in Sources */,
@@ -287,16 +321,22 @@
 				AF62FD492BCFE8F6005822A0 /* City.swift in Sources */,
 				AF50199C2BD58E6F00138496 /* StationsView.swift in Sources */,
 				AFE252C02B99AA04007E5FFF /* NearestSettlement.swift in Sources */,
+				AF5019AC2BD5A3B100138496 /* SearchResultRowView.swift in Sources */,
+				AF5019B82BD5BEF500138496 /* SearchResultViewModel.swift in Sources */,
 				AF50199F2BD58F6000138496 /* StationRowView.swift in Sources */,
 				AFE252C92B99C319007E5FFF /* API_KEY.swift in Sources */,
 				AF5019982BD5832300138496 /* Station.swift in Sources */,
+				AF5019BB2BD5C01500138496 /* SearchResultView.swift in Sources */,
+				AF5019A42BD5A04700138496 /* Transporter.swift in Sources */,
 				AF62FD4B2BCFEE62005822A0 /* CityRowView.swift in Sources */,
 				AFA305DF2B99025B00759357 /* Schedule.swift in Sources */,
+				AF5019AA2BD5A2DE00138496 /* SearchResult.swift in Sources */,
 				AF62FD4F2BCFF60E005822A0 /* SearchData.swift in Sources */,
 				AFE252BC2B992284007E5FFF /* Thread.swift in Sources */,
 				AF62FD462BCFE8B0005822A0 /* CitiesViewModel.swift in Sources */,
 				AFE252AE2B921369007E5FFF /* RzhdApp.swift in Sources */,
 				AF00F0212BC9451B00567681 /* SettingsView.swift in Sources */,
+				AF5019AE2BD5B44400138496 /* Date+ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -309,12 +349,24 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		AF5019B32BD5B91D00138496 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AF5019B62BD5B94B00138496 /* ru */,
+			);
+			name = Localizable.stringsdict;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		AFE252B62B92136B007E5FFF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -378,6 +430,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
