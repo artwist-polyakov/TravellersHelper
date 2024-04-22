@@ -63,7 +63,7 @@ struct ScheduleView: View {
                     
                     
                     Image("Refresh")
-                        .renderingMode(.template)
+                        .renderingMode(.template).foregroundColor(.black)
                     
                         .frame(width: 36, height: 36)
                     
