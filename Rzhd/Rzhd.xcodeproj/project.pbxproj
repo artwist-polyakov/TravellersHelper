@@ -29,6 +29,9 @@
 		AF6DE7562BD6F84200C48E86 /* TransporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6DE7552BD6F84200C48E86 /* TransporterView.swift */; };
 		AF6DE7592BD6F85900C48E86 /* TransporterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6DE7582BD6F85900C48E86 /* TransporterViewModel.swift */; };
 		AF6DE75B2BD6F8DC00C48E86 /* DetailedTransporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6DE75A2BD6F8DC00C48E86 /* DetailedTransporter.swift */; };
+		AF6DE75E2BD7022F00C48E86 /* AgreementOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6DE75D2BD7022F00C48E86 /* AgreementOption.swift */; };
+		AF6DE7612BD702BF00C48E86 /* DarkThemeOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6DE7602BD702BF00C48E86 /* DarkThemeOption.swift */; };
+		AF6DE7642BD7035E00C48E86 /* ThemeConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6DE7632BD7035E00C48E86 /* ThemeConfig.swift */; };
 		AF71039F2BD582B9002E3C45 /* StationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF71039E2BD582B9002E3C45 /* StationsViewModel.swift */; };
 		AF7434AD2BD66E960050F3DF /* CheckboxSettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7434AC2BD66E960050F3DF /* CheckboxSettingsRowView.swift */; };
 		AF7434AF2BD66EC70050F3DF /* SelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7434AE2BD66EC70050F3DF /* SelectionModel.swift */; };
@@ -81,6 +84,9 @@
 		AF6DE7552BD6F84200C48E86 /* TransporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransporterView.swift; sourceTree = "<group>"; };
 		AF6DE7582BD6F85900C48E86 /* TransporterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransporterViewModel.swift; sourceTree = "<group>"; };
 		AF6DE75A2BD6F8DC00C48E86 /* DetailedTransporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedTransporter.swift; sourceTree = "<group>"; };
+		AF6DE75D2BD7022F00C48E86 /* AgreementOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementOption.swift; sourceTree = "<group>"; };
+		AF6DE7602BD702BF00C48E86 /* DarkThemeOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkThemeOption.swift; sourceTree = "<group>"; };
+		AF6DE7632BD7035E00C48E86 /* ThemeConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeConfig.swift; sourceTree = "<group>"; };
 		AF71039E2BD582B9002E3C45 /* StationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsViewModel.swift; sourceTree = "<group>"; };
 		AF7434AC2BD66E960050F3DF /* CheckboxSettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxSettingsRowView.swift; sourceTree = "<group>"; };
 		AF7434AE2BD66EC70050F3DF /* SelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionModel.swift; sourceTree = "<group>"; };
@@ -173,6 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				AF00F0202BC9451B00567681 /* SettingsView.swift */,
+				AF6DE75D2BD7022F00C48E86 /* AgreementOption.swift */,
+				AF6DE7602BD702BF00C48E86 /* DarkThemeOption.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -239,6 +247,7 @@
 				AF7434AE2BD66EC70050F3DF /* SelectionModel.swift */,
 				AFE976B32BD6CF8A003720BE /* SearchConstraits.swift */,
 				AF6DE75A2BD6F8DC00C48E86 /* DetailedTransporter.swift */,
+				AF6DE7632BD7035E00C48E86 /* ThemeConfig.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -405,6 +414,7 @@
 				AFE252C62B99BF2E007E5FFF /* StationList.swift in Sources */,
 				AFE252B02B921369007E5FFF /* ContentView.swift in Sources */,
 				AF00F01F2BC944CC00567681 /* ScheduleView.swift in Sources */,
+				AF6DE7642BD7035E00C48E86 /* ThemeConfig.swift in Sources */,
 				AFE252CD2B99DF7B007E5FFF /* Copyright.swift in Sources */,
 				AF62FD492BCFE8F6005822A0 /* City.swift in Sources */,
 				AF50199C2BD58E6F00138496 /* StationsView.swift in Sources */,
@@ -419,10 +429,12 @@
 				AF5019A42BD5A04700138496 /* Transporter.swift in Sources */,
 				AF62FD4B2BCFEE62005822A0 /* CityRowView.swift in Sources */,
 				AFA305DF2B99025B00759357 /* Schedule.swift in Sources */,
+				AF6DE7612BD702BF00C48E86 /* DarkThemeOption.swift in Sources */,
 				AF5019AA2BD5A2DE00138496 /* SearchResult.swift in Sources */,
 				AF7434CC2BD67C5B0050F3DF /* HeadersView.swift in Sources */,
 				AFE976B02BD6C57B003720BE /* FilterView.swift in Sources */,
 				AFE976B42BD6CF8A003720BE /* SearchConstraits.swift in Sources */,
+				AF6DE75E2BD7022F00C48E86 /* AgreementOption.swift in Sources */,
 				AF62FD4F2BCFF60E005822A0 /* SearchData.swift in Sources */,
 				AFE252BC2B992284007E5FFF /* Thread.swift in Sources */,
 				AF62FD462BCFE8B0005822A0 /* CitiesViewModel.swift in Sources */,
