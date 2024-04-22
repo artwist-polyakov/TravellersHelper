@@ -22,6 +22,8 @@ class SearchData: ObservableObject {
     @Published var fromText: String = ""
     @Published var toText: String = ""
     @Published var filterConstraints = SearchConstraits()
+    @Published var selectedTransporter: Transporter? = nil
+    
     
     private func configureFromTextValue() {
         var result = ""

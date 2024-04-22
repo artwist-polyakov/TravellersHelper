@@ -26,6 +26,9 @@
 		AF62FD492BCFE8F6005822A0 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD482BCFE8F6005822A0 /* City.swift */; };
 		AF62FD4B2BCFEE62005822A0 /* CityRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD4A2BCFEE62005822A0 /* CityRowView.swift */; };
 		AF62FD4F2BCFF60E005822A0 /* SearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD4E2BCFF60E005822A0 /* SearchData.swift */; };
+		AF6DE7562BD6F84200C48E86 /* TransporterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6DE7552BD6F84200C48E86 /* TransporterView.swift */; };
+		AF6DE7592BD6F85900C48E86 /* TransporterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6DE7582BD6F85900C48E86 /* TransporterViewModel.swift */; };
+		AF6DE75B2BD6F8DC00C48E86 /* DetailedTransporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF6DE75A2BD6F8DC00C48E86 /* DetailedTransporter.swift */; };
 		AF71039F2BD582B9002E3C45 /* StationsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF71039E2BD582B9002E3C45 /* StationsViewModel.swift */; };
 		AF7434AD2BD66E960050F3DF /* CheckboxSettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7434AC2BD66E960050F3DF /* CheckboxSettingsRowView.swift */; };
 		AF7434AF2BD66EC70050F3DF /* SelectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF7434AE2BD66EC70050F3DF /* SelectionModel.swift */; };
@@ -75,6 +78,9 @@
 		AF62FD482BCFE8F6005822A0 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		AF62FD4A2BCFEE62005822A0 /* CityRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityRowView.swift; sourceTree = "<group>"; };
 		AF62FD4E2BCFF60E005822A0 /* SearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchData.swift; sourceTree = "<group>"; };
+		AF6DE7552BD6F84200C48E86 /* TransporterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransporterView.swift; sourceTree = "<group>"; };
+		AF6DE7582BD6F85900C48E86 /* TransporterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransporterViewModel.swift; sourceTree = "<group>"; };
+		AF6DE75A2BD6F8DC00C48E86 /* DetailedTransporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedTransporter.swift; sourceTree = "<group>"; };
 		AF71039E2BD582B9002E3C45 /* StationsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsViewModel.swift; sourceTree = "<group>"; };
 		AF7434AC2BD66E960050F3DF /* CheckboxSettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxSettingsRowView.swift; sourceTree = "<group>"; };
 		AF7434AE2BD66EC70050F3DF /* SelectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionModel.swift; sourceTree = "<group>"; };
@@ -150,8 +156,17 @@
 				AF71039E2BD582B9002E3C45 /* StationsViewModel.swift */,
 				AF5019B72BD5BEF500138496 /* SearchResultViewModel.swift */,
 				AFE976AC2BD6C348003720BE /* FilterViewModel.swift */,
+				AF6DE7582BD6F85900C48E86 /* TransporterViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AF6DE7522BD6F7DE00C48E86 /* Transporter */ = {
+			isa = PBXGroup;
+			children = (
+				AF6DE7552BD6F84200C48E86 /* TransporterView.swift */,
+			);
+			path = Transporter;
 			sourceTree = "<group>";
 		};
 		AF7434D42BD67D0E0050F3DF /* Settings */ = {
@@ -165,6 +180,7 @@
 		AF7434D82BD68CB00050F3DF /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				AF6DE7522BD6F7DE00C48E86 /* Transporter */,
 				AF7434F72BD68FDD0050F3DF /* Filter */,
 				AF7434F22BD68FA80050F3DF /* Results */,
 				AF7434EE2BD68F5D0050F3DF /* Stations */,
@@ -222,6 +238,7 @@
 				AF5019A92BD5A2DE00138496 /* SearchResult.swift */,
 				AF7434AE2BD66EC70050F3DF /* SelectionModel.swift */,
 				AFE976B32BD6CF8A003720BE /* SearchConstraits.swift */,
+				AF6DE75A2BD6F8DC00C48E86 /* DetailedTransporter.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -378,8 +395,10 @@
 				AF7434AD2BD66E960050F3DF /* CheckboxSettingsRowView.swift in Sources */,
 				AF62FD3E2BCC8422005822A0 /* СitiesView.swift in Sources */,
 				AFE252C32B99AFDB007E5FFF /* Carrier.swift in Sources */,
+				AF6DE7592BD6F85900C48E86 /* TransporterViewModel.swift in Sources */,
 				AFA305C92B97AE4400759357 /* NearestStations.swift in Sources */,
 				AF71039F2BD582B9002E3C45 /* StationsViewModel.swift in Sources */,
+				AF6DE7562BD6F84200C48E86 /* TransporterView.swift in Sources */,
 				AF7434AF2BD66EC70050F3DF /* SelectionModel.swift in Sources */,
 				AFA305DB2B98F53400759357 /* Routes.swift in Sources */,
 				AF00F0272BC956F600567681 /* Colors.swift in Sources */,
@@ -392,6 +411,7 @@
 				AFE252C02B99AA04007E5FFF /* NearestSettlement.swift in Sources */,
 				AF5019AC2BD5A3B100138496 /* SearchResultRowView.swift in Sources */,
 				AF5019B82BD5BEF500138496 /* SearchResultViewModel.swift in Sources */,
+				AF6DE75B2BD6F8DC00C48E86 /* DetailedTransporter.swift in Sources */,
 				AF50199F2BD58F6000138496 /* StationRowView.swift in Sources */,
 				AFE252C92B99C319007E5FFF /* API_KEY.swift in Sources */,
 				AF5019982BD5832300138496 /* Station.swift in Sources */,
