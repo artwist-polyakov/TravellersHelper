@@ -3,7 +3,7 @@
 //  Rzhd
 //
 //  Created by Александр Поляков on 23.04.2024.
-//
+//  Inspired by https://sarunw.com/posts/swiftui-webview/
 
 import SwiftUI
 import WebKit

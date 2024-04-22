@@ -39,7 +39,7 @@ struct ContentView: View {
                     .tag(0)
                     .edgesIgnoringSafeArea(.top)
                     .toolbarBackground(Color("TabBarColor"), for: .tabBar)
-            }.accentColor(.black)
+            }.accentColor(.colorOnPrimary)
                 .environmentObject(searchData)
                 .navigationDestination(for: String.self) { id in
                     switch (id) {
@@ -59,7 +59,7 @@ struct ContentView: View {
                         EmptyView()
                     }
                 }
-        }
+        }.preferredColorScheme(themeConfig.isDarkMode ? .dark : .light)
         
         .onAppear {
             //                    UITabBar.appearance().barTintColor = .white
