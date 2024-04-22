@@ -116,7 +116,6 @@
 			children = (
 				AF7434D82BD68CB00050F3DF /* Schedule */,
 				AF7434D42BD67D0E0050F3DF /* Settings */,
-				AF00F01E2BC944CC00567681 /* ScheduleView.swift */,
 				AF62FD3D2BCC8422005822A0 /* СitiesView.swift */,
 				AF62FD4A2BCFEE62005822A0 /* CityRowView.swift */,
 				AF50199B2BD58E6F00138496 /* StationsView.swift */,
@@ -165,6 +164,7 @@
 		AF7434D82BD68CB00050F3DF /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				AF00F01E2BC944CC00567681 /* ScheduleView.swift */,
 				AF7434CB2BD67C5B0050F3DF /* HeadersView.swift */,
 				AF7434AC2BD66E960050F3DF /* CheckboxSettingsRowView.swift */,
 			);
