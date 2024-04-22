@@ -26,7 +26,7 @@ struct SearchResultRowView: View {
                     VStack(alignment: .leading) {
                         Text(searchItem.transporter.name)
                             .font(.system(size: 17))
-                            .foregroundColor(.black)
+                            .foregroundColor(.blackUniversal)
                         
                         if (searchItem.transferComment != ""){
                             Spacer()
@@ -38,14 +38,14 @@ struct SearchResultRowView: View {
                     VStack {
                         Text(searchItem.departureTime.toNumberAndMonthRussian())
                             .font(.system(size: 12))
-                            .foregroundColor(.black)
+                            .foregroundColor(.blackUniversal)
                         Spacer()
                     }
                     
                 }.frame(height: 36)
                 Spacer()
                 HStack {
-                    Text(searchItem.departureTime.toTime())
+                    Text(searchItem.departureTime.toTime()).foregroundColor(.blackUniversal)
                     Spacer()
                         .overlay(Rectangle().fill(Color.rzhdGrayUniversal).frame(height: 1)).padding(4)
                     Text( // delta time
@@ -53,10 +53,10 @@ struct SearchResultRowView: View {
                             NSLocalizedString("hoursDelta", comment: "hours between arrival and departure"),
                             timeDelta
                         )
-                    )
+                    ).foregroundColor(.blackUniversal)
                     Spacer()
                         .overlay(Rectangle().fill(Color.rzhdGrayUniversal).frame(height: 1)).padding(4)
-                    Text(searchItem.arrivalTime.toTime())
+                    Text(searchItem.arrivalTime.toTime()).foregroundColor(.blackUniversal)
                     
                 }
             }.padding(14)

@@ -114,8 +114,8 @@
 		AF00F01D2BC944A600567681 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AF7434D42BD67D0E0050F3DF /* Settings */,
 				AF00F01E2BC944CC00567681 /* ScheduleView.swift */,
-				AF00F0202BC9451B00567681 /* SettingsView.swift */,
 				AF62FD3D2BCC8422005822A0 /* СitiesView.swift */,
 				AF62FD4A2BCFEE62005822A0 /* CityRowView.swift */,
 				AF50199B2BD58E6F00138496 /* StationsView.swift */,
@@ -153,6 +153,14 @@
 				AF5019B72BD5BEF500138496 /* SearchResultViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		AF7434D42BD67D0E0050F3DF /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				AF00F0202BC9451B00567681 /* SettingsView.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		AF9AE2162BC723BB00ED667B /* Models */ = {
