@@ -17,7 +17,7 @@ struct CityRowView: View {
                 .font(.system(size:17))
             Spacer()
             Image( "NavBackButton")
-                .foregroundColor(Color.rzhdGreyBackButton)
+                .foregroundColor(.colorOnPrimary)
                 .rotationEffect(.degrees(180))
         }).frame(height: 60)
     }
