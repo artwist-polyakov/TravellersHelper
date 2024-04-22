@@ -20,7 +20,7 @@ struct SearchResultView: View {
             VStack {
                 Text(searchData.fromText + " → " + searchData.toText)
                     .font(.system(size: 24)).bold()
-                    .foregroundColor(.black)
+                    .foregroundColor(.colorOnPrimary)
                     .padding(.top, 16)
                     .padding(.bottom, 8)
                 ScrollView (showsIndicators: false) {
