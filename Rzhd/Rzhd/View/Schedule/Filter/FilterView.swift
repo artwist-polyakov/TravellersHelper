@@ -14,7 +14,7 @@ struct FilterView: View {
     @ObservedObject var viewModel = FilterViewModel()
     
     var body: some View {
-    
+        
         ZStack{
             
             ScrollView (showsIndicators: false) {
@@ -55,9 +55,22 @@ struct FilterView: View {
         }.onAppear {
             let filterConstraints = searchData.filterConstraints
             viewModel.configureConstraints(constraints: filterConstraints)
-        }.padding(.horizontal, 16)
+        }
+        .padding(.horizontal, 16)
+        .navigationBarBackButtonHidden(true)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    searchData.currentlySelectedTextField = .nothing
+                    self.path.removeLast()
+                }) {
+                    Image( "NavBackButton")
+                        .foregroundColor(Color.rzhdGreyBackButton)
+                }
+            }
+        }
     }
-        
+    
 }
 
 #Preview {

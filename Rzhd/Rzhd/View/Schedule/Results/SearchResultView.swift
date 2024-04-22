@@ -16,13 +16,15 @@ struct SearchResultView: View {
     @StateObject var viewModel = SearchResultViewModel()
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            VStack {
-                Text(searchData.fromText + " → " + searchData.toText)
-                    .font(.system(size: 24)).bold()
-                    .foregroundColor(.colorOnPrimary)
-                    .padding(.top, 16)
-                    .padding(.bottom, 8)
+        ZStack (alignment: .topLeading)  {
+            VStack(alignment: .leading) {
+                HStack (alignment:.top) {
+                    Text(searchData.fromText + " → " + searchData.toText).multilineTextAlignment(.leading)
+                        .font(.system(size: 24)).bold()
+                        .foregroundColor(.colorOnPrimary)
+                        .padding(.top, 16)
+                        .padding(.bottom, 8)
+                Spacer()}
                 ScrollView (showsIndicators: false) {
                     LazyVStack(spacing: 0) {
                         ForEach(viewModel.searchResult) { element in
@@ -32,17 +34,20 @@ struct SearchResultView: View {
                     }
                 }
             }
-            Button(action: {
-                self.path.append("FilterList")
-            }) {
-                Text("Уточнить время")
-                    .foregroundColor(.white)
-                    .font(.system(size: 17)).bold()
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 60)
-                    .background(.blue)
-                    .cornerRadius(16)
-                    .padding(.bottom, 24)
+            VStack {
+                Spacer()
+                Button(action: {
+                    self.path.append("FilterList")
+                }) {
+                    Text("Уточнить время")
+                        .foregroundColor(.white)
+                        .font(.system(size: 17)).bold()
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 60)
+                        .background(.blue)
+                        .cornerRadius(16)
+                        .padding(.bottom, 24)
+                }
             }
         }.padding(.horizontal, 16)
         .navigationBarBackButtonHidden(true)

@@ -57,28 +57,41 @@ struct ScheduleView: View {
                     }
                     .frame(height: 96)
                     .background(Color.white.cornerRadius(20))
-                    .padding(16) // Отступ слева
+                    .padding(.horizontal, 16) // Отступ слева
                     
                     
                     
                     
                     Image("Refresh")
-                        .renderingMode(.template).foregroundColor(.black)
+                        .renderingMode(.template).foregroundColor(.searchBackground)
                     
                         .frame(width: 36, height: 36)
                     
                         .background(Circle().fill(Color.white))
                         .padding(.trailing, 32)
                         .onTapGesture {
-                            if (searchData.cityFrom == nil || searchData.cityTo == nil) {
-                                return
-                            }
+                            
                             self.path.append("SearchResultsList")
                         }
                 }
                 .frame(height: 128)
             }
             .padding(.horizontal, 10)
+            Button {
+                if (searchData.cityFrom == nil || searchData.cityTo == nil) {
+                    return
+                }
+                self.path.append("SearchResultsList")
+            } label: {
+                Text("Найти")
+                    .foregroundColor(.white)
+                    .font(.system(size: 17)).bold()
+                    .frame(maxWidth: 150)
+                    .frame(height: 60)
+                    .background(Color.searchBackground)
+                    .cornerRadius(16)
+                    .padding(.top, 8)
+            }
             Spacer()
         }
     }
