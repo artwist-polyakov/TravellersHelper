@@ -13,13 +13,22 @@ struct SettingsView: View {
     @EnvironmentObject var config: ThemeConfig
     
     var body: some View {
-        ScrollView {
-            LazyVStack(spacing: 0) {
-                DarkThemeOption().environmentObject(config)
-                AgreementOption()
-                    .onTapGesture {
-                        path.append("Agreement")
-                    }
+        ZStack {
+            ScrollView {
+                LazyVStack(spacing: 0) {
+                    DarkThemeOption().environmentObject(config)
+                    AgreementOption()
+                        .onTapGesture {
+                            path.append("Agreement")
+                        }
+                }
+            }
+            VStack {
+             Spacer()
+            Text("Приложение использует API «Яндекс.Расписания» \n \n Версия 1.0 (beta)")
+                    .multilineTextAlignment(.center)
+                    .font(.system(size: 12))
+                    .padding(.bottom, 24)
             }
         }.padding(.horizontal, 16).padding(.top, 68)
     }
