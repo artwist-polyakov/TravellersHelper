@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CheckbocksSettingsRowView: View {
+struct CheckboxSettingsRowView: View {
     
     @StateObject var model: SelectionModel
     
@@ -15,15 +15,11 @@ struct CheckbocksSettingsRowView: View {
         HStack {
             Text(model.name).font(.system(size:17))
             Spacer()
-            //adding checkbocks
-            Toggle(isOn: $model.isSelected) {
-                Image(systemName: "checkmark")
-                    .foregroundColor(.blue)
-            }
-        }
+            model.getImage()
+        }.frame(height: 60)
     }
 }
 
 #Preview {
-    CheckbocksSettingsRowView(model: SelectionModel(name: "До полудня"))
+    CheckboxSettingsRowView(model: SelectionModel(name: "До полудня", isSelected: false, isRadio: true))
 }
