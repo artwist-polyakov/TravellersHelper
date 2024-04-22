@@ -48,6 +48,7 @@
 		AFA305DF2B99025B00759357 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA305DE2B99025B00759357 /* Schedule.swift */; };
 		AFD1436A2BD709ED00536B96 /* AgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD143692BD709ED00536B96 /* AgreementView.swift */; };
 		AFD1436C2BD70B1600536B96 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD1436B2BD70B1600536B96 /* WebView.swift */; };
+		AFD143702BD70E8B00536B96 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD1436F2BD70E8B00536B96 /* ErrorView.swift */; };
 		AFE252AE2B921369007E5FFF /* RzhdApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252AD2B921369007E5FFF /* RzhdApp.swift */; };
 		AFE252B02B921369007E5FFF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFE252AF2B921369007E5FFF /* ContentView.swift */; };
 		AFE252B22B92136B007E5FFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFE252B12B92136B007E5FFF /* Assets.xcassets */; };
@@ -101,6 +102,7 @@
 		AFA305DE2B99025B00759357 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		AFD143692BD709ED00536B96 /* AgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementView.swift; sourceTree = "<group>"; };
 		AFD1436B2BD70B1600536B96 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		AFD1436F2BD70E8B00536B96 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		AFE252AA2B921369007E5FFF /* Rzhd.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rzhd.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFE252AD2B921369007E5FFF /* RzhdApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RzhdApp.swift; sourceTree = "<group>"; };
 		AFE252AF2B921369007E5FFF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		AF00F01D2BC944A600567681 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AFD1436E2BD70E7700536B96 /* Errors */,
 				AF7434D82BD68CB00050F3DF /* Schedule */,
 				AF7434D42BD67D0E0050F3DF /* Settings */,
 			);
@@ -274,6 +277,14 @@
 				AFA305C52B97AD9200759357 /* openapi.yaml */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		AFD1436E2BD70E7700536B96 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				AFD1436F2BD70E8B00536B96 /* ErrorView.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		AFE252A12B921369007E5FFF = {
@@ -430,6 +441,7 @@
 				AF5019B82BD5BEF500138496 /* SearchResultViewModel.swift in Sources */,
 				AF6DE75B2BD6F8DC00C48E86 /* DetailedTransporter.swift in Sources */,
 				AF50199F2BD58F6000138496 /* StationRowView.swift in Sources */,
+				AFD143702BD70E8B00536B96 /* ErrorView.swift in Sources */,
 				AFE252C92B99C319007E5FFF /* API_KEY.swift in Sources */,
 				AF5019982BD5832300138496 /* Station.swift in Sources */,
 				AF5019BB2BD5C01500138496 /* SearchResultView.swift in Sources */,
