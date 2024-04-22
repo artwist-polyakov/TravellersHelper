@@ -49,7 +49,7 @@ struct SearchResultView: View {
                         .padding(.bottom, 24)
                 }
             }
-        }.padding(.horizontal, 16)
+        }.padding(.horizontal, 16).navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
