@@ -158,12 +158,11 @@
 		AF7434D82BD68CB00050F3DF /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				AF7434F72BD68FDD0050F3DF /* Filter */,
 				AF7434F22BD68FA80050F3DF /* Results */,
 				AF7434EE2BD68F5D0050F3DF /* Stations */,
 				AF7434EA2BD68F190050F3DF /* Cities */,
 				AF00F01E2BC944CC00567681 /* ScheduleView.swift */,
-				AF7434CB2BD67C5B0050F3DF /* HeadersView.swift */,
-				AF7434AC2BD66E960050F3DF /* CheckboxSettingsRowView.swift */,
 			);
 			path = Schedule;
 			sourceTree = "<group>";
@@ -193,6 +192,15 @@
 				AF5019BA2BD5C01500138496 /* SearchResultView.swift */,
 			);
 			path = Results;
+			sourceTree = "<group>";
+		};
+		AF7434F72BD68FDD0050F3DF /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				AF7434CB2BD67C5B0050F3DF /* HeadersView.swift */,
+				AF7434AC2BD66E960050F3DF /* CheckboxSettingsRowView.swift */,
+			);
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		AF9AE2162BC723BB00ED667B /* Models */ = {
