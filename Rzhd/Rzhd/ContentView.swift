@@ -49,6 +49,8 @@ struct ContentView: View {
                         SearchResultView(path: $path).environmentObject(searchData)
                     case "FilterList":
                         FilterView(path: $path).environmentObject(searchData)
+                    case "DetailedTransporter":
+                        TransporterView(path: $path).environmentObject(searchData)
                     default:
                         EmptyView()
                     }

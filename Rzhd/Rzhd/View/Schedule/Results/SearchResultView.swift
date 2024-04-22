@@ -29,6 +29,9 @@ struct SearchResultView: View {
                     LazyVStack(spacing: 0) {
                         ForEach(viewModel.searchResult) { element in
                             SearchResultRowView(searchItem: element)
+                                .onTapGesture {
+                                    path.append("DetailedTransporter")
+                                }
                             
                         }
                     }
