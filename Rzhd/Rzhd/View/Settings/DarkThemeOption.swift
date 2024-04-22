@@ -20,7 +20,7 @@ struct DarkThemeOption: View {
             Toggle(isOn: $config.isDarkMode) {
             }
             .labelsHidden()
-            .tint(.searchBackground)
+            .tint(.searchBackground).padding(.trailing, 8)
         }).frame(height: 60)
     }
 }
