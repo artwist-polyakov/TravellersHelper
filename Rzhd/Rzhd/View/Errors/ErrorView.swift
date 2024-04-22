@@ -31,4 +31,5 @@ struct ErrorView: View {
 
 #Preview {
     ErrorView(error: ErrorModel.forState(.noInternet))
+//    ErrorView(error: ErrorModel.forState(.internalError))
 }
