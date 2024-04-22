@@ -9,6 +9,8 @@ import SwiftUI
 import OpenAPIURLSession
 import HTTPTypes
 
+
+// MARK: - ContentView
 struct ContentView: View {
     @StateObject var searchData = SearchData()
     @State private var selectedTab = 0
@@ -38,13 +40,17 @@ struct ContentView: View {
             }.accentColor(.black)
                 .environmentObject(searchData)
                 .navigationDestination(for: String.self) { id in
-                    if id == "CitiesList" {
+                    switch (id) {
+                    case "CitiesList":
                         CitiesView(path: $path).environmentObject(searchData)
-                        
-                    } else if id == "StationsList" {
+                    case "StationsList":
                         StationsView(path: $path).environmentObject(searchData)
-                    } else if id == "SearchResultsList" {
+                    case "SearchResultsList" :
                         SearchResultView(path: $path).environmentObject(searchData)
+                    case "FilterList":
+                        FilterView(path: $path).environmentObject(searchData)
+                    default:
+                        EmptyView()
                     }
                 }
         }
@@ -60,7 +66,7 @@ struct ContentView: View {
             //            carrier()
         }
     }
-    
+// MARK: - Search
     func search() {
         let client = Client(
             serverURL: try! Servers.server1(),
@@ -81,7 +87,7 @@ struct ContentView: View {
             }
         }
     }
-    
+// MARK: - AllStations
     func allStations() {
         
         let client = Client(
@@ -106,7 +112,7 @@ struct ContentView: View {
             }
         }
     }
-    
+// MARK: - Carrier
     func carrier() {
         let client = Client(
             serverURL: try! Servers.server1(),
