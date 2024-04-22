@@ -40,14 +40,29 @@ struct ContentView: View {
             }.accentColor(.black)
                 .environmentObject(searchData)
                 .navigationDestination(for: String.self) { id in
-                    if id == "CitiesList" {
+                    switch (id) {
+                    case "CitiesList":
                         CitiesView(path: $path).environmentObject(searchData)
-                        
-                    } else if id == "StationsList" {
+                    case "StationsList":
                         StationsView(path: $path).environmentObject(searchData)
-                    } else if id == "SearchResultsList" {
+                    case "SearchResultsList" :
                         SearchResultView(path: $path).environmentObject(searchData)
+                    case "FilterList":
+                        FilterView(path: $path).environmentObject(searchData)
+                    default:
+                        EmptyView()
                     }
+                    
+                    
+                    
+//                    if id == "CitiesList" {
+//                        CitiesView(path: $path).environmentObject(searchData)
+//
+//                    } else if id == "StationsList" {
+//                        StationsView(path: $path).environmentObject(searchData)
+//                    } else if id == "SearchResultsList" {
+//                        SearchResultView(path: $path).environmentObject(searchData)
+//                    }
                 }
         }
         

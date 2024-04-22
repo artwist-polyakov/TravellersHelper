@@ -55,7 +55,7 @@ struct FilterView: View {
         }.onAppear {
             let filterConstraints = searchData.filterConstraints
             viewModel.configureConstraints(constraints: filterConstraints)
-        }
+        }.padding(.horizontal, 16)
     }
         
 }
