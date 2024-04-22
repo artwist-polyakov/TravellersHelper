@@ -158,17 +158,25 @@
 		AF7434D82BD68CB00050F3DF /* Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				AF7434EA2BD68F190050F3DF /* Cities */,
 				AF5019BA2BD5C01500138496 /* SearchResultView.swift */,
 				AF5019AB2BD5A3B100138496 /* SearchResultRowView.swift */,
 				AF50199E2BD58F6000138496 /* StationRowView.swift */,
 				AF50199B2BD58E6F00138496 /* StationsView.swift */,
-				AF62FD4A2BCFEE62005822A0 /* CityRowView.swift */,
-				AF62FD3D2BCC8422005822A0 /* СitiesView.swift */,
 				AF00F01E2BC944CC00567681 /* ScheduleView.swift */,
 				AF7434CB2BD67C5B0050F3DF /* HeadersView.swift */,
 				AF7434AC2BD66E960050F3DF /* CheckboxSettingsRowView.swift */,
 			);
 			path = Schedule;
+			sourceTree = "<group>";
+		};
+		AF7434EA2BD68F190050F3DF /* Cities */ = {
+			isa = PBXGroup;
+			children = (
+				AF62FD3D2BCC8422005822A0 /* СitiesView.swift */,
+				AF62FD4A2BCFEE62005822A0 /* CityRowView.swift */,
+			);
+			path = Cities;
 			sourceTree = "<group>";
 		};
 		AF9AE2162BC723BB00ED667B /* Models */ = {
