@@ -34,7 +34,7 @@ struct TransporterView: View {
                 .resizable()
                 .frame(height: 104)
                 .scaledToFit()
-                .padding(.bottom, 16)
+                .padding(.vertical, 16)
             Text(viewModel.transporter.name)
                 .font(.system(size: 24)).bold()
                 .foregroundColor(.colorOnPrimary)
@@ -63,13 +63,7 @@ struct TransporterView: View {
                         openUrl(url)
                     }
                 }
-            
-            
-            
-            
-            
-            
-            
+            Spacer()
         }.padding(.horizontal, 16)
             .navigationTitle("Информация о перевозчике ").navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
