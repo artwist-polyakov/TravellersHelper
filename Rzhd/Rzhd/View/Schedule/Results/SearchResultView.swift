@@ -18,21 +18,39 @@ struct SearchResultView: View {
     var body: some View {
         ZStack (alignment: .topLeading)  {
             VStack(alignment: .leading) {
-                HStack (alignment:.top) {
-                    Text(searchData.fromText + " → " + searchData.toText).multilineTextAlignment(.leading)
-                        .font(.system(size: 24)).bold()
-                        .foregroundColor(.colorOnPrimary)
-                        .padding(.top, 16)
-                        .padding(.bottom, 8)
-                Spacer()}
-                ScrollView (showsIndicators: false) {
-                    LazyVStack(spacing: 0) {
-                        ForEach(viewModel.searchResult) { element in
-                            SearchResultRowView(searchItem: element)
-                                .onTapGesture {
-                                    path.append("DetailedTransporter")
-                                }
-                            
+                ZStack {
+                    VStack{
+                        HStack (alignment:.top) {
+                            Text(searchData.fromText + " → " + searchData.toText).multilineTextAlignment(.leading)
+                                .font(.system(size: 24)).bold()
+                                .foregroundColor(.colorOnPrimary)
+                                .padding(.top, 16)
+                                .padding(.bottom, 8)
+                            Spacer()}
+                        Spacer()
+                    }.background(.white)
+                    
+                    
+                    if viewModel.searchResult.isEmpty {
+                        VStack {
+                            Spacer()
+                            Text("Вариантов нет")
+                                .font(.system(size: 24))
+                                .bold()
+                                .frame(maxWidth: .infinity, alignment: .center)
+                            Spacer()
+                        } // VSTACK ALERT
+                        
+                    }
+                    ScrollView (showsIndicators: false) {
+                        LazyVStack(spacing: 0) {
+                            ForEach(viewModel.searchResult) { element in
+                                SearchResultRowView(searchItem: element)
+                                    .onTapGesture {
+                                        path.append("DetailedTransporter")
+                                    }
+                                
+                            }
                         }
                     }
                 }
@@ -52,30 +70,20 @@ struct SearchResultView: View {
                         .padding(.bottom, 24)
                 }
             }
-            if viewModel.searchResult.isEmpty {
-                VStack {
-                    Spacer()
-                    Text("Нет вариантов")
-                        .font(.system(size: 24))
-                        .bold()
-                        .frame(maxWidth: .infinity, alignment: .center)
-                    Spacer()
-                } // VSTACK ALERT
-                .background(.white)
-            }
+            
         }.padding(.horizontal, 16).navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    searchData.currentlySelectedTextField = .nothing
-                    self.path.removeLast()
-                }) {
-                    Image( "NavBackButton")
-                        .foregroundColor(Color.rzhdGreyBackButton)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        searchData.currentlySelectedTextField = .nothing
+                        self.path.removeLast()
+                    }) {
+                        Image( "NavBackButton")
+                            .foregroundColor(Color.rzhdGreyBackButton)
+                    }
                 }
             }
-        }
     }
 }
 
