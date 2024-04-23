@@ -95,7 +95,6 @@ struct StationsView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
-                    searchData.currentlySelectedTextField = .nothing
                     self.path.removeLast()
                 }) {
                     Image( "NavBackButton")
