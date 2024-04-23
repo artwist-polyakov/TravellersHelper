@@ -14,7 +14,7 @@ struct SearchResultRowView: View {
         let timeDelta = Int(searchItem.arrivalTime.timeIntervalSince(searchItem.departureTime)/(60*60))
         ZStack {
             Rectangle()
-                .fill(Color.greyColor)
+                .fill(Color.searchResultBackground)
                 .cornerRadius(24)
             VStack {
                 HStack {

@@ -10,7 +10,7 @@ import SwiftUI
 struct TransporterView: View {
     @EnvironmentObject var searchData: SearchData
     
-    @Binding var path: [String]
+    @Binding var path: [NavigationIdentifiers]
     
     @StateObject var viewModel = TransporterViewModel()
     
@@ -34,7 +34,8 @@ struct TransporterView: View {
                 .resizable()
                 .frame(height: 104)
                 .scaledToFit()
-                .padding(.bottom, 16)
+                .cornerRadius(24)
+                .padding(.vertical, 16)
             Text(viewModel.transporter.name)
                 .font(.system(size: 24)).bold()
                 .foregroundColor(.colorOnPrimary)
@@ -63,16 +64,11 @@ struct TransporterView: View {
                         openUrl(url)
                     }
                 }
-            
-            
-            
-            
-            
-            
-            
+            Spacer()
         }.padding(.horizontal, 16)
             .navigationTitle("Информация о перевозчике ").navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
+            .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {

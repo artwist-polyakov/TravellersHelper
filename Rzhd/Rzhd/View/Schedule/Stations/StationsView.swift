@@ -12,7 +12,7 @@ import SwiftUI
 struct StationsView: View {
     @EnvironmentObject var searchData: SearchData
     
-    @Binding var path: [String]
+    @Binding var path: [NavigationIdentifiers]
     @State private var searchText: String = ""
     @StateObject var viewModel = StationsViewModel()
     
@@ -85,16 +85,16 @@ struct StationsView: View {
                             .frame(maxWidth: .infinity, alignment: .center)
                         Spacer()
                     } // VSTACK ALERT
-                    .background(.white)
+                    .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
                 }
             }
         }.padding(.horizontal, 16)
+            .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
         .navigationTitle("Выбор станции").navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
-                    searchData.currentlySelectedTextField = .nothing
                     self.path.removeLast()
                 }) {
                     Image( "NavBackButton")

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AgreementView: View {
     
-    @Binding var path: [String]
+    @Binding var path: [NavigationIdentifiers]
     
     var body: some View {
         WebView(url: URL(string: "https://yandex.ru/legal/practicum_offer/?ysclid=lvbglg2my2169602491")!).navigationTitle("Пользовательское соглашение").navigationBarTitleDisplayMode(.inline)

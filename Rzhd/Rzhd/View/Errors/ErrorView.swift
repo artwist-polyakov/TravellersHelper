@@ -25,7 +25,8 @@ struct ErrorView: View {
                 .padding(.bottom, 8)
             
             
-        }
+        }.frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
     }
 }
 

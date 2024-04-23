@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ScheduleView: View {
     
-    @Binding var path: [String]
+    @Binding var path: [NavigationIdentifiers]
     
     @EnvironmentObject var searchData: SearchData
     
@@ -33,7 +33,7 @@ struct ScheduleView: View {
                             .multilineTextAlignment(.leading)
                             .onTapGesture {
                                 searchData.currentlySelectedTextField = .from
-                                self.path.append("CitiesList")
+                                self.path.append(.citiesList)
                                 print(path)
                             }
                         Spacer()
@@ -49,7 +49,7 @@ struct ScheduleView: View {
                             .multilineTextAlignment(.leading)
                             .onTapGesture {
                                 searchData.currentlySelectedTextField = .to
-                                self.path.append("CitiesList")
+                                self.path.append(.citiesList)
                                 print(path)
                             }
                         
@@ -82,7 +82,7 @@ struct ScheduleView: View {
                     if (searchData.cityFrom == nil || searchData.cityTo == nil) {
                         return
                     }
-                    self.path.append("SearchResultsList")
+                    self.path.append(.searchResultsList)
                 } label: {
                     Text("Найти")
                         .foregroundColor(.white)
@@ -97,7 +97,7 @@ struct ScheduleView: View {
             }
             Spacer()
             
-        }
+        }.background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
     }
 }
 

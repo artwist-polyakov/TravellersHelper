@@ -10,13 +10,23 @@ import OpenAPIURLSession
 import HTTPTypes
 
 
+enum NavigationIdentifiers: String {
+    case citiesList = "CitiesList"
+    case stationsList = "StationsList"
+    case searchResultsList = "SearchResultsList"
+    case filterList = "FilterList"
+    case detailedTransporter = "DetailedTransporter"
+    case agreement = "Agreement"
+    
+}
+
 // MARK: - ContentView
 struct ContentView: View {
     @StateObject var searchData = SearchData()
     @StateObject var themeConfig = ThemeConfig()
     
     @State private var selectedTab = 0
-    @State private var path: [String] = []
+    @State private var path: [NavigationIdentifiers] = []
     
     var body: some View {
         NavigationStack(path: $path) {
@@ -31,7 +41,7 @@ struct ContentView: View {
                             .foregroundColor(.gray).padding(.bottom, 12),
                         alignment: .bottom
                     )
-                    
+                
                     .tag(0)
                     .edgesIgnoringSafeArea(.top)
                     .toolbarBackground(Color("TabBarColor"), for: .tabBar)
@@ -52,38 +62,37 @@ struct ContentView: View {
                     .toolbarBackground(Color("TabBarColor"), for: .tabBar)
             }.accentColor(.colorOnPrimary)
                 .environmentObject(searchData)
-                .navigationDestination(for: String.self) { id in
+                .navigationDestination(for: NavigationIdentifiers.self) { id in
                     switch (id) {
-                    case "CitiesList":
+                    case .citiesList:
                         CitiesView(path: $path).environmentObject(searchData)
-                    case "StationsList":
+                    case .stationsList:
                         StationsView(path: $path).environmentObject(searchData)
-                    case "SearchResultsList" :
+                    case .searchResultsList:
                         SearchResultView(path: $path).environmentObject(searchData)
-                    case "FilterList":
+                    case .filterList:
                         FilterView(path: $path).environmentObject(searchData)
-                    case "DetailedTransporter":
+                    case .detailedTransporter:
                         TransporterView(path: $path).environmentObject(searchData)
-                        case "Agreement":
+                    case .agreement:
                         AgreementView(path:$path)
-                    default:
-                        EmptyView()
                     }
                 }
         }.preferredColorScheme(themeConfig.isDarkMode ? .dark : .light)
+            .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
         
-        .onAppear {
-            //                    UITabBar.appearance().barTintColor = .white
-            //            copyright()
-            //            search()
-            //            allStations ()
-            //            stations()
-            //            thread()
-            //            settlement()
-            //            carrier()
-        }
+            .onAppear {
+                //                    UITabBar.appearance().barTintColor = .white
+                //            copyright()
+                //            search()
+                //            allStations ()
+                //            stations()
+                //            thread()
+                //            settlement()
+                //            carrier()
+            }
     }
-// MARK: - Search
+    // MARK: - Search
     func search() {
         let client = Client(
             serverURL: try! Servers.server1(),
@@ -104,7 +113,7 @@ struct ContentView: View {
             }
         }
     }
-// MARK: - AllStations
+    // MARK: - AllStations
     func allStations() {
         
         let client = Client(
@@ -129,7 +138,7 @@ struct ContentView: View {
             }
         }
     }
-// MARK: - Carrier
+    // MARK: - Carrier
     func carrier() {
         let client = Client(
             serverURL: try! Servers.server1(),

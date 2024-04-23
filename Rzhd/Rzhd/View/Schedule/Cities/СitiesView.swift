@@ -10,7 +10,7 @@ import SwiftUI
 struct CitiesView: View {
     @EnvironmentObject var searchData: SearchData
     
-    @Binding var path: [String]
+    @Binding var path: [NavigationIdentifiers]
     @State private var searchText: String = ""
     @StateObject var viewModel = CitiesViewModel()
     
@@ -26,7 +26,7 @@ struct CitiesView: View {
         case .nothing:
             break
         }
-        self.path.append("StationsList")
+        self.path.append(.stationsList)
     }
     
     var body: some View {
@@ -81,10 +81,11 @@ struct CitiesView: View {
                             .frame(maxWidth: .infinity, alignment: .center)
                         Spacer()
                     } // VSTACK ALERT
-                    .background(.white)
+                    .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
                 }
             }
         }.padding(.horizontal, 16)
+            .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
         .navigationTitle("Выбор города").navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {

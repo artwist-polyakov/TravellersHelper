@@ -11,71 +11,91 @@ struct SearchResultView: View {
     
     @EnvironmentObject var searchData: SearchData
     
-    @Binding var path: [String]
+    @Binding var path: [NavigationIdentifiers]
     
     @StateObject var viewModel = SearchResultViewModel()
     
     var body: some View {
         ZStack (alignment: .topLeading)  {
             VStack(alignment: .leading) {
-                HStack (alignment:.top) {
-                    Text(searchData.fromText + " → " + searchData.toText).multilineTextAlignment(.leading)
-                        .font(.system(size: 24)).bold()
-                        .foregroundColor(.colorOnPrimary)
-                        .padding(.top, 16)
-                        .padding(.bottom, 8)
-                Spacer()}
+                ZStack {
+                    VStack{
+                        HStack (alignment:.top) {
+                            Text(searchData.fromText + " → " + searchData.toText).multilineTextAlignment(.leading)
+                                .font(.system(size: 24)).bold()
+                                .foregroundColor(.colorOnPrimary)
+                                .padding(.top, 16)
+                                .padding(.bottom, 8)
+                            Spacer()}
+                        if viewModel.searchResult.isEmpty {
+                            Spacer()}
+                    }.background(Color.colorPrimary)
+                    
+                }
+                if viewModel.searchResult.isEmpty {
+                    VStack {
+                        Spacer()
+                        Text("Вариантов нет")
+                            .font(.system(size: 24))
+                            .bold()
+                            .frame(maxWidth: .infinity, alignment: .center)
+                        Spacer()
+                    } // VSTACK ALERT
+                    
+                }
                 ScrollView (showsIndicators: false) {
                     LazyVStack(spacing: 0) {
                         ForEach(viewModel.searchResult) { element in
                             SearchResultRowView(searchItem: element)
                                 .onTapGesture {
-                                    path.append("DetailedTransporter")
+                                    path.append(.detailedTransporter)
                                 }
                             
                         }
                     }
+                    
                 }
             }
             VStack {
                 Spacer()
                 Button(action: {
-                    self.path.append("FilterList")
+                    self.path.append(.filterList)
                 }) {
-                    Text("Уточнить время")
-                        .foregroundColor(.white)
-                        .font(.system(size: 17)).bold()
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 60)
-                        .background(.blue)
-                        .cornerRadius(16)
-                        .padding(.bottom, 24)
+                    HStack (alignment: .center)  {
+                        Text("Уточнить время")
+                            .foregroundColor(.white)
+                            .font(.system(size: 17)).bold()
+                    }
+                    if !searchData.filterConstraints.isDefault(){
+                        VStack {
+                            Spacer()
+                            Circle()
+                                .frame(width: 8, height: 8)
+                                .foregroundColor(.redUniversal)
+                            Spacer()
+                        }}
+                }.frame(maxWidth: .infinity)
+                    .frame(height: 60)
+                    .background(.blue)
+                    .cornerRadius(16)
+                    .padding(.bottom, 24)
+            }
+            
+        }.padding(.horizontal, 16)
+            .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
+        .navigationBarTitleDisplayMode(.inline)
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        searchData.currentlySelectedTextField = .nothing
+                        self.path.removeLast()
+                    }) {
+                        Image( "NavBackButton")
+                            .foregroundColor(Color.rzhdGreyBackButton)
+                    }
                 }
             }
-            if viewModel.searchResult.isEmpty {
-                VStack {
-                    Spacer()
-                    Text("Нет вариантов")
-                        .font(.system(size: 24))
-                        .bold()
-                        .frame(maxWidth: .infinity, alignment: .center)
-                    Spacer()
-                } // VSTACK ALERT
-                .background(.white)
-            }
-        }.padding(.horizontal, 16).navigationBarTitleDisplayMode(.inline)
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
-                Button(action: {
-                    searchData.currentlySelectedTextField = .nothing
-                    self.path.removeLast()
-                }) {
-                    Image( "NavBackButton")
-                        .foregroundColor(Color.rzhdGreyBackButton)
-                }
-            }
-        }
     }
 }
 
