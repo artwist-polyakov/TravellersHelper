@@ -9,27 +9,90 @@ import SwiftUI
 import OpenAPIURLSession
 import HTTPTypes
 
-struct ContentView: View {
-    var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-        }
-        .padding()
-        
-        .onAppear {
-//            copyright()
-//            search()
-            allStations ()
-//            stations()
-//            thread()
-//            settlement()
-//            carrier()
-        }
-    }
+
+enum NavigationIdentifiers: String {
+    case citiesList = "CitiesList"
+    case stationsList = "StationsList"
+    case searchResultsList = "SearchResultsList"
+    case filterList = "FilterList"
+    case detailedTransporter = "DetailedTransporter"
+    case agreement = "Agreement"
     
+}
+
+// MARK: - ContentView
+struct ContentView: View {
+    @StateObject var searchData = SearchData()
+    @StateObject var themeConfig = ThemeConfig()
+    
+    @State private var selectedTab = 0
+    @State private var path: [NavigationIdentifiers] = []
+    
+    var body: some View {
+        NavigationStack(path: $path) {
+            TabView(selection: $selectedTab) {
+                ScheduleView(path: $path).environmentObject(searchData)
+                    .tabItem {
+                        Image("ScheduleIcon")
+                            .renderingMode(.template)
+                    }.overlay(
+                        Rectangle()
+                            .frame(height: 1)
+                            .foregroundColor(.gray).padding(.bottom, 12),
+                        alignment: .bottom
+                    )
+                
+                    .tag(0)
+                    .edgesIgnoringSafeArea(.top)
+                    .toolbarBackground(Color("TabBarColor"), for: .tabBar)
+                SettingsView(path: $path).environmentObject(themeConfig)
+                    .tabItem {
+                        Image("SettingsIcon")
+                            .renderingMode(.template)
+                    }  .overlay(
+                        Rectangle()
+                            .frame(height: 1)
+                            .foregroundColor(.gray).padding(.bottom, 12),
+                        alignment: .bottom
+                        
+                    )
+                
+                    .tag(0)
+                    .edgesIgnoringSafeArea(.top)
+                    .toolbarBackground(Color("TabBarColor"), for: .tabBar)
+            }.accentColor(.colorOnPrimary)
+                .environmentObject(searchData)
+                .navigationDestination(for: NavigationIdentifiers.self) { id in
+                    switch (id) {
+                    case .citiesList:
+                        CitiesView(path: $path).environmentObject(searchData)
+                    case .stationsList:
+                        StationsView(path: $path).environmentObject(searchData)
+                    case .searchResultsList:
+                        SearchResultView(path: $path).environmentObject(searchData)
+                    case .filterList:
+                        FilterView(path: $path).environmentObject(searchData)
+                    case .detailedTransporter:
+                        TransporterView(path: $path).environmentObject(searchData)
+                    case .agreement:
+                        AgreementView(path:$path)
+                    }
+                }
+        }.preferredColorScheme(themeConfig.isDarkMode ? .dark : .light)
+            .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
+        
+            .onAppear {
+                //                    UITabBar.appearance().barTintColor = .white
+                //            copyright()
+                //            search()
+                //            allStations ()
+                //            stations()
+                //            thread()
+                //            settlement()
+                //            carrier()
+            }
+    }
+    // MARK: - Search
     func search() {
         let client = Client(
             serverURL: try! Servers.server1(),
@@ -50,7 +113,7 @@ struct ContentView: View {
             }
         }
     }
-    
+    // MARK: - AllStations
     func allStations() {
         
         let client = Client(
@@ -75,7 +138,7 @@ struct ContentView: View {
             }
         }
     }
-    
+    // MARK: - Carrier
     func carrier() {
         let client = Client(
             serverURL: try! Servers.server1(),
@@ -189,3 +252,4 @@ struct ContentView: View {
 #Preview {
     ContentView()
 }
+
