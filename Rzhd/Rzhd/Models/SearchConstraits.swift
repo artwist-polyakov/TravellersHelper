@@ -13,4 +13,14 @@ struct SearchConstraits {
     var includingDay: Bool = true
     var includingEvening: Bool = true
     var includingWithTransfer: Bool = true
+    
+    
+    func isDefault() -> Bool {
+        return includingNight &&
+        includingMorning &&
+        includingDay &&
+        includingEvening &&
+        includingWithTransfer
+    }
+    
 }

@@ -61,15 +61,24 @@ struct SearchResultView: View {
                 Button(action: {
                     self.path.append("FilterList")
                 }) {
-                    Text("Уточнить время")
-                        .foregroundColor(.white)
-                        .font(.system(size: 17)).bold()
-                        .frame(maxWidth: .infinity)
-                        .frame(height: 60)
-                        .background(.blue)
-                        .cornerRadius(16)
-                        .padding(.bottom, 24)
-                }
+                    HStack (alignment: .center)  {
+                        Text("Уточнить время")
+                            .foregroundColor(.white)
+                            .font(.system(size: 17)).bold()
+                    }
+                    if !searchData.filterConstraints.isDefault(){
+                        VStack {
+                            Spacer()
+                            Circle()
+                                .frame(width: 8, height: 8)
+                                .foregroundColor(.redUniversal)
+                            Spacer()
+                        }}
+                }.frame(maxWidth: .infinity)
+                    .frame(height: 60)
+                    .background(.blue)
+                    .cornerRadius(16)
+                    .padding(.bottom, 24)
             }
             
         }.padding(.horizontal, 16).navigationBarTitleDisplayMode(.inline)

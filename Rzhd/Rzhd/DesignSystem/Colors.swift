@@ -48,8 +48,6 @@ extension Color {
     static let greyUniversal = Color(uiColor: UIColor(named: "RZHDGrayUniversal") ?? UIColor.gray)
     static let blackUniversal = Color(uiColor: UIColor(named: "RZHDBlackUniversal") ?? UIColor.black)
     static let colorOnPrimary = Color(uiColor: UIColor(named: "RZHDGreyBackButton") ?? UIColor.black)
-    static let ypBlue = UIColor(named: "blue") ?? UIColor.blue
-    static let ypBlackUniversal = UIColor(named: "blackUniversal") ?? UIColor.blue
-    static let ypWhiteUniversal = UIColor(named: "whiteUniversal") ?? UIColor.white
-    static let ypYellow = UIColor(named: "yellow") ?? UIColor.yellow
+    static let redUniversal = Color(uiColor: UIColor(named: "RZHDRedUniversal") ?? UIColor.red)
+
 }
