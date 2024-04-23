@@ -27,32 +27,33 @@ struct SearchResultView: View {
                                 .padding(.top, 16)
                                 .padding(.bottom, 8)
                             Spacer()}
-                        Spacer()
+                        if viewModel.searchResult.isEmpty {
+                            Spacer()}
                     }.background(.white)
                     
+                }
+                if viewModel.searchResult.isEmpty {
+                    VStack {
+                        Spacer()
+                        Text("Вариантов нет")
+                            .font(.system(size: 24))
+                            .bold()
+                            .frame(maxWidth: .infinity, alignment: .center)
+                        Spacer()
+                    } // VSTACK ALERT
                     
-                    if viewModel.searchResult.isEmpty {
-                        VStack {
-                            Spacer()
-                            Text("Вариантов нет")
-                                .font(.system(size: 24))
-                                .bold()
-                                .frame(maxWidth: .infinity, alignment: .center)
-                            Spacer()
-                        } // VSTACK ALERT
-                        
-                    }
-                    ScrollView (showsIndicators: false) {
-                        LazyVStack(spacing: 0) {
-                            ForEach(viewModel.searchResult) { element in
-                                SearchResultRowView(searchItem: element)
-                                    .onTapGesture {
-                                        path.append("DetailedTransporter")
-                                    }
-                                
-                            }
+                }
+                ScrollView (showsIndicators: false) {
+                    LazyVStack(spacing: 0) {
+                        ForEach(viewModel.searchResult) { element in
+                            SearchResultRowView(searchItem: element)
+                                .onTapGesture {
+                                    path.append("DetailedTransporter")
+                                }
+                            
                         }
                     }
+                    
                 }
             }
             VStack {
