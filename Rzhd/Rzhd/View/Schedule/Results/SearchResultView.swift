@@ -34,7 +34,6 @@ struct SearchResultView: View {
                 }
                 if viewModel.searchResult.isEmpty {
                     VStack {
-                        Spacer()
                         Text("Вариантов нет")
                             .font(.system(size: 24))
                             .bold()
@@ -42,19 +41,19 @@ struct SearchResultView: View {
                         Spacer()
                     } // VSTACK ALERT
                     
-                }
-                ScrollView (showsIndicators: false) {
-                    LazyVStack(spacing: 0) {
-                        ForEach(viewModel.searchResult) { element in
-                            SearchResultRowView(searchItem: element)
-                                .onTapGesture {
-                                    path.append(.detailedTransporter)
-                                }
-                            
+                } else {
+                    ScrollView (showsIndicators: false) {
+                        LazyVStack(spacing: 0) {
+                            ForEach(viewModel.searchResult) { element in
+                                SearchResultRowView(searchItem: element)
+                                    .onTapGesture {
+                                        path.append(.detailedTransporter)
+                                    }
+                                
+                            }
                         }
-                    }
-                    
-                }
+                        
+                    }}
             }
             VStack {
                 Spacer()
@@ -83,7 +82,7 @@ struct SearchResultView: View {
             
         }.padding(.horizontal, 16)
             .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
-        .navigationBarTitleDisplayMode(.inline)
+            .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
