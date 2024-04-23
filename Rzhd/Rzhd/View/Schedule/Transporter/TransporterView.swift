@@ -10,7 +10,7 @@ import SwiftUI
 struct TransporterView: View {
     @EnvironmentObject var searchData: SearchData
     
-    @Binding var path: [String]
+    @Binding var path: [NavigationIdentifiers]
     
     @StateObject var viewModel = TransporterViewModel()
     

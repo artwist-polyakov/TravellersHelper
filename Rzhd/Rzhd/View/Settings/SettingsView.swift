@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @Binding var path: [String]
+    @Binding var path: [NavigationIdentifiers]
     @EnvironmentObject var config: ThemeConfig
     
     var body: some View {
@@ -19,7 +19,7 @@ struct SettingsView: View {
                     DarkThemeOption().environmentObject(config)
                     AgreementOption()
                         .onTapGesture {
-                            path.append("Agreement")
+                            path.append(.agreement)
                         }
                 }
             }

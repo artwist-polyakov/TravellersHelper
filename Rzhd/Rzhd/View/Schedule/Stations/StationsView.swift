@@ -12,7 +12,7 @@ import SwiftUI
 struct StationsView: View {
     @EnvironmentObject var searchData: SearchData
     
-    @Binding var path: [String]
+    @Binding var path: [NavigationIdentifiers]
     @State private var searchText: String = ""
     @StateObject var viewModel = StationsViewModel()
     

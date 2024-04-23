@@ -10,7 +10,7 @@ import SwiftUI
 struct FilterView: View {
     @EnvironmentObject var searchData: SearchData
     
-    @Binding var path: [String]
+    @Binding var path: [NavigationIdentifiers]
     @ObservedObject var viewModel = FilterViewModel()
     
     var body: some View {

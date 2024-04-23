@@ -11,7 +11,7 @@ struct SearchResultView: View {
     
     @EnvironmentObject var searchData: SearchData
     
-    @Binding var path: [String]
+    @Binding var path: [NavigationIdentifiers]
     
     @StateObject var viewModel = SearchResultViewModel()
     
@@ -48,7 +48,7 @@ struct SearchResultView: View {
                         ForEach(viewModel.searchResult) { element in
                             SearchResultRowView(searchItem: element)
                                 .onTapGesture {
-                                    path.append("DetailedTransporter")
+                                    path.append(.detailedTransporter)
                                 }
                             
                         }
@@ -59,7 +59,7 @@ struct SearchResultView: View {
             VStack {
                 Spacer()
                 Button(action: {
-                    self.path.append("FilterList")
+                    self.path.append(.filterList)
                 }) {
                     HStack (alignment: .center)  {
                         Text("Уточнить время")
