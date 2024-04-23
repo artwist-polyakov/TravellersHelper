@@ -68,6 +68,7 @@ struct TransporterView: View {
         }.padding(.horizontal, 16)
             .navigationTitle("Информация о перевозчике ").navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
+            .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {

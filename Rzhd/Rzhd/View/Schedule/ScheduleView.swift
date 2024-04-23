@@ -97,7 +97,7 @@ struct ScheduleView: View {
             }
             Spacer()
             
-        }
+        }.background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
     }
 }
 

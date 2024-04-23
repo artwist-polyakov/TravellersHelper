@@ -56,8 +56,9 @@ struct FilterView: View {
             let filterConstraints = searchData.filterConstraints
             viewModel.configureConstraints(constraints: filterConstraints)
         }
+        
         .padding(.horizontal, 16)
-        .navigationBarBackButtonHidden(true)
+        .navigationBarBackButtonHidden(true).background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {

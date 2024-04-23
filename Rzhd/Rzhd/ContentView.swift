@@ -71,6 +71,7 @@ struct ContentView: View {
                     }
                 }
         }.preferredColorScheme(themeConfig.isDarkMode ? .dark : .light)
+            .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
         
         .onAppear {
             //                    UITabBar.appearance().barTintColor = .white

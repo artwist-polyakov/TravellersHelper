@@ -31,6 +31,7 @@ struct SettingsView: View {
                     .padding(.bottom, 24)
             }
         }.padding(.horizontal, 16).padding(.top, 68)
+            .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
     }
 }
 

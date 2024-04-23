@@ -81,10 +81,11 @@ struct CitiesView: View {
                             .frame(maxWidth: .infinity, alignment: .center)
                         Spacer()
                     } // VSTACK ALERT
-                    .background(.white)
+                    .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
                 }
             }
         }.padding(.horizontal, 16)
+            .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
         .navigationTitle("Выбор города").navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {

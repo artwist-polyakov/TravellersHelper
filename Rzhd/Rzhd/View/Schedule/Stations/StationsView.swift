@@ -85,10 +85,11 @@ struct StationsView: View {
                             .frame(maxWidth: .infinity, alignment: .center)
                         Spacer()
                     } // VSTACK ALERT
-                    .background(.white)
+                    .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
                 }
             }
         }.padding(.horizontal, 16)
+            .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
         .navigationTitle("Выбор станции").navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
         .toolbar {

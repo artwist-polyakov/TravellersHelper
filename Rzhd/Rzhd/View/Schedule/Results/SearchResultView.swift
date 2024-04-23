@@ -29,7 +29,7 @@ struct SearchResultView: View {
                             Spacer()}
                         if viewModel.searchResult.isEmpty {
                             Spacer()}
-                    }.background(.white)
+                    }.background(Color.colorPrimary)
                     
                 }
                 if viewModel.searchResult.isEmpty {
@@ -81,7 +81,9 @@ struct SearchResultView: View {
                     .padding(.bottom, 24)
             }
             
-        }.padding(.horizontal, 16).navigationBarTitleDisplayMode(.inline)
+        }.padding(.horizontal, 16)
+            .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
+        .navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {

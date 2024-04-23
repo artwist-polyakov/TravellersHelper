@@ -38,16 +38,16 @@ extension Color {
     }
 
     // Colors with dark mode
-    static let ypBlackWithDarkMode = UIColor(named: "blackWithDarkMode") ?? UIColor.black
+//    static let colorPrimary = UIColor(named: "RZHDBackground") ?? UIColor.white
     static let ypWhiteWithDarkMode = UIColor(named: "whiteWithDarkMode") ?? UIColor.white
-    static let ypLightGreyWithDarkMode = UIColor(named: "lightGreyWithDarkMode") ?? UIColor.lightGray
+    static let searchResultBackground = Color(uiColor: UIColor(named: "RZHDSearchResultbackground") ?? UIColor.lightGray)
 
-    // Universal colors
     static let searchBackground = Color(uiColor: UIColor(named: "SearchFieldBackground") ?? UIColor.systemGray6)
     static let greyColor =  Color(uiColor: UIColor(named: "RZHDGray") ?? UIColor.systemGray6)
     static let greyUniversal = Color(uiColor: UIColor(named: "RZHDGrayUniversal") ?? UIColor.gray)
     static let blackUniversal = Color(uiColor: UIColor(named: "RZHDBlackUniversal") ?? UIColor.black)
     static let colorOnPrimary = Color(uiColor: UIColor(named: "RZHDGreyBackButton") ?? UIColor.black)
     static let redUniversal = Color(uiColor: UIColor(named: "RZHDRedUniversal") ?? UIColor.red)
+    static let colorPrimary = Color(uiColor: UIColor(named: "RZHDBackground") ?? UIColor.white)
 
 }
