@@ -34,6 +34,7 @@ struct TransporterView: View {
                 .resizable()
                 .frame(height: 104)
                 .scaledToFit()
+                .cornerRadius(24)
                 .padding(.vertical, 16)
             Text(viewModel.transporter.name)
                 .font(.system(size: 24)).bold()
