@@ -17,10 +17,10 @@ final class SearchResultViewModel: ObservableObject {
     
     private func getSearchResult() -> [SearchResult] {
         var result: [SearchResult] = []
-        result.reserveCapacity(1000)
-        for _ in 0...999 {
-            result.append(SearchResult.generateRandom())
-        }
+//        result.reserveCapacity(1000)
+//        for _ in 0...999 {
+//            result.append(SearchResult.generateRandom())
+//        }
         return result
     }
     
