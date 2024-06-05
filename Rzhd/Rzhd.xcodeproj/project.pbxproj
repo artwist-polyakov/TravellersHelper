@@ -21,6 +21,7 @@
 		AF5019B52BD5B91D00138496 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = AF5019B32BD5B91D00138496 /* Localizable.stringsdict */; };
 		AF5019B82BD5BEF500138496 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019B72BD5BEF500138496 /* SearchResultViewModel.swift */; };
 		AF5019BB2BD5C01500138496 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019BA2BD5C01500138496 /* SearchResultView.swift */; };
+		AF5C58112C10F66000408275 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5C58102C10F66000408275 /* Story.swift */; };
 		AF62FD3E2BCC8422005822A0 /* СitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD3D2BCC8422005822A0 /* СitiesView.swift */; };
 		AF62FD462BCFE8B0005822A0 /* CitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD452BCFE8B0005822A0 /* CitiesViewModel.swift */; };
 		AF62FD492BCFE8F6005822A0 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD482BCFE8F6005822A0 /* City.swift */; };
@@ -80,6 +81,7 @@
 		AF5019B62BD5B94B00138496 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = Rzhd/DesignSystem/ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		AF5019B72BD5BEF500138496 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
 		AF5019BA2BD5C01500138496 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		AF5C58102C10F66000408275 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		AF62FD3D2BCC8422005822A0 /* СitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СitiesView.swift"; sourceTree = "<group>"; };
 		AF62FD452BCFE8B0005822A0 /* CitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewModel.swift; sourceTree = "<group>"; };
 		AF62FD482BCFE8F6005822A0 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
@@ -260,6 +262,7 @@
 				AF6DE75A2BD6F8DC00C48E86 /* DetailedTransporter.swift */,
 				AF6DE7632BD7035E00C48E86 /* ThemeConfig.swift */,
 				AFDC48042BD7101000DA3D3B /* ErrorModel.swift */,
+				AF5C58102C10F66000408275 /* Story.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -432,6 +435,7 @@
 				AF7434AF2BD66EC70050F3DF /* SelectionModel.swift in Sources */,
 				AFA305DB2B98F53400759357 /* Routes.swift in Sources */,
 				AF00F0272BC956F600567681 /* Colors.swift in Sources */,
+				AF5C58112C10F66000408275 /* Story.swift in Sources */,
 				AFE252C62B99BF2E007E5FFF /* StationList.swift in Sources */,
 				AFE252B02B921369007E5FFF /* ContentView.swift in Sources */,
 				AF00F01F2BC944CC00567681 /* ScheduleView.swift in Sources */,
