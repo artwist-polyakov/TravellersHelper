@@ -13,9 +13,24 @@ struct ScheduleView: View {
     
     @EnvironmentObject var searchData: SearchData
     
+    var stories: [Story] = Story.stories
+    
     var body: some View {
         VStack {
             Spacer()
+            ScrollView (.horizontal, showsIndicators: false) {
+                LazyHStack {
+                    ForEach(stories) { story in
+                        StoryPreview(story: story)
+                        //                        .onTapGesture {
+                        //                            path.append(.story)
+                        //                        }
+                    }
+                }}
+            .frame(height: 140)
+            .padding(.horizontal, 16)
+            .padding(.bottom, 24)
+            
             ZStack(alignment: .top) {
                 Rectangle()
                     .fill(Color.searchBackground)
