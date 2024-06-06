@@ -16,8 +16,8 @@ struct Story {
     let description: String?
     var isViewed: Bool = false
     
-    static let story1 = Story(id: 1, backgroundImageUri: "StoryBg1", backgroundPreviewUri: "StoryPr1", backgroundColor: .redUniversal, title: "Как пользоваться приложением?", description: "В этом руководстве вы узнаете как пользоваться приложением и какие возможности оно предоставляет.")
-    static let story2 = Story(id: 2, backgroundImageUri: "StoryBg3", backgroundPreviewUri: "StoryPr2", backgroundColor: .redUniversal, title: "Как пользоваться поиском?", description: "В этом руководстве вы узнаете как пользоваться поиском и какие возможности он предоставляют.")
+    static let story1 = Story(id: 1, backgroundImageUri: "StoryBg1", backgroundPreviewUri: "StoryPr1", backgroundColor: .redUniversal, title: "Как пользоваться приложением?", description: "В этом руководстве вы узнаете как пользоваться приложением и какие возможности оно предоставляет.", isViewed: true)
+    static let story2 = Story(id: 2, backgroundImageUri: "StoryBg3", backgroundPreviewUri: nil, backgroundColor: .redUniversal, title: "Как пользоваться поиском?", description: "В этом руководстве вы узнаете как пользоваться поиском и какие возможности он предоставляют.")
     static let story3 = Story(id: 3, backgroundImageUri: "StoryBg5", backgroundPreviewUri: "StoryPr3", backgroundColor: .redUniversal, title: "Как пользоваться фильтром?", description: "В этом руководстве вы узнаете как пользоваться фильтром и какие возможности он предоставляет.")
     static let story4 = Story(id: 4, backgroundImageUri: "StoryBg7", backgroundPreviewUri: "StoryPr4", backgroundColor: .redUniversal, title: "Как пользоваться картой?", description: "В этом руководстве вы узнаете как пользоваться картой и какие возможности она предоставляет.")
     static let story5 = Story(id: 5, backgroundImageUri: "StoryBg9", backgroundPreviewUri: "StoryPr5", backgroundColor: .redUniversal, title: "Как пользоваться профилем?", description: "В этом руководстве вы узнаете как пользоваться профилем и какие возможности он предоставляет.")
