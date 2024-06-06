@@ -36,7 +36,25 @@ struct StoryPreview: View {
                         RoundedRectangle(cornerRadius: cornerRadius)
                             .strokeBorder( story.isViewed ? .clear : .blueUniversal, lineWidth: lineWidth))
             }
-        }
+            VStack  {
+                Spacer()
+                Text(story.title)
+                    .font(.system(size: 12))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 8)
+//                    .lineLimit(2)
+                
+                Text(story.description ?? "")
+                    .font(.system(size: 12))
+                    .foregroundColor(.white)
+                    .padding(.horizontal, 8)
+                    .padding(.bottom, 12)
+                    .lineLimit(1)
+            
+                
+                
+            }
+        }.frame(width: frameWidth, height: frameHeight)
         
     }
 }
