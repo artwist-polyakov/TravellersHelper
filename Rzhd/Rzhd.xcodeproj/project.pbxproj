@@ -47,6 +47,7 @@
 		AFA305D42B97B17A00759357 /* openapi-generator-config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = AFA305D32B97B17A00759357 /* openapi-generator-config.yaml */; };
 		AFA305DB2B98F53400759357 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA305DA2B98F53400759357 /* Routes.swift */; };
 		AFA305DF2B99025B00759357 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA305DE2B99025B00759357 /* Schedule.swift */; };
+		AFB373E42C123AFA004BB30C /* StoryPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB373E32C123AFA004BB30C /* StoryPreview.swift */; };
 		AFD1436A2BD709ED00536B96 /* AgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD143692BD709ED00536B96 /* AgreementView.swift */; };
 		AFD1436C2BD70B1600536B96 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD1436B2BD70B1600536B96 /* WebView.swift */; };
 		AFD143702BD70E8B00536B96 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD1436F2BD70E8B00536B96 /* ErrorView.swift */; };
@@ -103,6 +104,7 @@
 		AFA305D32B97B17A00759357 /* openapi-generator-config.yaml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
 		AFA305DA2B98F53400759357 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		AFA305DE2B99025B00759357 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
+		AFB373E32C123AFA004BB30C /* StoryPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPreview.swift; sourceTree = "<group>"; };
 		AFD143692BD709ED00536B96 /* AgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementView.swift; sourceTree = "<group>"; };
 		AFD1436B2BD70B1600536B96 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		AFD1436F2BD70E8B00536B96 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 		AF00F01D2BC944A600567681 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AFB373E22C123ACD004BB30C /* Stories */,
 				AFD1436E2BD70E7700536B96 /* Errors */,
 				AF7434D82BD68CB00050F3DF /* Schedule */,
 				AF7434D42BD67D0E0050F3DF /* Settings */,
@@ -285,6 +288,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
+		AFB373E22C123ACD004BB30C /* Stories */ = {
+			isa = PBXGroup;
+			children = (
+				AFB373E32C123AFA004BB30C /* StoryPreview.swift */,
+			);
+			path = Stories;
+			sourceTree = "<group>";
+		};
 		AFD1436E2BD70E7700536B96 /* Errors */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFB373E42C123AFA004BB30C /* StoryPreview.swift in Sources */,
 				AFE976AD2BD6C348003720BE /* FilterViewModel.swift in Sources */,
 				AF5019A82BD5A22200138496 /* Image+ext.swift in Sources */,
 				AF7434AD2BD66E960050F3DF /* CheckboxSettingsRowView.swift in Sources */,
