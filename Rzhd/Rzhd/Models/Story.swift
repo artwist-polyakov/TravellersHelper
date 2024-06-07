@@ -16,7 +16,7 @@ struct Story : Hashable, Identifiable {
     var isViewed: Bool = false
     
     static let story11 = Story(backgroundImageUri: "StoryBg1", backgroundColor: .redUniversal, title: "Как пользоваться приложением?", description: "В этом руководстве вы узнаете как пользоваться приложением и какие возможности оно предоставляет.", isViewed: true)
-    static let story12 = Story(backgroundImageUri: "StoryBg2", backgroundColor: .redUniversal, title: "Как на надо пользоваться приложением?", description: "В этом руководстве вы узнаете как не надо пользоваться приложением и какие возможности оно предоставляет.")
+    static let story12 = Story(backgroundImageUri: nil, backgroundColor: .redUniversal, title: "Как на надо пользоваться приложением?", description: "В этом руководстве вы узнаете как не надо пользоваться приложением и какие возможности оно предоставляет.")
     static let stories1 = [story11, story12]
     static let story21 = Story(backgroundImageUri: "StoryBg3", backgroundColor: .redUniversal, title: "Как пользоваться поиском?", description: "В этом руководстве вы узнаете как пользоваться поиском и какие возможности он предоставляют.")
     static let story22 = Story(backgroundImageUri: "StoryBg4", backgroundColor: .redUniversal, title: "Как на надо искать", description: "В этом руководстве вы узнаете как не надо пользоваться поиском и какие возможности он предоставляет.")
