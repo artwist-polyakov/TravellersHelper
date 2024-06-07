@@ -18,7 +18,7 @@ struct StoriesPack : Hashable, Identifiable {
     var isViewed: Bool = false
     var resumeFrom: Int = 0
     
-    static let storiesPack1 = StoriesPack(backgroundPreviewUri: "StoryPr1", backgroundColor: .redUniversal, title: "Как пользоваться приложением?", description: "В этом руководстве вы узнаете как пользоваться приложением и какие возможности оно предоставляет.", content: Story.stories1, isViewed: false)
+    static let storiesPack1 = StoriesPack(backgroundPreviewUri: "StoryPr1", backgroundColor: .redUniversal, title: "Как пользоваться приложением?", description: "В этом руководстве вы узнаете как пользоваться приложением и какие возможности оно предоставляет.", content: Story.stories1, isViewed: true)
     static let storiesPack2 = StoriesPack(backgroundPreviewUri: nil, backgroundColor: .redUniversal, title: "Как пользоваться поиском?", description: "В этом руководстве вы узнаете как пользоваться поиском и какие возможности он предоставляет.", content: Story.stories2)
     static let storiesPack3 = StoriesPack(backgroundPreviewUri: "StoryPr3", backgroundColor: .redUniversal, title: "Как пользоваться фильтром?", description: "В этом руководстве вы узнаете как пользоваться фильтром и какие возможности он предоставляет.", content: Story.stories3)
     static let storiesPack4 = StoriesPack(backgroundPreviewUri: "StoryPr4", backgroundColor: .redUniversal, title: "Как пользоваться картой?", description: "В этом руководстве вы узнаете как пользоваться картой и какие возможности она предоставляет.", content: Story.stories4)
