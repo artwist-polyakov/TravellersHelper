@@ -13,7 +13,7 @@ struct ScheduleView: View {
     
     @EnvironmentObject var searchData: SearchData
     
-    var stories: [Story] = Story.stories
+    var stories: [StoriesPack] = StoriesPack.stories
     
     var body: some View {
         VStack {

@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct StoryPreview: View {
-    var story: Story
+    var story: StoriesPack
     let frameWidth: CGFloat = 92
     let frameHeight: CGFloat = 140
     let cornerRadius: CGFloat = 16
@@ -60,5 +60,5 @@ struct StoryPreview: View {
 }
 
 #Preview {
-    StoryPreview(story: .story2 )
+    StoryPreview(story: .storiesPack1 )
 }
