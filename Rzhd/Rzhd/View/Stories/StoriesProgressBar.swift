@@ -10,16 +10,16 @@ import Combine
 
 struct StoriesProgressBar: View {
     let storiesCount: Int
-    let timerConfiguration: TimerConfiguration
+    @Binding var timerConfiguration: TimerConfiguration
     @Binding var currentProgress: CGFloat
     @State private var timer: Timer.TimerPublisher
     @State private var cancellable: Cancellable?
 
-    init(storiesCount: Int, timerConfiguration: TimerConfiguration, currentProgress: Binding<CGFloat>) {
+    init(storiesCount: Int, timerConfiguration: Binding<TimerConfiguration>, currentProgress: Binding<CGFloat>) {
         self.storiesCount = storiesCount
-        self.timerConfiguration = timerConfiguration
+        self._timerConfiguration = timerConfiguration
         self._currentProgress = currentProgress
-        self.timer = Self.makeTimer(configuration: timerConfiguration)
+        self.timer = Self.makeTimer(configuration: timerConfiguration.wrappedValue)
     }
 
     var body: some View {
@@ -47,6 +47,14 @@ struct StoriesProgressBar: View {
 extension StoriesProgressBar {
     private static func makeTimer(configuration: TimerConfiguration) -> Timer.TimerPublisher {
         Timer.publish(every: configuration.timerTickInternal, on: .main, in: .common)
+    }
+}
+
+extension StoriesProgressBar {
+    func resetTimer() {
+        cancellable?.cancel()
+        timer = Self.makeTimer(configuration: timerConfiguration)
+        cancellable = timer.connect()
     }
 }
 
