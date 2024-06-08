@@ -10,10 +10,11 @@ import SwiftUI
 
 struct StoriesView: View {
     let stories: [StoriesPack] = StoriesPack.stories
-    private var timerConfiguration: TimerConfiguration { .init(storiesCount: stories.count) }
+    
     @State var currentStoryIndex: Int = 0
     @State var currentStoriesPackIndex: Int = 4
     @State var currentProgress: CGFloat = 0
+    private var timerConfiguration: TimerConfiguration { .init(storiesCount: stories[currentStoriesPackIndex].content.count) }
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
