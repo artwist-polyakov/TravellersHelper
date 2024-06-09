@@ -128,6 +128,8 @@ extension ScheduleView {
 
 
 #Preview {
-    ScheduleView(path: .constant([]), stories:.constant(StoriesPack.stories))
-        .environmentObject(SearchData())
+    ScheduleView(path: .constant([]), stories:.constant(StoriesPack.stories),
+                 memo: .constant(StoriesMemoization())
+    )
+    .environmentObject(SearchData())
 }
