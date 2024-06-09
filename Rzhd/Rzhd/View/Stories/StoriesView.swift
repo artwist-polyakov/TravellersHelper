@@ -12,9 +12,14 @@ struct StoriesView: View {
     let stories: [StoriesPack] = StoriesPack.stories
     
     @State var currentStoryIndex: Int = 0
-    @State var currentStoriesPackIndex: Int = 4
+    @State var currentStoriesPackIndex: Int = 0
     @State var currentProgress: CGFloat = 0
-    private var timerConfiguration: TimerConfiguration { .init(storiesCount: stories[currentStoriesPackIndex].content.count) }
+    private var timerConfiguration: TimerConfiguration { 
+        .init(
+            storiesCount: stories[currentStoriesPackIndex].content.count
+            )
+
+    }
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
@@ -39,6 +44,7 @@ struct StoriesView: View {
     private func didChangeCurrentIndex(oldIndex: Int, newIndex: Int) {
         guard oldIndex != newIndex else { return }
         let progress = timerConfiguration.progress(for: newIndex)
+
         guard abs(progress - currentProgress) >= 0.01 else { return }
         withAnimation {
             currentProgress = progress
@@ -48,9 +54,12 @@ struct StoriesView: View {
     private func didChangeCurrentProgress(newProgress: CGFloat) {
         let index = timerConfiguration.index(for: newProgress)
         guard index != currentStoryIndex else { return }
+        
         withAnimation {
+            
             currentStoryIndex = index
         }
+        print("current index \(currentStoryIndex)")
     }
     
 }

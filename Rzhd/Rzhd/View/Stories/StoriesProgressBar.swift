@@ -50,3 +50,11 @@ extension StoriesProgressBar {
     }
 }
 
+extension StoriesProgressBar {
+    func resetTimer() {
+        cancellable?.cancel()
+        timer = Self.makeTimer(configuration: timerConfiguration)
+        cancellable = timer.connect()
+    }
+}
+
