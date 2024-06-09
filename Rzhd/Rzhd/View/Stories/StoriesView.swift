@@ -10,26 +10,27 @@ import SwiftUI
 
 struct StoriesView: View {
     let stories: [StoriesPack] = StoriesPack.stories
+    @Binding var memo: StoriesMemoization
     @Binding var path: [NavigationIdentifiers]
     @State var currentStoryIndex: Int = 0
-    @State var currentStoriesPackIndex: Int = 0
+//    @State var currentStoriesPackIndex: Int = 0
     @State var currentProgress: CGFloat = 0
     private var timerConfiguration: TimerConfiguration {
         .init(
-            storiesCount: stories[currentStoriesPackIndex].content.count
+            storiesCount: stories[Int(memo.selectedPack)].content.count
             )
 
     }
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            StoriesTabView(stories: stories[currentStoriesPackIndex].content, currentStoryIndex: $currentStoryIndex)
+            StoriesTabView(stories: stories[Int(memo.selectedPack)].content, currentStoryIndex: $currentStoryIndex)
                 .onChange(of: currentStoryIndex) { oldValue, newValue in
                     didChangeCurrentIndex(oldIndex: oldValue, newIndex: newValue)
                 }.ignoresSafeArea()
 
             StoriesProgressBar(
-                storiesCount: stories[currentStoriesPackIndex].content.count,
+                storiesCount: stories[Int(memo.selectedPack)].content.count,
                 timerConfiguration: timerConfiguration,
                 currentProgress: $currentProgress
             )
@@ -70,6 +71,6 @@ struct StoriesView: View {
 
 struct StoriesView_Previews: PreviewProvider {
     static var previews: some View {
-        StoriesView(path: .constant([]))
+        StoriesView(memo: .constant(StoriesMemoization()), path: .constant([]))
     }
 }
