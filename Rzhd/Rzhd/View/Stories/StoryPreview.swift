@@ -32,6 +32,7 @@ struct StoryPreview: View {
                 RoundedRectangle(cornerRadius: cornerRadius)
                     .fill(story.backgroundColor)
                     .frame(width: frameWidth, height: frameHeight)
+                    
                     .overlay(
                         RoundedRectangle(cornerRadius: cornerRadius)
                             .strokeBorder( story.isViewed ? .clear : .blueUniversal, lineWidth: lineWidth))
@@ -54,7 +55,8 @@ struct StoryPreview: View {
                 
                 
             }
-        }.frame(width: frameWidth, height: frameHeight)
+        }.opacity(story.isViewed ? 0.5 : 1.0)
+        .frame(width: frameWidth, height: frameHeight)
         
     }
 }
