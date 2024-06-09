@@ -14,6 +14,7 @@ struct ScheduleView: View {
     @EnvironmentObject var searchData: SearchData
     
     @Binding var stories: [StoriesPack]
+    @Binding var memo: StoriesMemoization
     
     var body: some View {
         VStack {

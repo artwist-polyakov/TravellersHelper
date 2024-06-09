@@ -29,11 +29,14 @@ struct ContentView: View {
     @State private var selectedTab = 0
     @State private var path: [NavigationIdentifiers] = []
     @State private var stories = StoriesPack.stories
+    @State private var storiesMemo = StoriesMemoization()
     
     var body: some View {
         NavigationStack(path: $path) {
             TabView(selection: $selectedTab) {
-                ScheduleView(path: $path, stories: $stories).environmentObject(searchData)
+                ScheduleView(path: $path, stories: $stories,
+                memo: $storiesMemo
+                ).environmentObject(searchData)
                     .tabItem {
                         Image("ScheduleIcon")
                             .renderingMode(.template)
