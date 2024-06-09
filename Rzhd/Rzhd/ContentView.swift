@@ -17,6 +17,7 @@ enum NavigationIdentifiers: String {
     case filterList = "FilterList"
     case detailedTransporter = "DetailedTransporter"
     case agreement = "Agreement"
+    case stories = "Stories"
     
 }
 
@@ -27,11 +28,12 @@ struct ContentView: View {
     
     @State private var selectedTab = 0
     @State private var path: [NavigationIdentifiers] = []
+    @State private var stories = StoriesPack.stories
     
     var body: some View {
         NavigationStack(path: $path) {
             TabView(selection: $selectedTab) {
-                ScheduleView(path: $path).environmentObject(searchData)
+                ScheduleView(path: $path, stories: $stories).environmentObject(searchData)
                     .tabItem {
                         Image("ScheduleIcon")
                             .renderingMode(.template)
@@ -76,6 +78,8 @@ struct ContentView: View {
                         TransporterView(path: $path).environmentObject(searchData)
                     case .agreement:
                         AgreementView(path:$path)
+                    case .stories:
+                        StoriesView(path: $path)
                     }
                 }
         }.preferredColorScheme(themeConfig.isDarkMode ? .dark : .light)

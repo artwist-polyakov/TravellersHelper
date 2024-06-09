@@ -13,7 +13,7 @@ struct ScheduleView: View {
     
     @EnvironmentObject var searchData: SearchData
     
-    var stories: [StoriesPack] = StoriesPack.stories
+    @Binding var stories: [StoriesPack]
     
     var body: some View {
         VStack {
@@ -22,9 +22,9 @@ struct ScheduleView: View {
                 LazyHStack {
                     ForEach(stories) { story in
                         StoryPreview(story: story)
-                        //                        .onTapGesture {
-                        //                            path.append(.story)
-                        //                        }
+                            .onTapGesture {
+                                path.append(.stories)
+                            }
                     }
                 }}
             .frame(height: 140)
@@ -127,6 +127,6 @@ extension ScheduleView {
 
 
 #Preview {
-    ScheduleView(path: .constant([]))
+    ScheduleView(path: .constant([]), stories:.constant(StoriesPack.stories))
         .environmentObject(SearchData())
 }

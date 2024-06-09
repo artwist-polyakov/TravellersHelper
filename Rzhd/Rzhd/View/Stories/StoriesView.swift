@@ -10,11 +10,11 @@ import SwiftUI
 
 struct StoriesView: View {
     let stories: [StoriesPack] = StoriesPack.stories
-    
+    @Binding var path: [NavigationIdentifiers]
     @State var currentStoryIndex: Int = 0
     @State var currentStoriesPackIndex: Int = 0
     @State var currentProgress: CGFloat = 0
-    private var timerConfiguration: TimerConfiguration { 
+    private var timerConfiguration: TimerConfiguration {
         .init(
             storiesCount: stories[currentStoriesPackIndex].content.count
             )
@@ -37,7 +37,10 @@ struct StoriesView: View {
             .onChange(of: currentProgress) { _, newValue in
                 didChangeCurrentProgress(newProgress: newValue)
             }
-        }
+            CloseButton(action: { path.removeLast() })
+                .padding(.top, 57)
+                .padding(.trailing, 12)
+        }.navigationBarHidden(true)
     }
     
     
@@ -67,6 +70,6 @@ struct StoriesView: View {
 
 struct StoriesView_Previews: PreviewProvider {
     static var previews: some View {
-        StoriesView()
+        StoriesView(path: .constant([]))
     }
 }
