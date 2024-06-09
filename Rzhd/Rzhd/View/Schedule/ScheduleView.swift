@@ -22,9 +22,9 @@ struct ScheduleView: View {
                 LazyHStack {
                     ForEach(stories) { story in
                         StoryPreview(story: story)
-                        //                        .onTapGesture {
-                        //                            path.append(.story)
-                        //                        }
+                            .onTapGesture {
+                                path.append(.stories)
+                            }
                     }
                 }}
             .frame(height: 140)
