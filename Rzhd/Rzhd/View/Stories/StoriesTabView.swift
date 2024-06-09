@@ -10,6 +10,7 @@ import SwiftUI
 struct StoriesTabView: View {
     let stories: [Story]
     @Binding var currentStoryIndex: Int
+    var nextStoryPackCompletion: () -> Void
 
     var body: some View {
         TabView(selection: $currentStoryIndex) {
@@ -26,6 +27,9 @@ struct StoriesTabView: View {
     }
 
     func didTapStory() {
+        if currentStoryIndex == stories.count - 1 {
+            nextStoryPackCompletion()
+        }
         currentStoryIndex = min(currentStoryIndex + 1, stories.count - 1)
     }
 }
