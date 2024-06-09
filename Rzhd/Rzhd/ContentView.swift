@@ -33,7 +33,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack(path: $path) {
             TabView(selection: $selectedTab) {
-                ScheduleView(path: $path).environmentObject(searchData)
+                ScheduleView(path: $path, stories: $stories).environmentObject(searchData)
                     .tabItem {
                         Image("ScheduleIcon")
                             .renderingMode(.template)
@@ -78,6 +78,8 @@ struct ContentView: View {
                         TransporterView(path: $path).environmentObject(searchData)
                     case .agreement:
                         AgreementView(path:$path)
+                    case .stories:
+                        StoriesView()
                     }
                 }
         }.preferredColorScheme(themeConfig.isDarkMode ? .dark : .light)
