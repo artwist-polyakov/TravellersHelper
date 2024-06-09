@@ -37,6 +37,9 @@ struct StoriesView: View {
             .onChange(of: currentProgress) { _, newValue in
                 didChangeCurrentProgress(newProgress: newValue)
             }
+            CloseButton(action: { path.removeLast() })
+                .padding(.top, 57)
+                .padding(.trailing, 12)
         }.navigationBarHidden(true)
     }
     
