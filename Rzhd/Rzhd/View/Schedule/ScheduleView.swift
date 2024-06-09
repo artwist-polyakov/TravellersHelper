@@ -21,9 +21,10 @@ struct ScheduleView: View {
             Spacer()
             ScrollView (.horizontal, showsIndicators: false) {
                 LazyHStack {
-                    ForEach(stories) { story in
+                    ForEach(Array(stories.enumerated()), id: \.element.id) { index, story in
                         StoryPreview(story: story)
                             .onTapGesture {
+                                memo.selectedPack = UInt8(index)
                                 path.append(.stories)
                             }
                     }
