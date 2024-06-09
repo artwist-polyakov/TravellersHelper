@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StoryView: View {
     let story: Story
+    let onSwipeLeft: () -> Void
     
     var body: some View {
         
@@ -48,10 +49,18 @@ struct StoryView: View {
                 .padding(.init(top: 0, leading: 16, bottom: 91, trailing: 16))
             }.ignoresSafeArea()
         } .ignoresSafeArea()
+            .gesture(
+                DragGesture()
+                    .onEnded { value in
+                        if value.translation.width < -50 {
+                            onSwipeLeft()
+                        }
+                    }
+            )
         
     }
 }
 
 #Preview {
-    StoryView(story: .story11)
+    StoryView(story: .story11, onSwipeLeft: {})
 }
