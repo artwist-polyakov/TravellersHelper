@@ -13,7 +13,6 @@ extension TimerConfiguration {
     }
 
     func index(for progress: CGFloat) -> Int {
-        print("progress: \(progress), index: \(min(Int(progress * CGFloat(storiesCount)), storiesCount - 1))")
         return min(Int(progress * CGFloat(storiesCount)), storiesCount - 1)
     }
 
