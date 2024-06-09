@@ -17,7 +17,6 @@ struct StoriesPack : Hashable, Identifiable {
     let content: [Story]
     var isViewed: Bool = false
     var resumeFromStorie: UInt32 = 0
-    var launchWithPack: UInt32 = 0
     
     static let storiesPack1 = StoriesPack(backgroundPreviewUri: "StoryPr1", backgroundColor: .redUniversal, title: "Как пользоваться приложением?", description: "В этом руководстве вы узнаете как пользоваться приложением и какие возможности оно предоставляет.", content: Story.stories1, isViewed: true)
     static let storiesPack2 = StoriesPack(backgroundPreviewUri: nil, backgroundColor: .redUniversal, title: "Как пользоваться поиском?", description: "В этом руководстве вы узнаете как пользоваться поиском и какие возможности он предоставляет.", content: Story.stories2)
