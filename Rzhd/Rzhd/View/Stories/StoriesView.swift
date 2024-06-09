@@ -37,7 +37,7 @@ struct StoriesView: View {
             .onChange(of: currentProgress) { _, newValue in
                 didChangeCurrentProgress(newProgress: newValue)
             }
-        }
+        }.navigationBarHidden(true)
     }
     
     
