@@ -11,26 +11,35 @@ struct StoriesTabView: View {
     let stories: [Story]
     @Binding var currentStoryIndex: Int
     var nextStoryPackCompletion: () -> Void
-
+    
     var body: some View {
         TabView(selection: $currentStoryIndex) {
             ForEach(stories.indices, id: \.self) { index in
-                StoryView(story: stories[index])
-                    .tag(index)
-                    .onTapGesture {
-                        didTapStory()
-                    }
+                StoryView(story: stories[index],
+                          onSwipeLeft: {
+                    withAnimation(){
+                        if currentStoryIndex == stories.count - 1 {
+                            nextStoryPackCompletion()
+                        } else {
+                            currentStoryIndex = min(currentStoryIndex + 1, stories.count - 1)
+                        }}
+                })
+                .tag(index)
+                .onTapGesture {
+                    didTapStory()
+                }
             }
         }
         .ignoresSafeArea()
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
     }
-
+    
     func didTapStory() {
-        if currentStoryIndex == stories.count - 1 {
-            nextStoryPackCompletion()
-        }
-        currentStoryIndex = min(currentStoryIndex + 1, stories.count - 1)
+        withAnimation(){
+            if currentStoryIndex == stories.count - 1 {
+                nextStoryPackCompletion()
+            }
+            currentStoryIndex = min(currentStoryIndex + 1, stories.count - 1)}
     }
 }
 
