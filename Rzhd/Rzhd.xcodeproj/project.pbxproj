@@ -22,6 +22,7 @@
 		AF5019B52BD5B91D00138496 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = AF5019B32BD5B91D00138496 /* Localizable.stringsdict */; };
 		AF5019B82BD5BEF500138496 /* SearchResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019B72BD5BEF500138496 /* SearchResultViewModel.swift */; };
 		AF5019BB2BD5C01500138496 /* SearchResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019BA2BD5C01500138496 /* SearchResultView.swift */; };
+		AF5035462C1616BA00096C73 /* StoriesMemoization.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5035452C1616BA00096C73 /* StoriesMemoization.swift */; };
 		AF5C58112C10F66000408275 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5C58102C10F66000408275 /* Story.swift */; };
 		AF62FD3E2BCC8422005822A0 /* СitiesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD3D2BCC8422005822A0 /* СitiesView.swift */; };
 		AF62FD462BCFE8B0005822A0 /* CitiesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62FD452BCFE8B0005822A0 /* CitiesViewModel.swift */; };
@@ -93,6 +94,7 @@
 		AF5019B62BD5B94B00138496 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = Rzhd/DesignSystem/ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		AF5019B72BD5BEF500138496 /* SearchResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultViewModel.swift; sourceTree = "<group>"; };
 		AF5019BA2BD5C01500138496 /* SearchResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultView.swift; sourceTree = "<group>"; };
+		AF5035452C1616BA00096C73 /* StoriesMemoization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesMemoization.swift; sourceTree = "<group>"; };
 		AF5C58102C10F66000408275 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		AF62FD3D2BCC8422005822A0 /* СitiesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СitiesView.swift"; sourceTree = "<group>"; };
 		AF62FD452BCFE8B0005822A0 /* CitiesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitiesViewModel.swift; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				AFDC48042BD7101000DA3D3B /* ErrorModel.swift */,
 				AF5C58102C10F66000408275 /* Story.swift */,
 				AF6D3A9C2C138F240095E027 /* StoriesPack.swift */,
+				AF5035452C1616BA00096C73 /* StoriesMemoization.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 				AF62FD492BCFE8F6005822A0 /* City.swift in Sources */,
 				AF50199C2BD58E6F00138496 /* StationsView.swift in Sources */,
 				AFE252C02B99AA04007E5FFF /* NearestSettlement.swift in Sources */,
+				AF5035462C1616BA00096C73 /* StoriesMemoization.swift in Sources */,
 				AF5019AC2BD5A3B100138496 /* SearchResultRowView.swift in Sources */,
 				AFD1436C2BD70B1600536B96 /* WebView.swift in Sources */,
 				AFF514932C13973900D91950 /* TimerConfiguration+Calculations.swift in Sources */,
