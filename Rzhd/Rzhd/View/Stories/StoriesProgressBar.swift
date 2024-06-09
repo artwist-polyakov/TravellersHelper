@@ -10,16 +10,16 @@ import Combine
 
 struct StoriesProgressBar: View {
     let storiesCount: Int
-    @Binding var timerConfiguration: TimerConfiguration
+    let timerConfiguration: TimerConfiguration
     @Binding var currentProgress: CGFloat
     @State private var timer: Timer.TimerPublisher
     @State private var cancellable: Cancellable?
 
-    init(storiesCount: Int, timerConfiguration: Binding<TimerConfiguration>, currentProgress: Binding<CGFloat>) {
+    init(storiesCount: Int, timerConfiguration: TimerConfiguration, currentProgress: Binding<CGFloat>) {
         self.storiesCount = storiesCount
-        self._timerConfiguration = timerConfiguration
+        self.timerConfiguration = timerConfiguration
         self._currentProgress = currentProgress
-        self.timer = Self.makeTimer(configuration: timerConfiguration.wrappedValue)
+        self.timer = Self.makeTimer(configuration: timerConfiguration)
     }
 
     var body: some View {

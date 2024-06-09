@@ -16,14 +16,9 @@ struct StoriesView: View {
     @State var currentProgress: CGFloat = 0
     private var timerConfiguration: TimerConfiguration { 
         .init(
-            storiesCount: stories[currentStoriesPackIndex].content.count,
-        
-    onFinishCallback: {
-            if (currentStoriesPackIndex < stories.count - 1) {
-                currentStoriesPackIndex += 1
-                currentStoryIndex = 0
-            }
-        })
+            storiesCount: stories[currentStoriesPackIndex].content.count
+            )
+
     }
     
     var body: some View {
@@ -58,15 +53,7 @@ struct StoriesView: View {
 
     private func didChangeCurrentProgress(newProgress: CGFloat) {
         let index = timerConfiguration.index(for: newProgress)
-//        print("currentProgress: \(newProgress), index: \(index)")
-//        if (timerConfiguration.isProgressMoreThanCount(for: newProgress)) {
-//            if (currentStoriesPackIndex < stories.count - 1) {
-//                currentStoriesPackIndex += 1
-//                currentStoryIndex = 0
-//            }
-//        } else {
         guard index != currentStoryIndex else { return }
-//        }
         
         withAnimation {
             
