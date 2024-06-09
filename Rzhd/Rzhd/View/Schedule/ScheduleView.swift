@@ -51,7 +51,6 @@ struct ScheduleView: View {
                             .onTapGesture {
                                 searchData.currentlySelectedTextField = .from
                                 self.path.append(.citiesList)
-                                print(path)
                             }
                         Spacer()
                         
@@ -67,7 +66,6 @@ struct ScheduleView: View {
                             .onTapGesture {
                                 searchData.currentlySelectedTextField = .to
                                 self.path.append(.citiesList)
-                                print(path)
                             }
                         
                         Spacer()

@@ -13,22 +13,38 @@ struct StoriesView: View {
     @Binding var memo: StoriesMemoization
     @Binding var path: [NavigationIdentifiers]
     @State var currentStoryIndex: Int = 0
-//    @State var currentStoriesPackIndex: Int = 0
     @State var currentProgress: CGFloat = 0
+    
+    private func nextStoryPackCompletion() {
+        if Int(memo.selectedPack) < stories.count - 1 {
+            withAnimation(.easeInOut) {
+                memo.selectedPack += 1
+                currentStoryIndex = 0
+                currentProgress = 0
+            }
+        } else {
+            if !path.isEmpty {
+                path.removeLast()
+            }
+        }
+    }
+    
     private var timerConfiguration: TimerConfiguration {
         .init(
             storiesCount: stories[Int(memo.selectedPack)].content.count
-            )
-
+        )
+        
     }
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            StoriesTabView(stories: stories[Int(memo.selectedPack)].content, currentStoryIndex: $currentStoryIndex)
-                .onChange(of: currentStoryIndex) { oldValue, newValue in
-                    didChangeCurrentIndex(oldIndex: oldValue, newIndex: newValue)
-                }.ignoresSafeArea()
-
+            StoriesTabView(stories: stories[Int(memo.selectedPack)].content, currentStoryIndex: $currentStoryIndex,
+                           nextStoryPackCompletion: nextStoryPackCompletion
+            )
+            .onChange(of: currentStoryIndex) { oldValue, newValue in
+                didChangeCurrentIndex(oldIndex: oldValue, newIndex: newValue)
+            }.ignoresSafeArea()
+            
             StoriesProgressBar(
                 storiesCount: stories[Int(memo.selectedPack)].content.count,
                 timerConfiguration: timerConfiguration,
@@ -38,7 +54,7 @@ struct StoriesView: View {
             .onChange(of: currentProgress) { _, newValue in
                 didChangeCurrentProgress(newProgress: newValue)
             }
-            CloseButton(action: { path.removeLast() })
+            CloseButton(action: { if !path.isEmpty { path.removeLast() } })
                 .padding(.top, 57)
                 .padding(.trailing, 12)
         }.navigationBarHidden(true)
@@ -62,15 +78,30 @@ struct StoriesView: View {
             stories[Int(memo.selectedPack)].isViewed = true
         }
     }
-
+    
     private func didChangeCurrentProgress(newProgress: CGFloat) {
+        
+        if newProgress == 1.0 {
+            if Int(memo.selectedPack) < stories.count - 1 {
+                withAnimation(.easeInOut) {
+                    memo.selectedPack += 1
+                    currentStoryIndex = 0
+                    currentProgress = 0
+                }
+            } else {
+                if !path.isEmpty {
+                    path.removeLast()
+                }
+            }
+            return
+        }
+        
         let index = timerConfiguration.index(for: newProgress)
         guard index != currentStoryIndex else { return }
         withAnimation {
             
             currentStoryIndex = index
         }
-//        stories[Int(memo.selectedPack)].content[currentStoryIndex].isViewed = true
         
     }
     
