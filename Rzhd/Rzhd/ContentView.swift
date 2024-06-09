@@ -17,6 +17,7 @@ enum NavigationIdentifiers: String {
     case filterList = "FilterList"
     case detailedTransporter = "DetailedTransporter"
     case agreement = "Agreement"
+    case stories = "Stories"
     
 }
 
