@@ -9,7 +9,7 @@ import SwiftUI
 
 
 struct StoriesView: View {
-    let stories: [StoriesPack] = StoriesPack.stories
+    @Binding var stories: [StoriesPack]
     @Binding var memo: StoriesMemoization
     @Binding var path: [NavigationIdentifiers]
     @State var currentStoryIndex: Int = 0
@@ -48,22 +48,39 @@ struct StoriesView: View {
     private func didChangeCurrentIndex(oldIndex: Int, newIndex: Int) {
         guard oldIndex != newIndex else { return }
         let progress = timerConfiguration.progress(for: newIndex)
-
+        stories[Int(memo.selectedPack)].content[oldIndex].isViewed = true
+        stories[Int(memo.selectedPack)].content[newIndex].isViewed = true
+        if (allStoriesViewed()) {
+            stories[Int(memo.selectedPack)].isViewed = true
+        }
         guard abs(progress - currentProgress) >= 0.01 else { return }
         withAnimation {
             currentProgress = progress
+        }
+        
+        if (allStoriesViewed()) {
+            stories[Int(memo.selectedPack)].isViewed = true
         }
     }
 
     private func didChangeCurrentProgress(newProgress: CGFloat) {
         let index = timerConfiguration.index(for: newProgress)
         guard index != currentStoryIndex else { return }
-        
         withAnimation {
             
             currentStoryIndex = index
         }
-        print("current index \(currentStoryIndex)")
+//        stories[Int(memo.selectedPack)].content[currentStoryIndex].isViewed = true
+        
+    }
+    
+    private func allStoriesViewed() -> Bool {
+        for story in stories[Int(memo.selectedPack)].content {
+            if !story.isViewed {
+                return false
+            }
+        }
+        return true
     }
     
 }
@@ -71,6 +88,8 @@ struct StoriesView: View {
 
 struct StoriesView_Previews: PreviewProvider {
     static var previews: some View {
-        StoriesView(memo: .constant(StoriesMemoization()), path: .constant([]))
+        StoriesView(
+            stories: .constant(StoriesPack.stories),
+            memo: .constant(StoriesMemoization()), path: .constant([]))
     }
 }

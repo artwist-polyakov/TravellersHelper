@@ -82,7 +82,9 @@ struct ContentView: View {
                     case .agreement:
                         AgreementView(path:$path)
                     case .stories:
-                        StoriesView( memo: $storiesMemo, path: $path)
+                        StoriesView(
+                            stories: $stories,
+                            memo: $storiesMemo, path: $path)
                     }
                 }
         }.preferredColorScheme(themeConfig.isDarkMode ? .dark : .light)

@@ -14,7 +14,7 @@ struct StoriesPack : Hashable, Identifiable {
     let backgroundColor: Color // на случай если нет изображения
     let title: String
     let description: String?
-    let content: [Story]
+    var content: [Story]
     var isViewed: Bool = false
     var resumeFromStorie: UInt32 = 0
     
