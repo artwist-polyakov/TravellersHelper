@@ -14,15 +14,17 @@ struct ScheduleView: View {
     @EnvironmentObject var searchData: SearchData
     
     @Binding var stories: [StoriesPack]
+    @Binding var memo: StoriesMemoization
     
     var body: some View {
         VStack {
             Spacer()
             ScrollView (.horizontal, showsIndicators: false) {
                 LazyHStack {
-                    ForEach(stories) { story in
+                    ForEach(Array(stories.enumerated()), id: \.element.id) { index, story in
                         StoryPreview(story: story)
                             .onTapGesture {
+                                memo.selectedPack = UInt8(index)
                                 path.append(.stories)
                             }
                     }
@@ -127,6 +129,8 @@ extension ScheduleView {
 
 
 #Preview {
-    ScheduleView(path: .constant([]), stories:.constant(StoriesPack.stories))
-        .environmentObject(SearchData())
+    ScheduleView(path: .constant([]), stories:.constant(StoriesPack.stories),
+                 memo: .constant(StoriesMemoization())
+    )
+    .environmentObject(SearchData())
 }
