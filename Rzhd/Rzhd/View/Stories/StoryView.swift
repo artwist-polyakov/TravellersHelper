@@ -15,14 +15,15 @@ struct StoryView: View {
         ZStack {
             Rectangle()
                 .foregroundColor(.black)
+                .ignoresSafeArea()
             if let image = story.backgroundImageUri {
                 Image(image)
                 
                     .resizable()
-                    .clipShape(RoundedRectangle(cornerRadius: 40))
                     .aspectRatio(contentMode: .fill)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .clipped()
+                    .clipShape(RoundedRectangle(cornerRadius: 40))
                     .padding(.vertical, 51)
                     
                     
@@ -52,5 +53,5 @@ struct StoryView: View {
 }
 
 #Preview {
-    StoryView(story: .story12)
+    StoryView(story: .story11)
 }
