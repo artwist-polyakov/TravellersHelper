@@ -57,4 +57,3 @@ extension StoriesProgressBar {
         cancellable = timer.connect()
     }
 }
-

@@ -10,9 +10,7 @@ import SwiftUI
 struct StoryView: View {
     let story: Story
     let onSwipeLeft: () -> Void
-    
     var body: some View {
-        
         ZStack {
             Rectangle()
                 .foregroundColor(.black)
@@ -26,14 +24,10 @@ struct StoryView: View {
                     .clipped()
                     .clipShape(RoundedRectangle(cornerRadius: 40))
                     .padding(.vertical, 51)
-                    
-                    
             } else {
                 RoundedRectangle(cornerRadius: 40)
                     .foregroundColor(story.backgroundColor)
                     .padding(.vertical, 51)
-
-                
             }
             VStack {
                 Spacer()
@@ -57,7 +51,6 @@ struct StoryView: View {
                         }
                     }
             )
-        
     }
 }
 

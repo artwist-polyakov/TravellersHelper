@@ -11,13 +11,13 @@ struct StoriesTabView: View {
     let stories: [Story]
     @Binding var currentStoryIndex: Int
     var nextStoryPackCompletion: () -> Void
-    
+
     var body: some View {
         TabView(selection: $currentStoryIndex) {
             ForEach(stories.indices, id: \.self) { index in
                 StoryView(story: stories[index],
                           onSwipeLeft: {
-                    withAnimation(){
+                    withAnimation {
                         if currentStoryIndex == stories.count - 1 {
                             nextStoryPackCompletion()
                         } else {
@@ -42,4 +42,3 @@ struct StoriesTabView: View {
             currentStoryIndex = min(currentStoryIndex + 1, stories.count - 1)}
     }
 }
-
