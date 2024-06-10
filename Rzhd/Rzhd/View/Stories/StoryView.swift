@@ -9,7 +9,7 @@ import SwiftUI
 
 struct StoryView: View {
     let story: Story
-    let onSwipeLeft: () -> Void
+    let onSwipe: (Bool) -> Void
     var body: some View {
         ZStack {
             Rectangle()
@@ -47,7 +47,9 @@ struct StoryView: View {
                 DragGesture()
                     .onEnded { value in
                         if value.translation.width < -50 {
-                            onSwipeLeft()
+                            onSwipe(false)
+                        } else if value.translation.width > 50 {
+                            onSwipe(true)
                         }
                     }
             )
@@ -55,5 +57,5 @@ struct StoryView: View {
 }
 
 #Preview {
-    StoryView(story: .story11, onSwipeLeft: {})
+    StoryView(story: .story11, onSwipe: ({_ in}))
 }

@@ -16,14 +16,9 @@ struct StoriesTabView: View {
         TabView(selection: $currentStoryIndex) {
             ForEach(stories.indices, id: \.self) { index in
                 StoryView(story: stories[index],
-                          onSwipeLeft: {
-                    withAnimation {
-                        if currentStoryIndex == stories.count - 1 {
-                            nextStoryPackCompletion(false)
-                        } else {
-                            currentStoryIndex = min(currentStoryIndex + 1, stories.count - 1)
-                        }}
-                })
+                          onSwipe: didTapStory
+                          
+                )
                 .tag(index)
                 .onTapGesture { value in
                     if value.x < UIScreen.main.bounds.width / 2 {
