@@ -14,20 +14,6 @@ struct StoriesView: View {
     @State var currentStoryIndex: Int = 0
     @State var currentProgress: CGFloat = 0
     
-    private func nextStoryPackCompletion() {
-        if Int(memo.selectedPack) < stories.count - 1 {
-            withAnimation(.easeInOut) {
-                memo.selectedPack += 1
-                currentStoryIndex = 0
-                currentProgress = 0
-            }
-        } else {
-            if !path.isEmpty {
-                path.removeLast()
-            }
-        }
-    }
-    
     private var timerConfiguration: TimerConfiguration {
         .init(
             storiesCount: stories[Int(memo.selectedPack)].content.count
@@ -107,6 +93,32 @@ struct StoriesView: View {
             return false
         }
         return true
+    }
+    
+    private func nextStoryPackCompletion(back: Bool = false) {
+        switch back {
+            case true:
+            if Int(memo.selectedPack) > 0 {
+                withAnimation(.easeInOut) {
+                    memo.selectedPack -= 1
+                    currentStoryIndex = 0
+                    currentProgress = 0
+                }
+                return
+            }
+            case false:
+            if Int(memo.selectedPack) < stories.count - 1 {
+                withAnimation(.easeInOut) {
+                    memo.selectedPack += 1
+                    currentStoryIndex = 0
+                    currentProgress = 0
+                }
+                return
+            }
+        }
+        if !path.isEmpty {
+            path.removeLast()
+        }
     }
 }
 
