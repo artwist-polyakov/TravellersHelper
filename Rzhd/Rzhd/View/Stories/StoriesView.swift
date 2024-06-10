@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct StoriesView: View {
     @Binding var stories: [StoriesPack]
     @Binding var memo: StoriesMemoization
@@ -60,7 +59,6 @@ struct StoriesView: View {
         }.navigationBarHidden(true)
     }
     
-    
     private func didChangeCurrentIndex(oldIndex: Int, newIndex: Int) {
         guard oldIndex != newIndex else { return }
         let progress = timerConfiguration.progress(for: newIndex)
@@ -74,7 +72,7 @@ struct StoriesView: View {
             currentProgress = progress
         }
         
-        if (allStoriesViewed()) {
+        if allStoriesViewed() {
             stories[Int(memo.selectedPack)].isViewed = true
         }
     }
@@ -102,18 +100,14 @@ struct StoriesView: View {
             
             currentStoryIndex = index
         }
-        
     }
     
     private func allStoriesViewed() -> Bool {
-        for story in stories[Int(memo.selectedPack)].content {
-            if !story.isViewed {
-                return false
-            }
+        for story in stories[Int(memo.selectedPack)].content where !story.isViewed {
+            return false
         }
         return true
     }
-    
 }
 
 

@@ -19,7 +19,7 @@ struct ScheduleView: View {
     var body: some View {
         VStack {
             Spacer()
-            ScrollView (.horizontal, showsIndicators: false) {
+            ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
                     ForEach(Array(stories.enumerated()), id: \.element.id) { index, story in
                         StoryPreview(story: story)
@@ -127,7 +127,7 @@ extension ScheduleView {
 
 
 #Preview {
-    ScheduleView(path: .constant([]), stories:.constant(StoriesPack.stories),
+    ScheduleView(path: .constant([]), stories: .constant(StoriesPack.stories),
                  memo: .constant(StoriesMemoization())
     )
     .environmentObject(SearchData())

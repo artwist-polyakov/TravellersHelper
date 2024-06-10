@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct StoriesMemoization {
     var selectedPack: UInt8  = 0
 }

@@ -7,14 +7,12 @@
 
 import SwiftUI
 
-
 struct StoryPreview: View {
     var story: StoriesPack
     let frameWidth: CGFloat = 92
     let frameHeight: CGFloat = 140
     let cornerRadius: CGFloat = 16
     let lineWidth: CGFloat = 4
-    
     
     var body: some View {
         
@@ -32,18 +30,18 @@ struct StoryPreview: View {
                 RoundedRectangle(cornerRadius: cornerRadius)
                     .fill(story.backgroundColor)
                     .frame(width: frameWidth, height: frameHeight)
-                    
+                
                     .overlay(
                         RoundedRectangle(cornerRadius: cornerRadius)
                             .strokeBorder( story.isViewed ? .clear : .blueUniversal, lineWidth: lineWidth))
             }
-            VStack  {
+            VStack {
                 Spacer()
                 Text(story.title)
                     .font(.system(size: 12))
                     .foregroundColor(.white)
                     .padding(.horizontal, 8)
-//                    .lineLimit(2)
+                //                    .lineLimit(2)
                 
                 Text(story.description ?? "")
                     .font(.system(size: 12))
@@ -51,13 +49,9 @@ struct StoryPreview: View {
                     .padding(.horizontal, 8)
                     .padding(.bottom, 12)
                     .lineLimit(1)
-            
-                
-                
             }
         }.opacity(story.isViewed ? 0.5 : 1.0)
-        .frame(width: frameWidth, height: frameHeight)
-        
+            .frame(width: frameWidth, height: frameHeight)
     }
 }
 
