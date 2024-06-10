@@ -9,6 +9,9 @@ import SwiftUI
 
 extension TimerConfiguration {
     func progress(for storyIndex: Int) -> CGFloat {
+        if storiesCount <= 0 {
+            return 1 // переход в след сторипак
+        }
         return min(CGFloat(storyIndex) / CGFloat(storiesCount), 1)
     }
 
