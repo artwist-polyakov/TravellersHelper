@@ -13,9 +13,26 @@ struct ScheduleView: View {
     
     @EnvironmentObject var searchData: SearchData
     
+    @Binding var stories: [StoriesPack]
+    @Binding var memo: StoriesMemoization
+    
     var body: some View {
         VStack {
             Spacer()
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack {
+                    ForEach(Array(stories.enumerated()), id: \.element.id) { index, story in
+                        StoryPreview(story: story)
+                            .onTapGesture {
+                                memo.selectedPack = UInt8(index)
+                                path.append(.stories)
+                            }
+                    }
+                }}
+            .frame(height: 140)
+            .padding(.horizontal, 16)
+            .padding(.bottom, 24)
+            
             ZStack(alignment: .top) {
                 Rectangle()
                     .fill(Color.searchBackground)
@@ -34,7 +51,6 @@ struct ScheduleView: View {
                             .onTapGesture {
                                 searchData.currentlySelectedTextField = .from
                                 self.path.append(.citiesList)
-                                print(path)
                             }
                         Spacer()
                         
@@ -50,7 +66,6 @@ struct ScheduleView: View {
                             .onTapGesture {
                                 searchData.currentlySelectedTextField = .to
                                 self.path.append(.citiesList)
-                                print(path)
                             }
                         
                         Spacer()
@@ -112,6 +127,8 @@ extension ScheduleView {
 
 
 #Preview {
-    ScheduleView(path: .constant([]))
-        .environmentObject(SearchData())
+    ScheduleView(path: .constant([]), stories: .constant(StoriesPack.stories),
+                 memo: .constant(StoriesMemoization())
+    )
+    .environmentObject(SearchData())
 }

@@ -17,7 +17,7 @@ enum NavigationIdentifiers: String {
     case filterList = "FilterList"
     case detailedTransporter = "DetailedTransporter"
     case agreement = "Agreement"
-    
+    case stories = "Stories"
 }
 
 // MARK: - ContentView
@@ -27,11 +27,15 @@ struct ContentView: View {
     
     @State private var selectedTab = 0
     @State private var path: [NavigationIdentifiers] = []
+    @State private var stories = StoriesPack.stories
+    @State private var storiesMemo = StoriesMemoization() // тут просится вьюмодель
     
     var body: some View {
         NavigationStack(path: $path) {
             TabView(selection: $selectedTab) {
-                ScheduleView(path: $path).environmentObject(searchData)
+                ScheduleView(path: $path, stories: $stories,
+                             memo: $storiesMemo
+                ).environmentObject(searchData)
                     .tabItem {
                         Image("ScheduleIcon")
                             .renderingMode(.template)
@@ -41,7 +45,6 @@ struct ContentView: View {
                             .foregroundColor(.gray).padding(.bottom, 12),
                         alignment: .bottom
                     )
-                
                     .tag(0)
                     .edgesIgnoringSafeArea(.top)
                     .toolbarBackground(Color("TabBarColor"), for: .tabBar)
@@ -56,7 +59,6 @@ struct ContentView: View {
                         alignment: .bottom
                         
                     )
-                
                     .tag(0)
                     .edgesIgnoringSafeArea(.top)
                     .toolbarBackground(Color("TabBarColor"), for: .tabBar)
@@ -76,11 +78,14 @@ struct ContentView: View {
                         TransporterView(path: $path).environmentObject(searchData)
                     case .agreement:
                         AgreementView(path:$path)
+                    case .stories:
+                        StoriesView(
+                            stories: $stories,
+                            memo: $storiesMemo, path: $path)
                     }
                 }
         }.preferredColorScheme(themeConfig.isDarkMode ? .dark : .light)
             .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
-        
             .onAppear {
                 //                    UITabBar.appearance().barTintColor = .white
                 //            copyright()
@@ -125,7 +130,6 @@ struct ContentView: View {
             client: client,
             apikey: API_KEY
         )
-        
         Task {
             do {
                 let stations = try await service.get()
@@ -149,7 +153,6 @@ struct ContentView: View {
             client: client,
             apikey: API_KEY
         )
-        
         Task {
             do {
                 let thread = try await service.search(code: "MS", system: .iata)
@@ -165,12 +168,10 @@ struct ContentView: View {
             serverURL: try! Servers.server1(),
             transport: URLSessionTransport()
         )
-        
         let service = ThreadSearchService(
             client: client,
             apikey: API_KEY
         )
-        
         Task {
             do {
                 let thread = try await service.search(uid: "176YE_7_2")
@@ -190,9 +191,6 @@ struct ContentView: View {
             client: client,
             apikey: API_KEY
         )
-        
-        
-        
         Task {
             do {
                 let stations = try await service.getNearestStations(lat:
@@ -202,9 +200,8 @@ struct ContentView: View {
                 print("Error fetching stations: \(error)")
             }
         }
-        
-        
     }
+
     func settlement() {
         let client = Client(
             serverURL: try! Servers.server1(),
@@ -215,7 +212,6 @@ struct ContentView: View {
             client: client,
             apikey: API_KEY
         )
-        
         Task {
             do {
                 let result = try await service.getNearestSSettlement(lat:59.864177, lng: 30.319163)
@@ -231,12 +227,10 @@ struct ContentView: View {
             serverURL: try! Servers.server1(),
             transport: URLSessionTransport()
         )
-        
         let service = CopyrightService(
             client: client,
             apikey: API_KEY
         )
-        
         Task {
             do {
                 let result = try await service.get()
@@ -246,10 +240,8 @@ struct ContentView: View {
             }
         }
     }
-    
 }
 
 #Preview {
     ContentView()
 }
-

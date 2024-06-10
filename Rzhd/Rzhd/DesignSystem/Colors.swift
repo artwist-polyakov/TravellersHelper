@@ -8,10 +8,9 @@
 import SwiftUI
 
 extension Color {
-    
     init(uiColor: UIColor) {
-             self.init(UIColor { _ in uiColor })
-         }
+        self.init(UIColor { _ in uiColor })
+    }
     // Creates color from a hex string
     init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
@@ -36,18 +35,38 @@ extension Color {
             opacity: Double(alpha) / 255
         )
     }
-
+    
     // Colors with dark mode
-//    static let colorPrimary = UIColor(named: "RZHDBackground") ?? UIColor.white
-    static let ypWhiteWithDarkMode = UIColor(named: "whiteWithDarkMode") ?? UIColor.white
-    static let searchResultBackground = Color(uiColor: UIColor(named: "RZHDSearchResultbackground") ?? UIColor.lightGray)
-
-    static let searchBackground = Color(uiColor: UIColor(named: "SearchFieldBackground") ?? UIColor.systemGray6)
-    static let greyColor =  Color(uiColor: UIColor(named: "RZHDGray") ?? UIColor.systemGray6)
-    static let greyUniversal = Color(uiColor: UIColor(named: "RZHDGrayUniversal") ?? UIColor.gray)
-    static let blackUniversal = Color(uiColor: UIColor(named: "RZHDBlackUniversal") ?? UIColor.black)
-    static let colorOnPrimary = Color(uiColor: UIColor(named: "RZHDGreyBackButton") ?? UIColor.black)
-    static let redUniversal = Color(uiColor: UIColor(named: "RZHDRedUniversal") ?? UIColor.red)
-    static let colorPrimary = Color(uiColor: UIColor(named: "RZHDBackground") ?? UIColor.white)
-
+    //    static let colorPrimary = UIColor(named: "RZHDBackground") ?? UIColor.white
+    static let ypWhiteWithDarkMode = UIColor(
+        named: "whiteWithDarkMode"
+    ) ?? UIColor.white
+    static let searchResultBackground = Color(
+        uiColor: UIColor(named: "RZHDSearchResultbackground") ?? UIColor.lightGray
+    )
+    
+    static let searchBackground = Color(
+        uiColor: UIColor(named: "SearchFieldBackground") ?? UIColor.systemGray6
+    )
+    static let greyColor =  Color(
+        uiColor: UIColor(named: "RZHDGray") ?? UIColor.systemGray6
+    )
+    static let greyUniversal = Color(
+        uiColor: UIColor(named: "RZHDGrayUniversal") ?? UIColor.gray
+    )
+    static let blackUniversal = Color(
+        uiColor: UIColor(named: "RZHDBlackUniversal") ?? UIColor.black
+    )
+    static let colorOnPrimary = Color(
+        uiColor: UIColor(named: "RZHDGreyBackButton") ?? UIColor.black
+    )
+    static let redUniversal = Color(
+        uiColor: UIColor(named: "RZHDRedUniversal") ?? UIColor.red
+    )
+    static let colorPrimary = Color(
+        uiColor: UIColor(named: "RZHDBackground") ?? UIColor.white
+    )
+    static var blueUniversal: Color {
+        Color(red: 55/255, green: 114/255, blue: 231/255)
+    }
 }
