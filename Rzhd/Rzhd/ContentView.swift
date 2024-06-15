@@ -201,7 +201,7 @@ struct ContentView: View {
             }
         }
     }
-
+    
     func settlement() {
         let client = Client(
             serverURL: try! Servers.server1(),

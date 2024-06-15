@@ -41,7 +41,7 @@ struct StationsView: View {
                 Image(systemName: "magnifyingglass")
                     .foregroundColor(searchText.isEmpty ? .gray : .black)
                     .padding(.leading, 8)
-                TextField("Введите запрос", text: $searchText) .onChange(of: searchText) { newValue in
+                TextField("Введите запрос", text: $searchText) .onChange(of: searchText) { _, newValue in
                     viewModel.onTextChanged(newValue)
                 }
                 .padding(.vertical, 8)
