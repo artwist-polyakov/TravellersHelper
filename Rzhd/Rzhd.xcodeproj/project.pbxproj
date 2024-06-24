@@ -13,6 +13,7 @@
 		AF18A0EF2C29FDC7000D1869 /* DarkThemeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18A0EE2C29FDC7000D1869 /* DarkThemeViewModel.swift */; };
 		AF18A0F62C29FF06000D1869 /* CurrentThemeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18A0F52C29FF06000D1869 /* CurrentThemeRepository.swift */; };
 		AF18A0F92C29FFCB000D1869 /* UserDefaultsThemeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18A0F82C29FFCB000D1869 /* UserDefaultsThemeRepository.swift */; };
+		AF18A0FF2C2A0196000D1869 /* DarkThemeUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18A0FE2C2A0196000D1869 /* DarkThemeUsecase.swift */; };
 		AF3E62152C1395D600A3DE4F /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3E62142C1395D600A3DE4F /* StoriesView.swift */; };
 		AF5019982BD5832300138496 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019972BD5832300138496 /* Station.swift */; };
 		AF50199C2BD58E6F00138496 /* StationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50199B2BD58E6F00138496 /* StationsView.swift */; };
@@ -88,6 +89,7 @@
 		AF18A0EE2C29FDC7000D1869 /* DarkThemeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkThemeViewModel.swift; sourceTree = "<group>"; };
 		AF18A0F52C29FF06000D1869 /* CurrentThemeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentThemeRepository.swift; sourceTree = "<group>"; };
 		AF18A0F82C29FFCB000D1869 /* UserDefaultsThemeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsThemeRepository.swift; sourceTree = "<group>"; };
+		AF18A0FE2C2A0196000D1869 /* DarkThemeUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkThemeUsecase.swift; sourceTree = "<group>"; };
 		AF3E62142C1395D600A3DE4F /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
 		AF5019972BD5832300138496 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		AF50199B2BD58E6F00138496 /* StationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsView.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 		AF18A0FD2C2A0153000D1869 /* DarkTheme */ = {
 			isa = PBXGroup;
 			children = (
+				AF18A0FE2C2A0196000D1869 /* DarkThemeUsecase.swift */,
 			);
 			path = DarkTheme;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				AFE252C02B99AA04007E5FFF /* NearestSettlement.swift in Sources */,
 				AF5035462C1616BA00096C73 /* StoriesMemoization.swift in Sources */,
 				AF5019AC2BD5A3B100138496 /* SearchResultRowView.swift in Sources */,
+				AF18A0FF2C2A0196000D1869 /* DarkThemeUsecase.swift in Sources */,
 				AFD1436C2BD70B1600536B96 /* WebView.swift in Sources */,
 				AFF514932C13973900D91950 /* TimerConfiguration+Calculations.swift in Sources */,
 				AF5019B82BD5BEF500138496 /* SearchResultViewModel.swift in Sources */,

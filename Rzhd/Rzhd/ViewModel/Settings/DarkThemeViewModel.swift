@@ -8,5 +8,16 @@
 import Foundation
 
 final class DarkThemeViewModel:  ObservableObject {
-    @Published var themeConfig: ThemeConfig
+    static let shared = DarkThemeViewModel()
+    private let themeUseCase = DarkThemeUsecase()
+    @Published var themeConfig: ThemeConfig = ThemeConfig()
+    
+    init() {
+        themeConfig.isDarkMode = themeUseCase.isDarkThemeEnabled()
+    }
+    
+    func toggleTheme() -> Void {
+        let newTheme = themeUseCase.interactWithTheme()
+        themeConfig.isDarkMode = newTheme
+    }
 }

@@ -23,12 +23,15 @@ enum NavigationIdentifiers: String {
 // MARK: - ContentView
 struct ContentView: View {
     @StateObject var searchData = SearchData()
+    @ObservedObject var themeViewModel = DarkThemeViewModel.shared
     @StateObject var themeConfig = ThemeConfig()
-    
+
     @State private var selectedTab = 0
     @State private var path: [NavigationIdentifiers] = []
     @State private var stories = StoriesPack.stories
     @State private var storiesMemo = StoriesMemoization() // тут просится вьюмодель
+
+    
     
     var body: some View {
         NavigationStack(path: $path) {
@@ -48,7 +51,7 @@ struct ContentView: View {
                     .tag(0)
                     .edgesIgnoringSafeArea(.top)
                     .toolbarBackground(Color("TabBarColor"), for: .tabBar)
-                SettingsView(path: $path).environmentObject(themeConfig)
+                SettingsView(path: $path)
                     .tabItem {
                         Image("SettingsIcon")
                             .renderingMode(.template)
@@ -84,7 +87,7 @@ struct ContentView: View {
                             memo: $storiesMemo, path: $path)
                     }
                 }
-        }.preferredColorScheme(themeConfig.isDarkMode ? .dark : .light)
+        }.preferredColorScheme(themeViewModel.themeConfig.isDarkMode ? .dark : .light)
             .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
             .onAppear {
                 //                    UITabBar.appearance().barTintColor = .white

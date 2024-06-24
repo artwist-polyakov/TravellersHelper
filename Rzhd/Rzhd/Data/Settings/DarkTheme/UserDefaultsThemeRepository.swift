@@ -8,10 +8,11 @@
 import Foundation
 
 final class UserDefaultsThemeRepository: CurrentThemeRepository {
+    static let shared = UserDefaultsThemeRepository()
     private let darkThemeKey = "darkThemeEnabled"
     
     func isDarkThemeEnabled() -> Bool {
-        guard let setup = UserDefaults.standard.object(forKey: darkThemeKey) else {
+        guard UserDefaults.standard.object(forKey: darkThemeKey) != nil else {
             return false
         }
         return UserDefaults.standard.bool(forKey: darkThemeKey)
@@ -21,3 +22,5 @@ final class UserDefaultsThemeRepository: CurrentThemeRepository {
         UserDefaults.standard.set(isEnabled, forKey: darkThemeKey)
     }
 }
+
+

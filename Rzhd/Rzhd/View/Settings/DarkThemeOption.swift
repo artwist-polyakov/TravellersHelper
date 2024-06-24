@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct DarkThemeOption: View {
-    @EnvironmentObject var config: ThemeConfig
-    
+    @ObservedObject var viewModel: DarkThemeViewModel = DarkThemeViewModel.shared
     
     
     var body: some View {
@@ -17,7 +16,7 @@ struct DarkThemeOption: View {
             Text("Темная тема")
                 .font(.system(size:17))
             Spacer()
-            Toggle(isOn: $config.isDarkMode) {
+            Toggle(isOn: $viewModel.themeConfig.isDarkMode) {
             }
             .labelsHidden()
             .tint(.searchBackground).padding(.trailing, 8)
@@ -26,5 +25,5 @@ struct DarkThemeOption: View {
 }
 
 #Preview {
-    DarkThemeOption().environmentObject(ThemeConfig())
+    DarkThemeOption()
 }
