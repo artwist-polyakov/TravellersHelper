@@ -8,18 +8,16 @@
 import SwiftUI
 
 struct SettingsView: View {
-    
-    @Binding var path: [NavigationIdentifiers]
-    @EnvironmentObject var config: ThemeConfig
+    @ObservedObject var router: PathRouter = PathRouter.shared
     
     var body: some View {
         ZStack {
             ScrollView {
                 LazyVStack(spacing: 0) {
-                    DarkThemeOption().environmentObject(config)
+                    DarkThemeOption()
                     AgreementOption()
                         .onTapGesture {
-                            path.append(.agreement)
+                            router.pushPath(.agreement)
                         }
                 }
             }
@@ -36,6 +34,5 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView( path: .constant([])
-    ).environmentObject(ThemeConfig())
+    SettingsView()
 }

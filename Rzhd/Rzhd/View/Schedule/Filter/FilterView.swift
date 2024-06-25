@@ -9,8 +9,7 @@ import SwiftUI
 
 struct FilterView: View {
     @EnvironmentObject var searchData: SearchData
-    
-    @Binding var path: [NavigationIdentifiers]
+    private var router: PathRouter = PathRouter.shared
     @ObservedObject var viewModel = FilterViewModel()
     
     var body: some View {
@@ -38,8 +37,8 @@ struct FilterView: View {
                 Spacer()
                 Button(action: {
                     searchData.filterConstraints = viewModel.convertSettingsIntoConstraints()
-                    if !path.isEmpty {
-                        path.removeLast()
+                    if !router.isEmpty() {
+                        router.popPath()
                     }
                 }) {
                     Text("Применить")
@@ -63,7 +62,7 @@ struct FilterView: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
                     searchData.currentlySelectedTextField = .nothing
-                    self.path.removeLast()
+                    self.router.popPath()
                 }) {
                     Image( "NavBackButton")
                         .foregroundColor(Color.rzhdGreyBackButton)
@@ -75,7 +74,7 @@ struct FilterView: View {
 }
 
 #Preview {
-    FilterView( path: .constant([]))
+    FilterView()
         .environmentObject(SearchData())
     
 }

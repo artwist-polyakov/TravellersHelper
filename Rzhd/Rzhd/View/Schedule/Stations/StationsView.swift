@@ -11,13 +11,12 @@ import SwiftUI
 
 struct StationsView: View {
     @EnvironmentObject var searchData: SearchData
-    
-    @Binding var path: [NavigationIdentifiers]
+    var router: PathRouter = PathRouter.shared
     @State private var searchText: String = ""
     @StateObject var viewModel = StationsViewModel()
     
     func proceedStation(station: Station) {
-        if ($path.isEmpty) {
+        if (router.isEmpty()) {
             return
         }
         switch searchData.currentlySelectedTextField {
@@ -30,7 +29,7 @@ struct StationsView: View {
         }
         searchData.currentlySelectedTextField = .nothing
         searchData.configureTextValues()
-        self.path.removeAll()
+        self.router.removeAll()
     }
     
     var body: some View {
@@ -95,7 +94,7 @@ struct StationsView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
-                    self.path.removeLast()
+                    self.router.popPath()
                 }) {
                     Image( "NavBackButton")
                         .foregroundColor(Color.rzhdGreyBackButton)
@@ -109,5 +108,5 @@ struct StationsView: View {
 
 
 #Preview {
-    StationsView(path: .constant([]))
+    StationsView()
 }

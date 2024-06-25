@@ -10,8 +10,7 @@ import SwiftUI
 struct SearchResultView: View {
     
     @EnvironmentObject var searchData: SearchData
-    
-    @Binding var path: [NavigationIdentifiers]
+    private var router: PathRouter = PathRouter.shared
     
     @StateObject var viewModel = SearchResultViewModel()
     
@@ -47,7 +46,7 @@ struct SearchResultView: View {
                             ForEach(viewModel.searchResult) { element in
                                 SearchResultRowView(searchItem: element)
                                     .onTapGesture {
-                                        path.append(.detailedTransporter)
+                                        router.pushPath(.detailedTransporter)
                                     }
                                 
                             }
@@ -58,7 +57,7 @@ struct SearchResultView: View {
             VStack {
                 Spacer()
                 Button(action: {
-                    self.path.append(.filterList)
+                    self.router.pushPath(.filterList)
                 }) {
                     HStack (alignment: .center)  {
                         Text("Уточнить время")
@@ -88,7 +87,7 @@ struct SearchResultView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
                         searchData.currentlySelectedTextField = .nothing
-                        self.path.removeLast()
+                        self.router.popPath()
                     }) {
                         Image( "NavBackButton")
                             .foregroundColor(Color.rzhdGreyBackButton)
@@ -100,7 +99,7 @@ struct SearchResultView: View {
 
 #Preview {
     // Идиома IILE
-    SearchResultView(path: .constant([])).environmentObject({
+    SearchResultView().environmentObject({
         let search = SearchData()
         search.fromText = "Москва (Перемерки)"
         search.toText = "Санкт-Петербург (Выворотки)"
