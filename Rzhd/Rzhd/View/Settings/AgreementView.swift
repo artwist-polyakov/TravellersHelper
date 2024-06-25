@@ -9,9 +9,10 @@ import SwiftUI
 
 struct AgreementView: View {
     private var router: PathRouter = PathRouter.shared
+    private let viewModel: AgreementViewModel = AgreementViewModel()
     
     var body: some View {
-        WebView(url: URL(string: "https://yandex.ru/legal/practicum_offer/?ysclid=lvbglg2my2169602491")!).navigationTitle("Пользовательское соглашение").navigationBarTitleDisplayMode(.inline)
+        WebView(url: URL(string: viewModel.getAgreementLink())!).navigationTitle("Пользовательское соглашение").navigationBarTitleDisplayMode(.inline)
             .navigationBarBackButtonHidden(true)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
