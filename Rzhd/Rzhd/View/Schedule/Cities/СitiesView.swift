@@ -9,13 +9,12 @@ import SwiftUI
 
 struct CitiesView: View {
     @EnvironmentObject var searchData: SearchData
-    
-    @Binding var path: [NavigationIdentifiers]
+    @ObservedObject var router = PathRouter.shared
     @State private var searchText: String = ""
     @StateObject var viewModel = CitiesViewModel()
     
     func proceedCityName(city: City) {
-        if ($path.isEmpty) {
+        if (router.isEmpty()) {
             return
         }
         switch searchData.currentlySelectedTextField {
@@ -26,7 +25,7 @@ struct CitiesView: View {
         case .nothing:
             break
         }
-        self.path.append(.stationsList)
+        self.router.pushPath(.stationsList)
     }
     
     var body: some View {
@@ -92,7 +91,7 @@ struct CitiesView: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
                     searchData.currentlySelectedTextField = .nothing
-                    self.path.removeLast()
+                    self.router.popPath()
                 }) {
                     Image( "NavBackButton")
                         .foregroundColor(Color.rzhdGreyBackButton)
@@ -106,5 +105,5 @@ struct CitiesView: View {
 
 
 #Preview {
-    CitiesView(path: .constant([]))
+    CitiesView()
 }

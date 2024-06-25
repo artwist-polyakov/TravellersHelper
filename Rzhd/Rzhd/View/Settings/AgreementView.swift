@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct AgreementView: View {
-    
-    @Binding var path: [NavigationIdentifiers]
+    private var router: PathRouter = PathRouter.shared
     
     var body: some View {
         WebView(url: URL(string: "https://yandex.ru/legal/practicum_offer/?ysclid=lvbglg2my2169602491")!).navigationTitle("Пользовательское соглашение").navigationBarTitleDisplayMode(.inline)
@@ -17,8 +16,8 @@ struct AgreementView: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
-                        if !self.path.isEmpty{
-                            self.path.removeLast()}
+                        if !self.router.isEmpty(){
+                            self.router.popPath()}
                     }) {
                         Image( "NavBackButton")
                             .foregroundColor(Color.rzhdGreyBackButton)
@@ -29,5 +28,5 @@ struct AgreementView: View {
 }
 
 #Preview {
-    AgreementView( path: .constant([]))
+    AgreementView()
 }

@@ -8,8 +8,7 @@
 import SwiftUI
 
 struct ScheduleView: View {
-    
-    @Binding var path: [NavigationIdentifiers]
+    @ObservedObject var router = PathRouter.shared
     
     @EnvironmentObject var searchData: SearchData
     
@@ -25,7 +24,7 @@ struct ScheduleView: View {
                         StoryPreview(story: story)
                             .onTapGesture {
                                 memo.selectedPack = UInt8(index)
-                                path.append(.stories)
+                                router.pushPath(.stories)
                             }
                     }
                 }}
@@ -50,7 +49,7 @@ struct ScheduleView: View {
                             .multilineTextAlignment(.leading)
                             .onTapGesture {
                                 searchData.currentlySelectedTextField = .from
-                                self.path.append(.citiesList)
+                                self.router.pushPath(.citiesList)
                             }
                         Spacer()
                         
@@ -65,7 +64,7 @@ struct ScheduleView: View {
                             .multilineTextAlignment(.leading)
                             .onTapGesture {
                                 searchData.currentlySelectedTextField = .to
-                                self.path.append(.citiesList)
+                                self.router.pushPath(.citiesList)
                             }
                         
                         Spacer()
@@ -97,7 +96,7 @@ struct ScheduleView: View {
                     if (searchData.cityFrom == nil || searchData.cityTo == nil) {
                         return
                     }
-                    self.path.append(.searchResultsList)
+                    self.router.pushPath(.searchResultsList)
                 } label: {
                     Text("Найти")
                         .foregroundColor(.white)
@@ -127,7 +126,7 @@ extension ScheduleView {
 
 
 #Preview {
-    ScheduleView(path: .constant([]), stories: .constant(StoriesPack.stories),
+    ScheduleView(stories: .constant(StoriesPack.stories),
                  memo: .constant(StoriesMemoization())
     )
     .environmentObject(SearchData())

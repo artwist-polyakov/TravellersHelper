@@ -9,36 +9,21 @@ import SwiftUI
 import OpenAPIURLSession
 import HTTPTypes
 
-
-enum NavigationIdentifiers: String {
-    case citiesList = "CitiesList"
-    case stationsList = "StationsList"
-    case searchResultsList = "SearchResultsList"
-    case filterList = "FilterList"
-    case detailedTransporter = "DetailedTransporter"
-    case agreement = "Agreement"
-    case stories = "Stories"
-}
-
 // MARK: - ContentView
 struct ContentView: View {
     @StateObject var searchData = SearchData()
     @ObservedObject var themeViewModel = DarkThemeViewModel.shared
-    @StateObject var themeConfig = ThemeConfig()
-
     @State private var selectedTab = 0
+    @ObservedObject var router: PathRouter = PathRouter.shared
     @State private var path: [NavigationIdentifiers] = []
     @State private var stories = StoriesPack.stories
     @State private var storiesMemo = StoriesMemoization() // тут просится вьюмодель
-
-    
     
     var body: some View {
-        NavigationStack(path: $path) {
+        NavigationStack(path: $router.path) {
             TabView(selection: $selectedTab) {
-                ScheduleView(path: $path, stories: $stories,
-                             memo: $storiesMemo
-                ).environmentObject(searchData)
+
+                ScheduleView(stories: $stories,memo: $storiesMemo).environmentObject(searchData)
                     .tabItem {
                         Image("ScheduleIcon")
                             .renderingMode(.template)
@@ -51,7 +36,7 @@ struct ContentView: View {
                     .tag(0)
                     .edgesIgnoringSafeArea(.top)
                     .toolbarBackground(Color("TabBarColor"), for: .tabBar)
-                SettingsView(path: $path)
+                SettingsView()
                     .tabItem {
                         Image("SettingsIcon")
                             .renderingMode(.template)
@@ -67,24 +52,25 @@ struct ContentView: View {
                     .toolbarBackground(Color("TabBarColor"), for: .tabBar)
             }.accentColor(.colorOnPrimary)
                 .environmentObject(searchData)
+                .environmentObject(themeViewModel.themeConfig)
                 .navigationDestination(for: NavigationIdentifiers.self) { id in
                     switch (id) {
                     case .citiesList:
-                        CitiesView(path: $path).environmentObject(searchData)
+                        CitiesView().environmentObject(searchData)
                     case .stationsList:
-                        StationsView(path: $path).environmentObject(searchData)
+                        StationsView().environmentObject(searchData)
                     case .searchResultsList:
-                        SearchResultView(path: $path).environmentObject(searchData)
+                        SearchResultView().environmentObject(searchData)
                     case .filterList:
-                        FilterView(path: $path).environmentObject(searchData)
+                        FilterView().environmentObject(searchData)
                     case .detailedTransporter:
-                        TransporterView(path: $path).environmentObject(searchData)
+                        TransporterView().environmentObject(searchData)
                     case .agreement:
-                        AgreementView(path:$path)
+                        AgreementView()
                     case .stories:
                         StoriesView(
                             stories: $stories,
-                            memo: $storiesMemo, path: $path)
+                            memo: $storiesMemo)
                     }
                 }
         }.preferredColorScheme(themeViewModel.themeConfig.isDarkMode ? .dark : .light)

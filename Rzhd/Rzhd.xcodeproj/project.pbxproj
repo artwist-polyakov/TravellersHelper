@@ -14,6 +14,8 @@
 		AF18A0F62C29FF06000D1869 /* CurrentThemeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18A0F52C29FF06000D1869 /* CurrentThemeRepository.swift */; };
 		AF18A0F92C29FFCB000D1869 /* UserDefaultsThemeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18A0F82C29FFCB000D1869 /* UserDefaultsThemeRepository.swift */; };
 		AF18A0FF2C2A0196000D1869 /* DarkThemeUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18A0FE2C2A0196000D1869 /* DarkThemeUsecase.swift */; };
+		AF18A1082C2B366E000D1869 /* PathRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18A1072C2B366E000D1869 /* PathRouter.swift */; };
+		AF18A10A2C2B36E4000D1869 /* NavigationIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18A1092C2B36E4000D1869 /* NavigationIdentifiers.swift */; };
 		AF3E62152C1395D600A3DE4F /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3E62142C1395D600A3DE4F /* StoriesView.swift */; };
 		AF5019982BD5832300138496 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019972BD5832300138496 /* Station.swift */; };
 		AF50199C2BD58E6F00138496 /* StationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50199B2BD58E6F00138496 /* StationsView.swift */; };
@@ -90,6 +92,8 @@
 		AF18A0F52C29FF06000D1869 /* CurrentThemeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentThemeRepository.swift; sourceTree = "<group>"; };
 		AF18A0F82C29FFCB000D1869 /* UserDefaultsThemeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsThemeRepository.swift; sourceTree = "<group>"; };
 		AF18A0FE2C2A0196000D1869 /* DarkThemeUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkThemeUsecase.swift; sourceTree = "<group>"; };
+		AF18A1072C2B366E000D1869 /* PathRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathRouter.swift; sourceTree = "<group>"; };
+		AF18A1092C2B36E4000D1869 /* NavigationIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationIdentifiers.swift; sourceTree = "<group>"; };
 		AF3E62142C1395D600A3DE4F /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
 		AF5019972BD5832300138496 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		AF50199B2BD58E6F00138496 /* StationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsView.swift; sourceTree = "<group>"; };
@@ -245,6 +249,15 @@
 				AF18A0FE2C2A0196000D1869 /* DarkThemeUsecase.swift */,
 			);
 			path = DarkTheme;
+			sourceTree = "<group>";
+		};
+		AF18A1052C2B365E000D1869 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				AF18A1072C2B366E000D1869 /* PathRouter.swift */,
+				AF18A1092C2B36E4000D1869 /* NavigationIdentifiers.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		AF5019A62BD5A20E00138496 /* Extensions */ = {
@@ -420,6 +433,7 @@
 		AFE252AC2B921369007E5FFF /* Rzhd */ = {
 			isa = PBXGroup;
 			children = (
+				AF18A1052C2B365E000D1869 /* Router */,
 				AF18A0FB2C2A0141000D1869 /* Domain */,
 				AF18A0F12C29FEEE000D1869 /* Data */,
 				AFF514982C1398DE00D91950 /* Assets */,
@@ -573,6 +587,7 @@
 				AF6DE7642BD7035E00C48E86 /* ThemeConfig.swift in Sources */,
 				AF18A0EF2C29FDC7000D1869 /* DarkThemeViewModel.swift in Sources */,
 				AFE252CD2B99DF7B007E5FFF /* Copyright.swift in Sources */,
+				AF18A10A2C2B36E4000D1869 /* NavigationIdentifiers.swift in Sources */,
 				AFF514912C13971500D91950 /* TimerConfiguration.swift in Sources */,
 				AF62FD492BCFE8F6005822A0 /* City.swift in Sources */,
 				AF50199C2BD58E6F00138496 /* StationsView.swift in Sources */,
@@ -607,6 +622,7 @@
 				AFF514A02C1399AF00D91950 /* CloseButton.swift in Sources */,
 				AF62FD4F2BCFF60E005822A0 /* SearchData.swift in Sources */,
 				AF6D3A9D2C138F240095E027 /* StoriesPack.swift in Sources */,
+				AF18A1082C2B366E000D1869 /* PathRouter.swift in Sources */,
 				AFE252BC2B992284007E5FFF /* Thread.swift in Sources */,
 				AFD1436A2BD709ED00536B96 /* AgreementView.swift in Sources */,
 				AF62FD462BCFE8B0005822A0 /* CitiesViewModel.swift in Sources */,

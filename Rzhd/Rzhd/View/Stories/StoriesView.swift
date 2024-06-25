@@ -10,10 +10,9 @@ import SwiftUI
 struct StoriesView: View {
     @Binding var stories: [StoriesPack]
     @Binding var memo: StoriesMemoization
-    @Binding var path: [NavigationIdentifiers]
     @State var currentStoryIndex: Int = 0
     @State var currentProgress: CGFloat = 0
-    
+    var router: PathRouter = PathRouter.shared
     private var timerConfiguration: TimerConfiguration {
         .init(
             storiesCount: stories[Int(memo.selectedPack)].content.count
@@ -39,7 +38,7 @@ struct StoriesView: View {
             .onChange(of: currentProgress) { _, newValue in
                 didChangeCurrentProgress(newProgress: newValue)
             }
-            CloseButton(action: { if !path.isEmpty { path.removeLast() } })
+            CloseButton(action: { if !router.isEmpty() { router.popPath() } })
                 .padding(.top, 57)
                 .padding(.trailing, 12)
         }.navigationBarHidden(true)
@@ -73,8 +72,8 @@ struct StoriesView: View {
                     currentProgress = 0
                 }
             } else {
-                if !path.isEmpty {
-                    path.removeLast()
+                if !router.isEmpty() {
+                    router.popPath()
                 }
             }
             return
@@ -97,7 +96,7 @@ struct StoriesView: View {
     
     private func nextStoryPackCompletion(back: Bool = false) {
         switch back {
-            case true:
+        case true:
             if Int(memo.selectedPack) > 0 {
                 withAnimation(.easeInOut) {
                     memo.selectedPack -= 1
@@ -106,7 +105,7 @@ struct StoriesView: View {
                 }
                 return
             }
-            case false:
+        case false:
             if Int(memo.selectedPack) < stories.count - 1 {
                 withAnimation(.easeInOut) {
                     memo.selectedPack += 1
@@ -116,8 +115,8 @@ struct StoriesView: View {
                 return
             }
         }
-        if !path.isEmpty {
-            path.removeLast()
+        if !router.isEmpty() {
+            router.popPath()
         }
     }
 }
@@ -127,6 +126,6 @@ struct StoriesView_Previews: PreviewProvider {
     static var previews: some View {
         StoriesView(
             stories: .constant(StoriesPack.stories),
-            memo: .constant(StoriesMemoization()), path: .constant([]))
+            memo: .constant(StoriesMemoization()))
     }
 }

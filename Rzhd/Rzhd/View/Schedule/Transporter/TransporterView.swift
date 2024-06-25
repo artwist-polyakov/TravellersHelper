@@ -9,8 +9,7 @@ import SwiftUI
 
 struct TransporterView: View {
     @EnvironmentObject var searchData: SearchData
-    
-    @Binding var path: [NavigationIdentifiers]
+    private var router: PathRouter = PathRouter.shared
     
     @StateObject var viewModel = TransporterViewModel()
     
@@ -73,7 +72,7 @@ struct TransporterView: View {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(action: {
                         searchData.currentlySelectedTextField = .nothing
-                        self.path.removeLast()
+                        self.router.popPath()
                     }) {
                         Image( "NavBackButton")
                             .foregroundColor(Color.rzhdGreyBackButton)
@@ -91,5 +90,5 @@ extension View {
 }
 
 #Preview {
-    TransporterView(path: .constant([]))
+    TransporterView()
 }

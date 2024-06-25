@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SettingsView: View {
-    @Binding var path: [NavigationIdentifiers]
+    @ObservedObject var router: PathRouter = PathRouter.shared
     
     var body: some View {
         ZStack {
@@ -17,7 +17,7 @@ struct SettingsView: View {
                     DarkThemeOption()
                     AgreementOption()
                         .onTapGesture {
-                            path.append(.agreement)
+                            router.pushPath(.agreement)
                         }
                 }
             }
@@ -34,5 +34,5 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView(path: .constant([]))
+    SettingsView()
 }
