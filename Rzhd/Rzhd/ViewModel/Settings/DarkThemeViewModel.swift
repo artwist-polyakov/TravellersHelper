@@ -17,7 +17,6 @@ final class DarkThemeViewModel:  ObservableObject {
     }
     
     func toggleTheme() -> Void {
-        let newTheme = themeUseCase.interactWithTheme()
-        themeConfig.isDarkMode = newTheme
+        themeConfig.isDarkMode = themeUseCase.interactWithTheme()
     }
 }
