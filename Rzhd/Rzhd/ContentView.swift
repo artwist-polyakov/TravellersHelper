@@ -52,7 +52,6 @@ struct ContentView: View {
                     .toolbarBackground(Color("TabBarColor"), for: .tabBar)
             }.accentColor(.colorOnPrimary)
                 .environmentObject(searchData)
-                .environmentObject(themeViewModel.themeConfig)
                 .navigationDestination(for: NavigationIdentifiers.self) { id in
                     switch (id) {
                     case .citiesList:
