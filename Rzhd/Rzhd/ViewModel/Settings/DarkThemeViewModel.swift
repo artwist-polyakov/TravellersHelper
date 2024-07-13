@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 final class DarkThemeViewModel:  ObservableObject {
     static let shared = DarkThemeViewModel()
     private let themeUseCase = DarkThemeUsecase()
