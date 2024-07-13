@@ -123,6 +123,7 @@ struct ContentView: View {
                 let stations = try await service.get()
                 let data = try await Data(collecting: stations, upTo: 100*1024*1024)
                 print("data size: \(data.count)")
+                print(allStations)
                 let allStations = try JSONDecoder().decode(Components.Schemas.AllStations.self, from: data)
                 print("All stations: \(allStations)")
             } catch {
