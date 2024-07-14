@@ -360,6 +360,14 @@
 			path = Schedule;
 			sourceTree = "<group>";
 		};
+		AF23A4E82C4401BA00473B5F /* Cities */ = {
+			isa = PBXGroup;
+			children = (
+				AF62FD452BCFE8B0005822A0 /* CitiesViewModel.swift */,
+			);
+			path = Cities;
+			sourceTree = "<group>";
+		};
 		AF5019A62BD5A20E00138496 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -372,9 +380,9 @@
 		AF62FD442BCFE8A0005822A0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				AF23A4E82C4401BA00473B5F /* Cities */,
 				AF23A4E42C43FB2000473B5F /* Schedule */,
 				AF18A0EB2C29FDAA000D1869 /* Settings */,
-				AF62FD452BCFE8B0005822A0 /* CitiesViewModel.swift */,
 				AF71039E2BD582B9002E3C45 /* StationsViewModel.swift */,
 				AF5019B72BD5BEF500138496 /* SearchResultViewModel.swift */,
 				AFE976AC2BD6C348003720BE /* FilterViewModel.swift */,
