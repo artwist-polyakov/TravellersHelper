@@ -103,6 +103,18 @@ final class RussianStationsDataSource {
         return RussianCitiesAndStations(cities: russianCities)
     }
     
+    func getCities() -> [CityModel] {
+            return russianStations?.cities ?? []
+        }
+        
+    func findCity(byId id: String) -> CityModel? {
+        return russianStations?.findCity(byId: id)
+    }
+    
+    func findStation(inCity city: CityModel, byId id: String) -> StationModel? {
+        return russianStations?.findStation(inCity: city, byId: id)
+    }
+    
     private func loadStations() -> Void {
         let client = Client(
             serverURL: try! Servers.server1(),
