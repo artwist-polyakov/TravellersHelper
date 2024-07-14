@@ -8,16 +8,21 @@
 import Foundation
 import OpenAPIURLSession
 
-final class RussianStationsDataSource {
+actor RussianStationsDataSource {
     static let shared = RussianStationsDataSource()
-    private var russianStations: RussianCitiesAndStations? = nil
+    private var russianStations: RussianCitiesAndStations?
+    private let client: Client
+    private var loadingTask: Task<Void, Error>?
+    private var isLoaded = false
     
-    init() {
-        
-        loadStations()
-        
+    private init() {
+        self.client = Client(
+            serverURL: try! Servers.server1(),
+            transport: URLSessionTransport()
+        )
+        self.loadingTask = Task { try await self.loadStations() }
     }
-    
+
     private func filterRussianCitiesAndStations(_ data: [String: Any]) -> [[String: Any]] {
         guard let countries = data["countries"] as? [[String: Any]] else {
             return []
@@ -103,65 +108,49 @@ final class RussianStationsDataSource {
         return RussianCitiesAndStations(cities: russianCities)
     }
     
-    func getCities() -> [CityModel] {
-            return russianStations?.cities ?? []
+    func isLoading() -> Bool {
+        return !isLoaded
+    }
+    
+    func awaitLoading() async throws {
+        if let task = loadingTask {
+            try await task.value
+        } else if !isLoaded {
+            try await loadStations()
         }
-        
-    func findCity(byId id: String) -> CityModel? {
+    }
+    
+    func getCities() async throws -> [CityModel] {
+        try await awaitLoading()
+        return russianStations?.cities ?? []
+    }
+    
+    func findCity(byId id: String) async throws -> CityModel? {
+        try await awaitLoading()
         return russianStations?.findCity(byId: id)
     }
     
-    func findStation(inCity city: CityModel, byId id: String) -> StationModel? {
+    func findStation(inCity city: CityModel, byId id: String) async throws -> StationModel? {
+        try await awaitLoading()
         return russianStations?.findStation(inCity: city, byId: id)
     }
-    
-    private func loadStations() -> Void {
-        let client = Client(
-            serverURL: try! Servers.server1(),
-            transport: URLSessionTransport()
-        )
+
+    private func loadStations() async throws {
+        guard !isLoaded else { return }
         
-        let service = AllStationsService(
-            client: client,
-            apikey: API_KEY
-        )
-        Task {
-            do {
-                let stations = try await service.get()
-                let data = try await Data(collecting: stations, upTo: 100*1024*1024)
-                print("data size: \(data.count)")
-                
-                let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
-                self.russianStations = parseRussianCitiesAndStations(jsonResult)
-                
-                guard let russianCitiesAndStations = self.russianStations else {
-                    return
-                }
-                
-                print("Total cities: \(russianCitiesAndStations.cities.count)")
-                
-                // Пример поиска конкретного города и станции
-                if let moscow = russianCitiesAndStations.findCity(byId: "c213") {  // Предполагаемый Yandex код для Москвы
-                    print("\nFound Moscow: \(moscow.title)")
-                    print("Total stations in Moscow: \(moscow.stations.count)")
-                    if let station = russianCitiesAndStations.findStation(inCity: moscow, byId: "s2000006") {  // Предполагаемый Yandex код для Киевского вокзала
-                        print("Found station: \(station.title) (Type: \(station.stationType), Transport: \(station.transportType))")
-                    }
-                }
-                
-                // Выводим несколько примеров для демонстрации
-                print("\nSample of Russian Cities and Stations:")
-                for city in russianCitiesAndStations.cities.prefix(5) {
-                    print("City: \(city.title) (ID: \(city.id))")
-                    for station in city.stations.prefix(3) {
-                        print("  Station: \(station.title) (ID: \(station.id), Type: \(station.stationType), Transport: \(station.transportType))")
-                    }
-                }
-                
-            } catch {
-                print("Error fetching stations: \(error)")
-            }
+        do {
+            let service = AllStationsService(client: client, apikey: API_KEY)
+            let stations = try await service.get()
+            let data = try await Data(collecting: stations, upTo: 100*1024*1024)
+            
+            let jsonResult = try JSONSerialization.jsonObject(with: data, options: []) as! [String: Any]
+            self.russianStations = parseRussianCitiesAndStations(jsonResult)
+            
+            isLoaded = true
+            print("Total cities: \(self.russianStations?.cities.count ?? 0)")
+        } catch {
+            isLoaded = false
+            throw error
         }
     }
-    
 }

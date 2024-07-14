@@ -24,7 +24,7 @@ struct ContentView: View {
     var body: some View {
         NavigationStack(path: $router.path) {
             TabView(selection: $selectedTab) {
-
+                
                 ScheduleView(stories: $stories,memo: $storiesMemo).environmentObject(searchData)
                     .tabItem {
                         Image("ScheduleIcon")
@@ -77,6 +77,9 @@ struct ContentView: View {
         }.preferredColorScheme(themeViewModel.themeConfig.isDarkMode ? .dark : .light)
             .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
             .onAppear {
+                Task {
+                    _ = await RussianStationsDataSource.shared.isLoading()
+                }
                 //                    UITabBar.appearance().barTintColor = .white
                 //            copyright()
                 //            search()
@@ -120,7 +123,7 @@ struct ContentView: View {
         
         return jsonObject
     }
-
+    
     func cleanUpUnicode(_ dict: [String: Any]) -> [String: Any] {
         var cleanDict = [String: Any]()
         for (key, value) in dict {
