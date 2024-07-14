@@ -12,7 +12,7 @@ actor RussianStationsDataSource {
     static let shared = RussianStationsDataSource()
     private var russianStations: RussianCitiesAndStations?
     private let client: Client
-    private var loadingTask: Task<Void, Error>?
+    private var loadingTask: Task<Void, Error>? = nil
     private var isLoaded = false
     
     private init() {
@@ -113,12 +113,12 @@ actor RussianStationsDataSource {
     }
     
     func awaitLoading() async throws {
-        if let task = loadingTask {
-            try await task.value
-        } else if !isLoaded {
-            try await loadStations()
+            if let task = loadingTask {
+                try await task.value
+            } else if !isLoaded {
+                try await loadStations()
+            }
         }
-    }
     
     func getCities() async throws -> [CityModel] {
         try await awaitLoading()

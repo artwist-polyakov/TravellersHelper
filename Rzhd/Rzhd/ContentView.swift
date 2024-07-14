@@ -19,7 +19,7 @@ struct ContentView: View {
     @State private var path: [NavigationIdentifiers] = []
     @State private var stories = StoriesPack.stories
     @State private var storiesMemo = StoriesMemoization() // тут просится вьюмодель
-    let stationsSource = RussianStationsDataSource.shared
+    @StateObject private var viewModel = MainViewModel()
     
     var body: some View {
         NavigationStack(path: $router.path) {
@@ -77,9 +77,6 @@ struct ContentView: View {
         }.preferredColorScheme(themeViewModel.themeConfig.isDarkMode ? .dark : .light)
             .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
             .onAppear {
-                Task {
-                    _ = await RussianStationsDataSource.shared.isLoading()
-                }
                 //                    UITabBar.appearance().barTintColor = .white
                 //            copyright()
                 //            search()
