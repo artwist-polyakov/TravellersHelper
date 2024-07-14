@@ -8,11 +8,15 @@
 import Foundation
 
 @MainActor
-final class AgreementViewModel {
+final class AgreementViewModel: ObservableObject {
     private let usecase: AgreementLinkUsecase = AgreementLinkUsecase()
     
     func getAgreementLink() -> String {
         return usecase.getAgreementLink()
     }
+    
+    static func create() -> AgreementViewModel {
+            return AgreementViewModel()
+        }
     
 }

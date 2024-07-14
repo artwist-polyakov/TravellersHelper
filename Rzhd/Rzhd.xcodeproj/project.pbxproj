@@ -19,6 +19,7 @@
 		AF18A10E2C2B3F4D000D1869 /* AgreementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18A10D2C2B3F4D000D1869 /* AgreementViewModel.swift */; };
 		AF18A1132C2B3F7B000D1869 /* AgreementLinkUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18A1122C2B3F7B000D1869 /* AgreementLinkUsecase.swift */; };
 		AF18A1162C2B3FA6000D1869 /* AgreementLinkRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF18A1152C2B3FA6000D1869 /* AgreementLinkRepository.swift */; };
+		AF23A4CF2C43E08600473B5F /* StationsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23A4CE2C43E08600473B5F /* StationsModels.swift */; };
 		AF3E62152C1395D600A3DE4F /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3E62142C1395D600A3DE4F /* StoriesView.swift */; };
 		AF5019982BD5832300138496 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019972BD5832300138496 /* Station.swift */; };
 		AF50199C2BD58E6F00138496 /* StationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50199B2BD58E6F00138496 /* StationsView.swift */; };
@@ -100,6 +101,7 @@
 		AF18A10D2C2B3F4D000D1869 /* AgreementViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementViewModel.swift; sourceTree = "<group>"; };
 		AF18A1122C2B3F7B000D1869 /* AgreementLinkUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementLinkUsecase.swift; sourceTree = "<group>"; };
 		AF18A1152C2B3FA6000D1869 /* AgreementLinkRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementLinkRepository.swift; sourceTree = "<group>"; };
+		AF23A4CE2C43E08600473B5F /* StationsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsModels.swift; sourceTree = "<group>"; };
 		AF3E62142C1395D600A3DE4F /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
 		AF5019972BD5832300138496 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		AF50199B2BD58E6F00138496 /* StationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsView.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 		AF18A0F12C29FEEE000D1869 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				AF23A4CC2C43E06900473B5F /* Stations */,
 				AF18A0F32C29FEF6000D1869 /* Settings */,
 			);
 			path = Data;
@@ -283,6 +286,22 @@
 				AF18A1152C2B3FA6000D1869 /* AgreementLinkRepository.swift */,
 			);
 			path = Agreement;
+			sourceTree = "<group>";
+		};
+		AF23A4CC2C43E06900473B5F /* Stations */ = {
+			isa = PBXGroup;
+			children = (
+				AF23A4CD2C43E07100473B5F /* Models */,
+			);
+			path = Stations;
+			sourceTree = "<group>";
+		};
+		AF23A4CD2C43E07100473B5F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AF23A4CE2C43E08600473B5F /* StationsModels.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		AF5019A62BD5A20E00138496 /* Extensions */ = {
@@ -594,6 +613,7 @@
 				AF5019A82BD5A22200138496 /* Image+ext.swift in Sources */,
 				AF7434AD2BD66E960050F3DF /* CheckboxSettingsRowView.swift in Sources */,
 				AF62FD3E2BCC8422005822A0 /* СitiesView.swift in Sources */,
+				AF23A4CF2C43E08600473B5F /* StationsModels.swift in Sources */,
 				AFE252C32B99AFDB007E5FFF /* Carrier.swift in Sources */,
 				AF6DE7592BD6F85900C48E86 /* TransporterViewModel.swift in Sources */,
 				AFA305C92B97AE4400759357 /* NearestStations.swift in Sources */,
