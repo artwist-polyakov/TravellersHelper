@@ -11,11 +11,7 @@ import Foundation
 final class ScheduleViewModel: ObservableObject {
     private let stationInteractor = StationsInteractor()
     
-    
     func isDataLoaded() async -> Bool {
         return await stationInteractor.isDataLoaded()
     }
-    
-    
-    
 }
