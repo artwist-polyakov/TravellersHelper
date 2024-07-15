@@ -100,7 +100,7 @@ actor RussianStationsDataSource {
                                             stationType: stationType)
                     }
                     
-                    return CityModel(id: cityYandexCode, title: cityTitle, stations: stationModels)
+                    return CityModel(id: cityYandexCode, title: cityTitle, stations: stationModels.sorted( by: { $0.title < $1.title }))
                 }
             }
         }

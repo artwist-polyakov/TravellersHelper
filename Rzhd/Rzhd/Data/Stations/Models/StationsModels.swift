@@ -44,7 +44,7 @@ struct RussianCitiesAndStations {
     let cities: [CityModel]
     
     init(cities: [CityModel]) {
-        self.cities = cities.sorted()
+        self.cities = cities.sorted( by: { $0.title < $1.title })
     }
     
     func findCity(byId id: String) -> CityModel? {

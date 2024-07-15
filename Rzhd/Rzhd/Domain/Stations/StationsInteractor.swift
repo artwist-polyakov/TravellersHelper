@@ -16,6 +16,6 @@ final class StationsInteractor {
     
     func getCities() async -> [City] {
         let data = try! await dataSource.getCities()
-        return data.map { City(name: $0.title) }.sorted { $0.name < $1.name }
+        return data.map { City(name: $0.title) }
     }
 }
