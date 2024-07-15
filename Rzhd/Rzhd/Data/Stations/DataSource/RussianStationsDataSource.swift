@@ -134,6 +134,15 @@ actor RussianStationsDataSource {
         try await awaitLoading()
         return russianStations?.findStation(inCity: city, byId: id)
     }
+    
+    func getStations(inCity cityId: String?, cityName:String) async throws -> [StationModel] {
+        try await awaitLoading()
+        guard let id = cityId else {
+            return russianStations?.cities.first(where: { $0.title == cityName })?.stations ?? []
+        }
+        return russianStations?.findCity(byId: id)?.stations ?? []
+        
+    }
 
     private func loadStations() async throws {
         guard !isLoaded else { return }
