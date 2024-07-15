@@ -16,6 +16,6 @@ final class StationsInteractor {
     
     func getCities() async -> [City] {
         let data = try! await dataSource.getCities()
-        return data.map { City(name: $0.title) }
+        return data.map { City(name: $0.title, searchId: $0.id) }
     }
 }
