@@ -26,6 +26,7 @@
 		AF23A4E02C43F80C00473B5F /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23A4DF2C43F80C00473B5F /* MainViewModel.swift */; };
 		AF23A4E32C43F89100473B5F /* StoriesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23A4E22C43F89100473B5F /* StoriesInteractor.swift */; };
 		AF23A4E62C43FB3300473B5F /* ScheduleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23A4E52C43FB3300473B5F /* ScheduleViewModel.swift */; };
+		AF23A4EF2C45A30600473B5F /* SearchRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF23A4EE2C45A30600473B5F /* SearchRepository.swift */; };
 		AF3E62152C1395D600A3DE4F /* StoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3E62142C1395D600A3DE4F /* StoriesView.swift */; };
 		AF5019982BD5832300138496 /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF5019972BD5832300138496 /* Station.swift */; };
 		AF50199C2BD58E6F00138496 /* StationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF50199B2BD58E6F00138496 /* StationsView.swift */; };
@@ -114,6 +115,7 @@
 		AF23A4DF2C43F80C00473B5F /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AF23A4E22C43F89100473B5F /* StoriesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesInteractor.swift; sourceTree = "<group>"; };
 		AF23A4E52C43FB3300473B5F /* ScheduleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleViewModel.swift; sourceTree = "<group>"; };
+		AF23A4EE2C45A30600473B5F /* SearchRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRepository.swift; sourceTree = "<group>"; };
 		AF3E62142C1395D600A3DE4F /* StoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesView.swift; sourceTree = "<group>"; };
 		AF5019972BD5832300138496 /* Station.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
 		AF50199B2BD58E6F00138496 /* StationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationsView.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 		AF18A0F12C29FEEE000D1869 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				AF23A4ED2C45A28700473B5F /* Search */,
 				AF23A4D52C43EEFB00473B5F /* Stories */,
 				AF23A4CC2C43E06900473B5F /* Stations */,
 				AF18A0F32C29FEF6000D1869 /* Settings */,
@@ -374,6 +377,14 @@
 				AF71039E2BD582B9002E3C45 /* StationsViewModel.swift */,
 			);
 			path = Stations;
+			sourceTree = "<group>";
+		};
+		AF23A4ED2C45A28700473B5F /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				AF23A4EE2C45A30600473B5F /* SearchRepository.swift */,
+			);
+			path = Search;
 			sourceTree = "<group>";
 		};
 		AF5019A62BD5A20E00138496 /* Extensions */ = {
@@ -757,6 +768,7 @@
 				AFE252AE2B921369007E5FFF /* RzhdApp.swift in Sources */,
 				AF00F0212BC9451B00567681 /* SettingsView.swift in Sources */,
 				AF5019AE2BD5B44400138496 /* Date+ext.swift in Sources */,
+				AF23A4EF2C45A30600473B5F /* SearchRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
