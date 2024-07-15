@@ -9,11 +9,12 @@ import SwiftUI
 
 struct ScheduleView: View {
     @ObservedObject var router = PathRouter.shared
-    
+    @StateObject private var viewModel = ScheduleViewModel()
     @EnvironmentObject var searchData: SearchData
     
     @Binding var stories: [StoriesPack]
     @Binding var memo: StoriesMemoization
+    @State private var showingAlert = false
     
     var body: some View {
         VStack {
@@ -39,32 +40,27 @@ struct ScheduleView: View {
                     .cornerRadius(20)
                 HStack {
                     VStack {
-                        TextField("Откуда", text: $searchData.fromText)
+                        Text(searchData.fromText.isEmpty ? "Откуда" : searchData.fromText)
                             .font(.system(size: 17))
-                            .foregroundColor(.black)
-                            .foregroundColor(.gray)
+                            .foregroundColor(searchData.fromText.isEmpty ? .gray : .black)
                             .textFieldStyle(.plain)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding([.horizontal, .top])
                             .multilineTextAlignment(.leading)
                             .onTapGesture {
-                                searchData.currentlySelectedTextField = .from
-                                self.router.pushPath(.citiesList)
+                                checkDataAndNavigate(.from)
                             }
                         Spacer()
                         
-                        TextField("Куда", text: $searchData.toText)
+                        Text(searchData.toText.isEmpty ? "Куда" : searchData.toText)
                             .font(.system(size: 17))
-                            .foregroundColor(.black)
-                        
-                            .foregroundColor(.gray)
+                            .foregroundColor(searchData.toText.isEmpty ? .gray : .black)
                             .textFieldStyle(.plain)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding([.horizontal, .top])
                             .multilineTextAlignment(.leading)
                             .onTapGesture {
-                                searchData.currentlySelectedTextField = .to
-                                self.router.pushPath(.citiesList)
+                                checkDataAndNavigate(.to)
                             }
                         
                         Spacer()
@@ -111,7 +107,13 @@ struct ScheduleView: View {
             }
             Spacer()
             
-        }.background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
+        }
+        .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
+        .alert("Загрузка данных", isPresented: $showingAlert) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text("Данные о станциях еще загружаются. Пожалуйста, подождите.")
+        }
     }
 }
 
@@ -121,6 +123,26 @@ extension ScheduleView {
         swap(&searchData.stationFrom, &searchData.stationTo)
         swap(&searchData.fromText, &searchData.toText)
     }
+}
+
+extension ScheduleView {
+    private func checkIsStationsReady() async -> Bool {
+        return await viewModel.isDataLoaded()
+    }
+    
+    private func checkDataAndNavigate(_ textField: CurrentlySelectedTextField) {
+            Task {
+                let isReady = await checkIsStationsReady()
+                await MainActor.run {
+                    if isReady {
+                        searchData.currentlySelectedTextField = textField
+                        self.router.pushPath(.citiesList)
+                    } else {
+                        showingAlert = true
+                    }
+                }
+            }
+        }
 }
 
 

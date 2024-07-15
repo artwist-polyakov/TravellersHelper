@@ -8,6 +8,7 @@
 import SwiftUI
 import OpenAPIURLSession
 import HTTPTypes
+import Foundation
 
 // MARK: - ContentView
 struct ContentView: View {
@@ -18,11 +19,12 @@ struct ContentView: View {
     @State private var path: [NavigationIdentifiers] = []
     @State private var stories = StoriesPack.stories
     @State private var storiesMemo = StoriesMemoization() // тут просится вьюмодель
+    @StateObject private var viewModel = MainViewModel()
     
     var body: some View {
         NavigationStack(path: $router.path) {
             TabView(selection: $selectedTab) {
-
+                
                 ScheduleView(stories: $stories,memo: $storiesMemo).environmentObject(searchData)
                     .tabItem {
                         Image("ScheduleIcon")
@@ -78,7 +80,6 @@ struct ContentView: View {
                 //                    UITabBar.appearance().barTintColor = .white
                 //            copyright()
                 //            search()
-                //            allStations ()
                 //            stations()
                 //            thread()
                 //            settlement()
@@ -106,30 +107,36 @@ struct ContentView: View {
             }
         }
     }
-    // MARK: - AllStations
-    func allStations() {
+    
+    func convertDataToJSON(_ data: Data) throws -> Any {
+        let options: JSONSerialization.ReadingOptions = [.allowFragments, .mutableContainers, .mutableLeaves]
+        let jsonObject = try JSONSerialization.jsonObject(with: data, options: options)
         
-        let client = Client(
-            serverURL: try! Servers.server1(),
-            transport: URLSessionTransport()
-        )
+        if let dict = jsonObject as? [String: Any] {
+            return cleanUpUnicode(dict)
+        } else if let array = jsonObject as? [Any] {
+            return array.map { ($0 as? [String: Any]).map(cleanUpUnicode) ?? $0 }
+        }
         
-        let service = AllStationsService(
-            client: client,
-            apikey: API_KEY
-        )
-        Task {
-            do {
-                let stations = try await service.get()
-                let data = try await Data(collecting: stations, upTo: 100*1024*1024)
-                print("data size: \(data.count)")
-                let allStations = try JSONDecoder().decode(Components.Schemas.AllStations.self, from: data)
-                print("All stations: \(allStations)")
-            } catch {
-                print("Error fetching stations: \(error)")
+        return jsonObject
+    }
+    
+    func cleanUpUnicode(_ dict: [String: Any]) -> [String: Any] {
+        var cleanDict = [String: Any]()
+        for (key, value) in dict {
+            if let stringValue = value as? String {
+                cleanDict[key] = stringValue.removingPercentEncoding ?? stringValue
+            } else if let nestedDict = value as? [String: Any] {
+                cleanDict[key] = cleanUpUnicode(nestedDict)
+            } else if let nestedArray = value as? [Any] {
+                cleanDict[key] = nestedArray.map { ($0 as? [String: Any]).map(cleanUpUnicode) ?? $0 }
+            } else {
+                cleanDict[key] = value
             }
         }
+        return cleanDict
     }
+    
     // MARK: - Carrier
     func carrier() {
         let client = Client(

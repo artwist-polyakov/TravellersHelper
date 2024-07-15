@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AgreementView: View {
     private var router: PathRouter = PathRouter.shared
-    private let viewModel: AgreementViewModel = AgreementViewModel()
+    @StateObject private var viewModel = AgreementViewModel.create()
     
     var body: some View {
         WebView(url: URL(string: viewModel.getAgreementLink())!).navigationTitle("Пользовательское соглашение").navigationBarTitleDisplayMode(.inline)
