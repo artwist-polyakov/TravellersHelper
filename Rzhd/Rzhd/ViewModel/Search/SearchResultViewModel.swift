@@ -7,13 +7,12 @@
 
 import Foundation
 
+@MainActor
 final class SearchResultViewModel: ObservableObject {
     
     @Published var searchResult: [SearchResult] = []
-    
-    init() {
-        self.searchResult = getSearchResult()
-    }
+    private let interactor = SearchInteractor()
+    @Published var isLoading = false
     
     private func getSearchResult() -> [SearchResult] {
         var result: [SearchResult] = []
@@ -22,6 +21,13 @@ final class SearchResultViewModel: ObservableObject {
             result.append(SearchResult.generateRandom())
         }
         return result
+    }
+    
+    func loadResults(from: String, to: String) async {
+        isLoading = true
+        let results = await interactor.search(from: from, to: to)
+        self.searchResult = results
+        isLoading = false
     }
     
     
