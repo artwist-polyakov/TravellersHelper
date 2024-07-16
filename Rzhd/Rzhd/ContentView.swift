@@ -79,7 +79,7 @@ struct ContentView: View {
             .onAppear {
                 //                    UITabBar.appearance().barTintColor = .white
                 //            copyright()
-                //            search()
+                            search()
                 //            stations()
                 //            thread()
                 //            settlement()
@@ -100,7 +100,7 @@ struct ContentView: View {
         
         Task {
             do {
-                let result = try await service.search(from: "c239", to: "c213",  date: "2024-03-09")
+                let result = try await service.search(from: "c239", to: "c213",  date: "2024-08-09")
                 print(result)
             } catch {
                 print("Error fetching stations: \(error)")
