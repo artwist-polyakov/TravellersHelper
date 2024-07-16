@@ -18,9 +18,7 @@ struct SearchResultRowView: View {
                 .cornerRadius(24)
             VStack {
                 HStack {
-                    searchItem.transporter.getLogo()
-                        .resizable()
-                        .scaledToFit()
+                    AsyncImageView(url: searchItem.transporter.logoUrl)
                         .frame(width: 38, height: 38)
                         .cornerRadius(12)
                     VStack(alignment: .leading) {

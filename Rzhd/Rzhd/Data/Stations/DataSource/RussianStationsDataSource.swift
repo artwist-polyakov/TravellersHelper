@@ -22,7 +22,7 @@ actor RussianStationsDataSource {
         )
         self.loadingTask = Task { try await self.loadStations() }
     }
-
+    
     private func filterRussianCitiesAndStations(_ data: [String: Any]) -> [[String: Any]] {
         guard let countries = data["countries"] as? [[String: Any]] else {
             return []
@@ -113,12 +113,12 @@ actor RussianStationsDataSource {
     }
     
     func awaitLoading() async throws {
-            if let task = loadingTask {
-                try await task.value
-            } else if !isLoaded {
-                try await loadStations()
-            }
+        if let task = loadingTask {
+            try await task.value
+        } else if !isLoaded {
+            try await loadStations()
         }
+    }
     
     func getCities() async throws -> [CityModel] {
         try await awaitLoading()
@@ -143,7 +143,7 @@ actor RussianStationsDataSource {
         return russianStations?.findCity(byId: id)?.stations ?? []
         
     }
-
+    
     private func loadStations() async throws {
         guard !isLoaded else { return }
         
