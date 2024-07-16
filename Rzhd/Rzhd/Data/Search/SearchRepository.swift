@@ -24,10 +24,11 @@ actor SearchRepository {
         if let date = date {
             self.settledDate = date
         } else {
-            let currentDate = Date()
+            let tomorrowDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
             let formatter = DateFormatter()
             formatter.dateFormat = "yyyy-MM-dd"
-            self.settledDate = formatter.string(from: currentDate)
+            self.settledDate = formatter.string(from: tomorrowDate)
+            print("Settled date: \(self.settledDate ?? "nil")")
         }
     }
     
