@@ -38,7 +38,7 @@ actor SearchRepository {
             apikey: API_KEY
         )
         
-        return try await service.search(from: from, to: to, date: settledDate ?? "")
+        return try await service.search(from: from, to: to, date: settledDate ?? "", transfers: true)
     }
 
     
