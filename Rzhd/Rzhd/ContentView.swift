@@ -100,41 +100,19 @@ struct ContentView: View {
         
         Task {
             do {
-                let result = try await service.search(from: "c239", to: "c213",  date: "2024-08-09")
-                print(result)
+                let result = try await service.search(from: "s9603431", to: "s9603571",  date: "2024-08-09", transfers: true)
+                print((result.interval_segments ?? []).count)
+                print((result.segments ?? []).count)
+                if let segments = result.segments {
+                    print(segments)
+                } else {
+                    print (result)
+                }
+                
             } catch {
                 print("Error fetching stations: \(error)")
             }
         }
-    }
-    
-    func convertDataToJSON(_ data: Data) throws -> Any {
-        let options: JSONSerialization.ReadingOptions = [.allowFragments, .mutableContainers, .mutableLeaves]
-        let jsonObject = try JSONSerialization.jsonObject(with: data, options: options)
-        
-        if let dict = jsonObject as? [String: Any] {
-            return cleanUpUnicode(dict)
-        } else if let array = jsonObject as? [Any] {
-            return array.map { ($0 as? [String: Any]).map(cleanUpUnicode) ?? $0 }
-        }
-        
-        return jsonObject
-    }
-    
-    func cleanUpUnicode(_ dict: [String: Any]) -> [String: Any] {
-        var cleanDict = [String: Any]()
-        for (key, value) in dict {
-            if let stringValue = value as? String {
-                cleanDict[key] = stringValue.removingPercentEncoding ?? stringValue
-            } else if let nestedDict = value as? [String: Any] {
-                cleanDict[key] = cleanUpUnicode(nestedDict)
-            } else if let nestedArray = value as? [Any] {
-                cleanDict[key] = nestedArray.map { ($0 as? [String: Any]).map(cleanUpUnicode) ?? $0 }
-            } else {
-                cleanDict[key] = value
-            }
-        }
-        return cleanDict
     }
     
     // MARK: - Carrier
