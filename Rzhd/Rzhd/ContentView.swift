@@ -79,8 +79,8 @@ struct ContentView: View {
             .onAppear {
                 //                    UITabBar.appearance().barTintColor = .white
                 //            copyright()
-                            carrier()
-                            search()
+//                            carrier()
+//                            search()
                 //            stations()
                 //            thread()
                 //            settlement()

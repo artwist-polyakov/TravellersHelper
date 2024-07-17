@@ -26,8 +26,13 @@ class SearchInteractor {
             
             // тут будет фильтр
             
-            return (routes.segments ?? []).map {
+            return (routes.segments ?? []).compactMap {
                 let uri: URL?
+//                do {
+//                    print ($0.value1.thread?.carrier?.code ?? "!")
+//                } catch {
+//                    print("Error: \(error)")
+//                }
                                 
                 if let logo = $0.value1.thread?.carrier?.logo {
                     uri = URL(string: logo)

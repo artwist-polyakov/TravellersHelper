@@ -10,13 +10,8 @@ import SwiftUI
 
 struct DetailedTransporter: Hashable, Identifiable {
     var id = UUID()
-    var name: String
-    var bigLogoUri: String
-    var email: String
-    var phone: String
-    
-    func getLogo() -> Image {
-        return Image.assetLogo(bigLogoUri)
-    }
-    
+    var name: String = "Неизвестный перевозчик"
+    var bigLogoUri: URL? = nil
+    var email: String? = nil
+    var phone: String? = nil
 }

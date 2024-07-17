@@ -71,6 +71,7 @@
 		AFA305DF2B99025B00759357 /* Schedule.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA305DE2B99025B00759357 /* Schedule.swift */; };
 		AFA7D28D2C46E75D00CCEE26 /* AsyncImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA7D28C2C46E75D00CCEE26 /* AsyncImageView.swift */; };
 		AFA7D2932C480DC000CCEE26 /* TransporterRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA7D2922C480DC000CCEE26 /* TransporterRepository.swift */; };
+		AFA7D2982C4811E800CCEE26 /* TransporterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA7D2972C4811E800CCEE26 /* TransporterInteractor.swift */; };
 		AFB373E42C123AFA004BB30C /* StoryPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB373E32C123AFA004BB30C /* StoryPreview.swift */; };
 		AFD1436A2BD709ED00536B96 /* AgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD143692BD709ED00536B96 /* AgreementView.swift */; };
 		AFD1436C2BD70B1600536B96 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFD1436B2BD70B1600536B96 /* WebView.swift */; };
@@ -160,6 +161,7 @@
 		AFA305DE2B99025B00759357 /* Schedule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Schedule.swift; sourceTree = "<group>"; };
 		AFA7D28C2C46E75D00CCEE26 /* AsyncImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncImageView.swift; sourceTree = "<group>"; };
 		AFA7D2922C480DC000CCEE26 /* TransporterRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransporterRepository.swift; sourceTree = "<group>"; };
+		AFA7D2972C4811E800CCEE26 /* TransporterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransporterInteractor.swift; sourceTree = "<group>"; };
 		AFB373E32C123AFA004BB30C /* StoryPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryPreview.swift; sourceTree = "<group>"; };
 		AFD143692BD709ED00536B96 /* AgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementView.swift; sourceTree = "<group>"; };
 		AFD1436B2BD70B1600536B96 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
@@ -267,6 +269,7 @@
 		AF18A0FB2C2A0141000D1869 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				AFA7D2952C4811C000CCEE26 /* Transporter */,
 				AF2A411A2C46D76D0050EF9D /* Search */,
 				AF23A4DB2C43F0A500473B5F /* Stations */,
 				AF23A4D92C43F08000473B5F /* Stories */,
@@ -426,13 +429,13 @@
 		AF62FD442BCFE8A0005822A0 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				AFA7D2992C4813D200CCEE26 /* Transporter */,
 				AFA7D28A2C46E61900CCEE26 /* Search */,
 				AF23A4EB2C459BDD00473B5F /* Stations */,
 				AF23A4E82C4401BA00473B5F /* Cities */,
 				AF23A4E42C43FB2000473B5F /* Schedule */,
 				AF18A0EB2C29FDAA000D1869 /* Settings */,
 				AFE976AC2BD6C348003720BE /* FilterViewModel.swift */,
-				AF6DE7582BD6F85900C48E86 /* TransporterViewModel.swift */,
 				AF23A4DF2C43F80C00473B5F /* MainViewModel.swift */,
 			);
 			path = ViewModel;
@@ -560,6 +563,22 @@
 			isa = PBXGroup;
 			children = (
 				AFA7D2922C480DC000CCEE26 /* TransporterRepository.swift */,
+			);
+			path = Transporter;
+			sourceTree = "<group>";
+		};
+		AFA7D2952C4811C000CCEE26 /* Transporter */ = {
+			isa = PBXGroup;
+			children = (
+				AFA7D2972C4811E800CCEE26 /* TransporterInteractor.swift */,
+			);
+			path = Transporter;
+			sourceTree = "<group>";
+		};
+		AFA7D2992C4813D200CCEE26 /* Transporter */ = {
+			isa = PBXGroup;
+			children = (
+				AF6DE7582BD6F85900C48E86 /* TransporterViewModel.swift */,
 			);
 			path = Transporter;
 			sourceTree = "<group>";
@@ -782,6 +801,7 @@
 				AFA7D2932C480DC000CCEE26 /* TransporterRepository.swift in Sources */,
 				AF6DE75B2BD6F8DC00C48E86 /* DetailedTransporter.swift in Sources */,
 				AF50199F2BD58F6000138496 /* StationRowView.swift in Sources */,
+				AFA7D2982C4811E800CCEE26 /* TransporterInteractor.swift in Sources */,
 				AFD143702BD70E8B00536B96 /* ErrorView.swift in Sources */,
 				AFE252C92B99C319007E5FFF /* API_KEY.swift in Sources */,
 				AF5019982BD5832300138496 /* Station.swift in Sources */,
