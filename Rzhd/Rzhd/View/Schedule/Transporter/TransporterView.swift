@@ -32,12 +32,15 @@ struct TransporterView: View {
             if viewModel.isLoading {
                 ProgressView("Загрузка результатов...")
             } else {
-                AsyncImageView(url: viewModel.getLogo(), placeholder: Image("BigLogoPlaceholder"))
-                    .frame(height: 104)
-                    .scaledToFit()
-                    .cornerRadius(24)
-                    .padding(.vertical, 16)
-                
+                HStack {
+                    Spacer()
+                    AsyncImageView(url: viewModel.getLogo(), placeholder: Image("BigLogoPlaceholder"))
+                        .frame(height: 104)
+                        .scaledToFit()
+                        .cornerRadius(24)
+                        .padding(.vertical, 16)
+                    Spacer()
+                }
                 Text(viewModel.transporter?.name ?? "")
                     .font(.system(size: 24)).bold()
                     .foregroundColor(.colorOnPrimary)
