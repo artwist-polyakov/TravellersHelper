@@ -21,9 +21,13 @@ final class TransporterInteractor {
         }
         if let trasporterPhone = transporter?.carrier?.phone {
             result.phone = trasporterPhone
+        } else {
+            result.phone = "Поле phone не заполнено"
         }
         if let transporterEmail = transporter?.carrier?.email {
             result.email = transporterEmail
+        } else {
+            result.email = "Поле email не заполнено"
         }
         return result
     }

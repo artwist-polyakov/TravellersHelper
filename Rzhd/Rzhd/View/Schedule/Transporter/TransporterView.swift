@@ -60,7 +60,7 @@ struct TransporterView: View {
                     .font(.system(size: 17))
                     .foregroundColor(.colorOnPrimary)
                     .padding(.top, 12)
-                Text(viewModel.transporter?.phone ?? "")
+                Text((viewModel.transporter?.phone ?? "").isEmpty ? "Номер телефона не указан" : viewModel.transporter?.phone ?? "")
                     .font(.system(size: 12))
                     .foregroundColor(.searchBackground)
                     .padding(.bottom, 12)
