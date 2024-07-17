@@ -9,13 +9,14 @@ import SwiftUI
 
 struct AsyncImageView: View {
     let url: URL?
-    let defaultImage: Image = Image("LogoPlaceholder")
+    let defaultImage: Image
     
     @State private var image: UIImage?
     @State private var isLoading = false
     
-    init(url: URL?) {
+    init(url: URL?, placeholder: Image = Image("LogoPlaceholder")) {
         self.url = url
+        self.defaultImage = placeholder
     }
     
     var body: some View {
@@ -38,7 +39,6 @@ struct AsyncImageView: View {
        
        private func loadImage() {
            guard let url = url else {
-               // If URL is nil, we don't need to load anything
                return
            }
            

@@ -12,6 +12,7 @@ struct Transporter: Hashable, Identifiable {
     var id = UUID()
     var name: String
     var logoUrl: URL? = nil
+    var code: Int? = nil
     
     
     static func generateRandom() -> Transporter {

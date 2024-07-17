@@ -11,6 +11,7 @@ class SearchInteractor {
     
     private let repository = SearchRepository.shared
     private let filterRepository = FilterRepository.shared
+    private let transporterRepository = TransporterRepository.shared
     
     init() {
         Task {
@@ -25,8 +26,13 @@ class SearchInteractor {
             
             // тут будет фильтр
             
-            return (routes.segments ?? []).map {
+            return (routes.segments ?? []).compactMap {
                 let uri: URL?
+//                do {
+//                    print ($0.value1.thread?.carrier?.code ?? "!")
+//                } catch {
+//                    print("Error: \(error)")
+//                }
                                 
                 if let logo = $0.value1.thread?.carrier?.logo {
                     uri = URL(string: logo)
@@ -47,7 +53,8 @@ class SearchInteractor {
                 return SearchResult(
                     transporter: Transporter(
                         name: $0.value1.thread?.carrier?.title ?? "???",
-                        logoUrl: uri
+                        logoUrl: uri,
+                        code: $0.value1.thread?.carrier?.code ?? nil
                     ),
                     departureTime: departureTime ?? Date(),
                     arrivalTime: arrivalTime ?? Date(),
@@ -64,5 +71,9 @@ class SearchInteractor {
     
     func setDate(_ date: String? = nil) async {
         await repository.setDate(date)
+    }
+    
+    func setTransporterCode(_ transporter: Transporter) async {
+        await transporterRepository.setSelectedTransporterCode(transporter.code ?? nil)
     }
 }
