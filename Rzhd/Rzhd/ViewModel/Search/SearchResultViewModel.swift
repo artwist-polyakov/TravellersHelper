@@ -30,5 +30,11 @@ final class SearchResultViewModel: ObservableObject {
         isLoading = false
     }
     
+    func setTransporter(transporter: Transporter) {
+        Task {
+            await interactor.setTransporterCode(transporter)
+        }
+    }
+    
     
 }

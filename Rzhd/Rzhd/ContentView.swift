@@ -79,11 +79,12 @@ struct ContentView: View {
             .onAppear {
                 //                    UITabBar.appearance().barTintColor = .white
                 //            copyright()
+                            carrier()
                             search()
                 //            stations()
                 //            thread()
                 //            settlement()
-                //            carrier()
+
             }
     }
     // MARK: - Search
@@ -100,7 +101,7 @@ struct ContentView: View {
         
         Task {
             do {
-                let result = try await service.search(from: "s9603431", to: "s9603571",  date: "2024-08-09", transfers: true)
+                let result = try await service.search(from: "c239", to: "c213",  date: "2024-08-09", transfers: true)
                 print((result.interval_segments ?? []).count)
                 print((result.segments ?? []).count)
                 if let segments = result.segments {
@@ -128,7 +129,7 @@ struct ContentView: View {
         )
         Task {
             do {
-                let thread = try await service.search(code: "MS", system: .iata)
+                let thread = try await service.search(code: "30")
                 print(thread)
             } catch {
                 print("Error fetching thread: \(error)")

@@ -11,7 +11,7 @@ struct SearchResultView: View {
     
     @EnvironmentObject var searchData: SearchData
     private var router: PathRouter = PathRouter.shared
-    
+    @State private var showingAlert = false
     @StateObject var viewModel = SearchResultViewModel()
     
     var body: some View {
@@ -19,7 +19,7 @@ struct SearchResultView: View {
         
         ZStack (alignment: .topLeading)  {
             if viewModel.isLoading {
-                ProgressView("Загрузка станций...")
+                ProgressView("Загрузка результатов...")
             } else {
                 VStack(alignment: .leading) {
                     ZStack {
@@ -51,7 +51,7 @@ struct SearchResultView: View {
                                 ForEach(viewModel.searchResult) { element in
                                     SearchResultRowView(searchItem: element)
                                         .onTapGesture {
-                                            router.pushPath(.detailedTransporter)
+                                            CheckTransporterAndNavigate(element.transporter)
                                         }
                                     
                                 }
@@ -98,17 +98,35 @@ struct SearchResultView: View {
                             .foregroundColor(Color.rzhdGreyBackButton)
                     }
                 }
-            }.task {
+            }.alert("Наизвестный перевозчик", isPresented: $showingAlert) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text("Данные о перевозчике неизвестны")
+            }
+        
+            .task {
                 guard let from = searchData.cityFrom, let to = searchData.cityTo else {
                     return
                 }
-                    
-                        await viewModel.loadResults(
-                            from: from.searchId!,
-                            to: to.searchId!
-                            )
+                
+                await viewModel.loadResults(
+                    from: from.searchId!,
+                    to: to.searchId!
+                )
                 
             }
+    }
+}
+
+extension SearchResultView {
+    func CheckTransporterAndNavigate(_ transporter: Transporter) {
+        if let transporterCode = transporter.code {
+            viewModel.setTransporter(transporter: transporter)
+            router.pushPath(.detailedTransporter)
+        } else {
+            showingAlert = true
+        }
+        
     }
 }
 
