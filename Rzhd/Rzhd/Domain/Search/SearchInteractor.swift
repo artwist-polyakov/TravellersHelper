@@ -21,12 +21,12 @@ class SearchInteractor {
     
     func search(from: String, to: String) async -> [SearchResult] {
         do {
-            
+            await filterRepository.configureRepository(repository)
             let routes = try await repository.search(from: from, to: to)
+            let filteredRoutes = filterRepository.filterRoutes(routes)
             
-            // тут будет фильтр
             
-            return (routes.segments ?? []).compactMap {
+            return (filteredRoutes.segments ?? []).compactMap {
                 let uri: URL?
 //                do {
 //                    print ($0.value1.thread?.carrier?.code ?? "!")
@@ -52,7 +52,7 @@ class SearchInteractor {
                 
                 return SearchResult(
                     transporter: Transporter(
-                        name: $0.value1.thread?.carrier?.title ?? "???",
+                        name: $0.value1.thread?.carrier?.title ?? "Неизвестный / Несколько перевозчиков",
                         logoUrl: uri,
                         code: $0.value1.thread?.carrier?.code ?? nil
                     ),

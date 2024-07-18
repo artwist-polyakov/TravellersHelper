@@ -9,6 +9,7 @@ import Foundation
 
 class FilterViewModel: ObservableObject {
     @Published var settings: [SelectionModel] = generateSelection()
+    private let interactor = FilterInteractor()
     
     
     func configureConstraints(constraints: SearchConstraits) {
@@ -108,7 +109,7 @@ class FilterViewModel: ObservableObject {
             result.includingNight = true
             
         }
-        
+        interactor.setConstraints(result)
         return result
         
     }
