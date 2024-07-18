@@ -12,12 +12,17 @@ actor SearchRepository {
     static let shared = SearchRepository()
     private let client: Client
     private var settledDate: String? = nil // дата в формате yyyy-MM-dd
+    private var withTransfers: Bool = true
     
     private init() {
         self.client = Client(
             serverURL: try! Servers.server1(),
             transport: URLSessionTransport()
         )
+    }
+    
+    func setWithTransfers(_ transfers: Bool) async {
+        self.withTransfers = transfers
     }
     
     func setDate(_ date: String? = nil) {
@@ -38,7 +43,7 @@ actor SearchRepository {
             apikey: API_KEY
         )
         
-        return try await service.search(from: from, to: to, date: settledDate ?? "", transfers: true)
+        return try await service.search(from: from, to: to, date: settledDate ?? "", transfers: withTransfers)
     }
 
     
