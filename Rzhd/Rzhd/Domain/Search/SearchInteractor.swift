@@ -23,7 +23,7 @@ class SearchInteractor {
         do {
             await filterRepository.configureRepository(repository)
             let routes = try await repository.search(from: from, to: to)
-            let filteredRoutes = filterRepository.filterRoutes(routes)
+            let filteredRoutes = await filterRepository.filterRoutes(routes)
             
             
             return (filteredRoutes.segments ?? []).compactMap {

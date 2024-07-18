@@ -10,7 +10,7 @@ import Foundation
 final class FilterInteractor {
     private let repository = FilterRepository.shared
     
-    func setConstraints(_ constraints: SearchConstraits) {
-        repository.setConstraints(constraints)
+    func setConstraints(_ constraints: SearchConstraits) async {
+        await repository.setConstraints(constraints)
     }
 }
