@@ -7,6 +7,7 @@
 
 import Foundation
 
+@MainActor
 class FilterViewModel: ObservableObject {
     @Published var settings: [SelectionModel] = generateSelection()
     private let interactor = FilterInteractor()
@@ -109,7 +110,9 @@ class FilterViewModel: ObservableObject {
             result.includingNight = true
             
         }
-        interactor.setConstraints(result)
+        Task {
+            await interactor.setConstraints(result)
+        }
         return result
         
     }

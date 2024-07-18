@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class FilterRepository {
+actor FilterRepository {
     static let shared = FilterRepository()
     
     private var constraints = SearchConstraits()
