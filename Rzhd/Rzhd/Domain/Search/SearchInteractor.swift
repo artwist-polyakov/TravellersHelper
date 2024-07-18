@@ -52,7 +52,7 @@ class SearchInteractor {
                 
                 return SearchResult(
                     transporter: Transporter(
-                        name: $0.value1.thread?.carrier?.title ?? "???",
+                        name: $0.value1.thread?.carrier?.title ?? "Неизвестный / Несколько перевозчиков",
                         logoUrl: uri,
                         code: $0.value1.thread?.carrier?.code ?? nil
                     ),
