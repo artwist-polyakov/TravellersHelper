@@ -36,7 +36,6 @@ struct ContentView: View, @unchecked Sendable {
                         alignment: .bottom
                     )
                     .tag(0)
-                    .edgesIgnoringSafeArea(.top)
                     .toolbarBackground(Color("TabBarColor"), for: .tabBar)
                 SettingsView()
                     .tabItem {
