@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct AsyncImageView: View {
+struct AsyncImageView: View, @unchecked Sendable {
     let url: URL?
     let defaultImage: Image
     

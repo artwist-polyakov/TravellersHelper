@@ -8,7 +8,7 @@
 import Foundation
 import OpenAPIURLSession
 
-actor RussianStationsDataSource {
+actor RussianStationsDataSource: @unchecked Sendable {
     static let shared = RussianStationsDataSource()
     private var russianStations: RussianCitiesAndStations?
     private let client: Client
@@ -20,6 +20,10 @@ actor RussianStationsDataSource {
             serverURL: try! Servers.server1(),
             transport: URLSessionTransport()
         )
+        Task { await self.initialize() }
+    }
+    
+    private func initialize() {
         self.loadingTask = Task { try await self.loadStations() }
     }
     

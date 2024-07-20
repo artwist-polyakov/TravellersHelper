@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SearchInteractor {
+class SearchInteractor: @unchecked Sendable {
     
     private let repository = SearchRepository.shared
     private let filterRepository = FilterRepository.shared

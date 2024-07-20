@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-final class ScheduleViewModel: ObservableObject {
+final class ScheduleViewModel: ObservableObject, @unchecked Sendable {
     private let stationInteractor = StationsInteractor()
     
     func isDataLoaded() async -> Bool {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class StationsInteractor {
+final class StationsInteractor: @unchecked Sendable {
     private let dataSource = RussianStationsDataSource.shared
     
     func isDataLoaded() async -> Bool {

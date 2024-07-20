@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SearchResultView: View {
+struct SearchResultView: View, @unchecked Sendable {
     
     @EnvironmentObject var searchData: SearchData
     private var router: PathRouter = PathRouter.shared
@@ -120,7 +120,7 @@ struct SearchResultView: View {
 
 extension SearchResultView {
     func CheckTransporterAndNavigate(_ transporter: Transporter) {
-        if let transporterCode = transporter.code {
+        if transporter.code != nil {
             viewModel.setTransporter(transporter: transporter)
             router.pushPath(.detailedTransporter)
         } else {

@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-final class StationsViewModel: ObservableObject {
+final class StationsViewModel: ObservableObject, @unchecked Sendable {
     private var stations: [Station] = []
     private let interactor = StationsInteractor()
     @Published var filtered_stations: [Station] = []

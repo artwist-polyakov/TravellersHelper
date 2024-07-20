@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum NavigationIdentifiers: String {
+enum NavigationIdentifiers: String, Sendable {
     case citiesList = "CitiesList"
     case stationsList = "StationsList"
     case searchResultsList = "SearchResultsList"

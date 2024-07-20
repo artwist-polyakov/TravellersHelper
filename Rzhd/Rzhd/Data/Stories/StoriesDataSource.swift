@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class StoriesDataSource {
+final class StoriesDataSource: @unchecked Sendable {
     static let shared = StoriesDataSource()
     private var stories = StoriesPack.stories
     private var storiesMemo = StoriesMemoization()
