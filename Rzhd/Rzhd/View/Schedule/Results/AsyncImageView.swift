@@ -20,44 +20,44 @@ struct AsyncImageView: View {
     }
     
     var body: some View {
-           Group {
-               if let image = image {
-                   Image(uiImage: image)
-                       .resizable()
-                       .scaledToFit()
-               } else if isLoading {
-                   ProgressView()
-               } else {
-                   defaultImage
-                       .resizable()
-                       .scaledToFit()
-                       .foregroundColor(.gray)
-               }
-           }
-           .onAppear(perform: loadImage)
-       }
-       
-       private func loadImage() {
-           guard let url = url else {
-               return
-           }
-           
-           guard !isLoading else { return }
-           
-           isLoading = true
-           URLSession.shared.dataTask(with: url) { data, response, error in
-               defer { isLoading = false }
-               
-               guard let data = data, error == nil else {
-                   print("Error loading image: \(error?.localizedDescription ?? "Unknown error")")
-                   return
-               }
-               
-               if let loadedImage = UIImage(data: data) {
-                   DispatchQueue.main.async {
-                       self.image = loadedImage
-                   }
-               }
-           }.resume()
-       }
+        Group {
+            if let image = image {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+            } else if isLoading {
+                ProgressView()
+            } else {
+                defaultImage
+                    .resizable()
+                    .scaledToFit()
+                    .foregroundColor(.gray)
+            }
+        }
+        .task {
+            await loadImage()
+        }
+    }
+    
+    private func loadImage() async {
+        guard let url = url else {
+            return
+        }
+        
+        guard !isLoading else { return }
+        
+        isLoading = true
+        defer { isLoading = false }
+        
+        do {
+            let (data, _) = try await URLSession.shared.data(from: url)
+            if let loadedImage = UIImage(data: data) {
+                await MainActor.run {
+                    self.image = loadedImage
+                }
+            }
+        } catch {
+            print("Error loading image: \(error.localizedDescription)")
+        }
+    }
 }
