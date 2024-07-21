@@ -7,7 +7,8 @@
 
 import Foundation
 
-class TransporterViewModel: ObservableObject {
+@MainActor
+final class TransporterViewModel: ObservableObject, @unchecked Sendable {
     
     @Published var transporter: DetailedTransporter? = nil
     private let interactor = TransporterInteractor()

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class UserDefaultsThemeRepository: CurrentThemeRepository {
+final class UserDefaultsThemeRepository: CurrentThemeRepository, @unchecked Sendable {
     static let shared = UserDefaultsThemeRepository()
     private let darkThemeKey = "darkThemeEnabled"
     

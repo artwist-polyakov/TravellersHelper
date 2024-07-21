@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TransporterView: View {
+struct TransporterView: View, @unchecked Sendable {
     @EnvironmentObject var searchData: SearchData
     private var router: PathRouter = PathRouter.shared
     
@@ -95,6 +95,7 @@ struct TransporterView: View {
 }
 
 extension View {
+    @MainActor
     func openUrl(_ url: URL?) {
         guard let url = url, UIApplication.shared.canOpenURL(url) else { return }
         UIApplication.shared.open(url)

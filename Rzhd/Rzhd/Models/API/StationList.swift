@@ -18,7 +18,7 @@ protocol AllStationsInfoProtocol {
     func get(format: Operations.getAllStations.Input.Query.formatPayload) async throws -> HTTPBody
 }
 
-final class AllStationsService: AllStationsInfoProtocol {
+final class AllStationsService: AllStationsInfoProtocol, @unchecked Sendable {
     private let client: Client
     private let apikey: String
     

@@ -39,7 +39,7 @@ class FilterViewModel: ObservableObject {
     
     private static func generateConstraints(_ input: SearchConstraits) -> [SelectionModel] {
         return {
-            var result  = [
+            let result  = [
                 SelectionModel(name: .morning, isSelected: input.includingMorning, isRadio: false, section: .time),
                 SelectionModel(name: .day, isSelected: input.includingDay , isRadio: false, section: .time),
                 SelectionModel(name: .evening, isSelected: input.includingEvening, isRadio: false, section: .time),

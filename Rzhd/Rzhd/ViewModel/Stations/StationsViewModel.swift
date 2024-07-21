@@ -8,7 +8,7 @@
 import Foundation
 
 @MainActor
-final class StationsViewModel: ObservableObject {
+final class StationsViewModel: ObservableObject, @unchecked Sendable {
     private var stations: [Station] = []
     private let interactor = StationsInteractor()
     @Published var filtered_stations: [Station] = []
@@ -22,6 +22,7 @@ final class StationsViewModel: ObservableObject {
             self.filtered_stations = stations.filter { station in
                 let lowercasedName = station.name.lowercased()
                 return lowercasedName.starts(with: lowercasedText) ||
+                       lowercasedName.contains("(\(lowercasedText)") ||
                        lowercasedName.contains(" \(lowercasedText)")}
         }
     }

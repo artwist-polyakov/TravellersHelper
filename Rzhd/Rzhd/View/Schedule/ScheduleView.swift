@@ -18,7 +18,6 @@ struct ScheduleView: View {
     
     var body: some View {
         VStack {
-            Spacer()
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
                     ForEach(Array(stories.enumerated()), id: \.element.id) { index, story in
@@ -67,11 +66,7 @@ struct ScheduleView: View {
                     }
                     .frame(height: 96)
                     .background(Color.white.cornerRadius(20))
-                    .padding(.horizontal, 16) // Отступ слева
-                    
-                    
-                    
-                    
+                    .padding(.horizontal, 16)
                     Image("Refresh")
                         .renderingMode(.template).foregroundColor(.searchBackground)
                     
@@ -114,6 +109,7 @@ struct ScheduleView: View {
         } message: {
             Text("Данные о станциях еще загружаются. Пожалуйста, подождите.")
         }
+        .padding(.top, 24)
     }
 }
 
@@ -131,18 +127,18 @@ extension ScheduleView {
     }
     
     private func checkDataAndNavigate(_ textField: CurrentlySelectedTextField) {
-            Task {
-                let isReady = await checkIsStationsReady()
-                await MainActor.run {
-                    if isReady {
-                        searchData.currentlySelectedTextField = textField
-                        self.router.pushPath(.citiesList)
-                    } else {
-                        showingAlert = true
-                    }
+        Task {
+            let isReady = await checkIsStationsReady()
+            await MainActor.run {
+                if isReady {
+                    searchData.currentlySelectedTextField = textField
+                    self.router.pushPath(.citiesList)
+                } else {
+                    showingAlert = true
                 }
             }
         }
+    }
 }
 
 

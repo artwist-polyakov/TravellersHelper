@@ -15,7 +15,7 @@ protocol RoutesSearchProtocol {
     func search(from: String, to: String, date: String, transfers: Bool) async throws -> Routes
 }
 
-final class RoutesSearchService: RoutesSearchProtocol {
+final class RoutesSearchService: RoutesSearchProtocol, @unchecked Sendable {
     private let client: Client
     private let apikey: String
     
@@ -33,6 +33,7 @@ final class RoutesSearchService: RoutesSearchProtocol {
             date: date,
             transfers: transfers
         ))
+        print (response)
         return try response.ok.body.json
     }
 }

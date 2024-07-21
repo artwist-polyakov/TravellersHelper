@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SearchInteractor {
+class SearchInteractor: @unchecked Sendable {
     
     private let repository = SearchRepository.shared
     private let filterRepository = FilterRepository.shared
@@ -23,6 +23,7 @@ class SearchInteractor {
         do {
             await filterRepository.configureRepository(repository)
             let routes = try await repository.search(from: from, to: to)
+//            print(routes)
             let filteredRoutes = await filterRepository.filterRoutes(routes)
             
             

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class FilterInteractor {
+final class FilterInteractor: @unchecked Sendable {
     private let repository = FilterRepository.shared
     
     func setConstraints(_ constraints: SearchConstraits) async {

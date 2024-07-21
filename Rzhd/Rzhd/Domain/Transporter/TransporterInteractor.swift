@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class TransporterInteractor {
+final class TransporterInteractor: @unchecked Sendable {
     private let transporterRepository = TransporterRepository.shared
     
     func getTransporter() async -> DetailedTransporter {
