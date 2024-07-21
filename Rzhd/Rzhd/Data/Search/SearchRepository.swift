@@ -8,7 +8,7 @@
 import Foundation
 import OpenAPIURLSession
 
-actor SearchRepository {
+actor SearchRepository: @unchecked Sendable {
     static let shared = SearchRepository()
     private let client: Client
     private var settledDate: String? = nil // дата в формате yyyy-MM-dd

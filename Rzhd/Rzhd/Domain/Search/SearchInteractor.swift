@@ -23,6 +23,7 @@ class SearchInteractor: @unchecked Sendable {
         do {
             await filterRepository.configureRepository(repository)
             let routes = try await repository.search(from: from, to: to)
+//            print(routes)
             let filteredRoutes = await filterRepository.filterRoutes(routes)
             
             

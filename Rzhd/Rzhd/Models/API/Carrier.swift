@@ -15,7 +15,7 @@ protocol CarrierSearchProtocol {
     func search(code: String, system: Operations.getCarrier.Input.Query.systemPayload) async throws -> Carrier
 }
 
-final class CarrierSearchService: CarrierSearchProtocol {
+final class CarrierSearchService: CarrierSearchProtocol, @unchecked Sendable {
     private let client: Client
     private let apikey: String
     

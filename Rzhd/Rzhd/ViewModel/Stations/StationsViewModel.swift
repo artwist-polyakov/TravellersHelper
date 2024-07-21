@@ -22,6 +22,7 @@ final class StationsViewModel: ObservableObject, @unchecked Sendable {
             self.filtered_stations = stations.filter { station in
                 let lowercasedName = station.name.lowercased()
                 return lowercasedName.starts(with: lowercasedText) ||
+                       lowercasedName.contains("(\(lowercasedText)") ||
                        lowercasedName.contains(" \(lowercasedText)")}
         }
     }

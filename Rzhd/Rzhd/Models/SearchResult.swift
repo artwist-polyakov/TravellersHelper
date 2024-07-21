@@ -15,7 +15,7 @@ struct SearchResult: Hashable, Identifiable {
     var transferComment: String
     
     static func generateRandom() -> SearchResult{
-        let cities = [
+        _ = [
             City(name: "Москва"),
             City(name: "Санкт-Петербург"),
             City(name: "Казань"),
