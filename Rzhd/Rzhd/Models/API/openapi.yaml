@@ -937,7 +937,7 @@ components:
       type: object
       properties:
         cents:
-          type: string
+          type: integer
     Stations:
       type: object
       properties:

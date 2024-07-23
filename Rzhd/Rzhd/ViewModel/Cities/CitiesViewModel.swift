@@ -7,22 +7,34 @@
 
 import Foundation
 
-final class CitiesViewModel: ObservableObject {
+@MainActor
+final class CitiesViewModel: ObservableObject, @unchecked Sendable {
     private var cities: [City] = []
+    private let interactor = StationsInteractor()
     @Published var filtered_cities: [City] = []
+    @Published var isLoading = false
     
-    init() {
-        self.cities = getCities()
-        self.filtered_cities = cities
-    }
+    
+    func loadCities() async {
+            isLoading = true
+            let data = await interactor.getCities()
+            self.cities = data
+            self.filtered_cities = data
+            isLoading = false
+        }
     
     func onTextChanged(_ text: String) {
-        if text.isEmpty {
-            self.filtered_cities = cities
-        } else {
-            self.filtered_cities = cities.filter { $0.name.lowercased().contains(text.lowercased()) }
+            if text.isEmpty {
+                self.filtered_cities = cities
+            } else {
+                let lowercasedText = text.lowercased()
+                self.filtered_cities = cities.filter { city in
+                    let lowercasedName = city.name.lowercased()
+                    return lowercasedName.starts(with: lowercasedText) ||
+                           lowercasedName.contains(" \(lowercasedText)")
+                }
+            }
         }
-    }
     
     private func getCities() -> [City] {
         return [

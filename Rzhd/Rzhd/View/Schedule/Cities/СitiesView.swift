@@ -9,13 +9,12 @@ import SwiftUI
 
 struct CitiesView: View {
     @EnvironmentObject var searchData: SearchData
-    
-    @Binding var path: [NavigationIdentifiers]
+    @ObservedObject var router = PathRouter.shared
     @State private var searchText: String = ""
     @StateObject var viewModel = CitiesViewModel()
     
     func proceedCityName(city: City) {
-        if ($path.isEmpty) {
+        if (router.isEmpty()) {
             return
         }
         switch searchData.currentlySelectedTextField {
@@ -26,62 +25,65 @@ struct CitiesView: View {
         case .nothing:
             break
         }
-        self.path.append(.stationsList)
+        self.router.pushPath(.stationsList)
     }
     
     var body: some View {
         
         VStack {
-            
-            HStack {
-                Image(systemName: "magnifyingglass")
-                    .foregroundColor(searchText.isEmpty ? .gray : .black)
-                    .padding(.leading, 8)
-                TextField("Введите запрос", text: $searchText) .onChange(of: searchText) { newValue in
-                    viewModel.onTextChanged(newValue)
-                }
-                .padding(.vertical, 8)
-                if !searchText.isEmpty {
-                    Button(action: {
-                        self.searchText = ""
-                        viewModel.onTextChanged(self.searchText)
-                    }) {
-                        Image(systemName: "xmark.circle.fill")
-                            .foregroundColor(.gray)
+            if viewModel.isLoading {
+                            ProgressView("Загрузка городов...")
+            } else {
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(searchText.isEmpty ? .gray : .black)
+                        .padding(.leading, 8)
+                    TextField("Введите запрос", text: $searchText) .onChange(of: searchText) { _, newValue in
+                        viewModel.onTextChanged(newValue)
                     }
-                    .padding(.trailing, 6)
-                }
-            } // Hstack
-            .background(Color.rzhdGray)
-            .cornerRadius(10)
-            .frame(height: 36)
-            ZStack {
-                VStack {
-                    Spacer()
-                    ScrollView (showsIndicators: false) {
-                        LazyVStack(spacing: 0) {
-                            ForEach(viewModel.filtered_cities) { city in
-                                CityRowView(city: city)
-                                
-                                    .onTapGesture {
-                                        proceedCityName(city: city)
-                                        
-                                    }
-                            }
+                    .padding(.vertical, 8)
+                    if !searchText.isEmpty {
+                        Button(action: {
+                            self.searchText = ""
+                            viewModel.onTextChanged(self.searchText)
+                        }) {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundColor(.gray)
                         }
-                    } // ScrollView
-                    Spacer()
-                }
-                if viewModel.filtered_cities.isEmpty {
+                        .padding(.trailing, 6)
+                    }
+                } // Hstack
+                .background(Color.rzhdGray)
+                .cornerRadius(10)
+                .frame(height: 36)
+                ZStack {
                     VStack {
                         Spacer()
-                        Text("Город не найден")
-                            .font(.system(size: 24))
-                            .bold()
-                            .frame(maxWidth: .infinity, alignment: .center)
+                        ScrollView (showsIndicators: false) {
+                            LazyVStack(spacing: 0) {
+                                ForEach(viewModel.filtered_cities) { city in
+                                    CityRowView(city: city)
+                                    
+                                        .onTapGesture {
+                                            proceedCityName(city: city)
+                                            
+                                        }
+                                }
+                            }
+                        } // ScrollView
                         Spacer()
-                    } // VSTACK ALERT
-                    .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
+                    }
+                    if viewModel.filtered_cities.isEmpty {
+                        VStack {
+                            Spacer()
+                            Text("Город не найден")
+                                .font(.system(size: 24))
+                                .bold()
+                                .frame(maxWidth: .infinity, alignment: .center)
+                            Spacer()
+                        } // VSTACK ALERT
+                        .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
+                    }
                 }
             }
         }.padding(.horizontal, 16)
@@ -92,12 +94,14 @@ struct CitiesView: View {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
                     searchData.currentlySelectedTextField = .nothing
-                    self.path.removeLast()
+                    self.router.popPath()
                 }) {
                     Image( "NavBackButton")
                         .foregroundColor(Color.rzhdGreyBackButton)
                 }
             }
+        } .task {
+            await viewModel.loadCities()
         }
     }
 }
@@ -106,5 +110,5 @@ struct CitiesView: View {
 
 
 #Preview {
-    CitiesView(path: .constant([]))
+    CitiesView()
 }

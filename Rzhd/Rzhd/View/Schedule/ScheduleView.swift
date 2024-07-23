@@ -8,24 +8,23 @@
 import SwiftUI
 
 struct ScheduleView: View {
-    
-    @Binding var path: [NavigationIdentifiers]
-    
+    @ObservedObject var router = PathRouter.shared
+    @StateObject private var viewModel = ScheduleViewModel()
     @EnvironmentObject var searchData: SearchData
     
     @Binding var stories: [StoriesPack]
     @Binding var memo: StoriesMemoization
+    @State private var showingAlert = false
     
     var body: some View {
         VStack {
-            Spacer()
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack {
                     ForEach(Array(stories.enumerated()), id: \.element.id) { index, story in
                         StoryPreview(story: story)
                             .onTapGesture {
                                 memo.selectedPack = UInt8(index)
-                                path.append(.stories)
+                                router.pushPath(.stories)
                             }
                     }
                 }}
@@ -40,43 +39,34 @@ struct ScheduleView: View {
                     .cornerRadius(20)
                 HStack {
                     VStack {
-                        TextField("Откуда", text: $searchData.fromText)
+                        Text(searchData.fromText.isEmpty ? "Откуда" : searchData.fromText)
                             .font(.system(size: 17))
-                            .foregroundColor(.black)
-                            .foregroundColor(.gray)
+                            .foregroundColor(searchData.fromText.isEmpty ? .gray : .black)
                             .textFieldStyle(.plain)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding([.horizontal, .top])
                             .multilineTextAlignment(.leading)
                             .onTapGesture {
-                                searchData.currentlySelectedTextField = .from
-                                self.path.append(.citiesList)
+                                checkDataAndNavigate(.from)
                             }
                         Spacer()
                         
-                        TextField("Куда", text: $searchData.toText)
+                        Text(searchData.toText.isEmpty ? "Куда" : searchData.toText)
                             .font(.system(size: 17))
-                            .foregroundColor(.black)
-                        
-                            .foregroundColor(.gray)
+                            .foregroundColor(searchData.toText.isEmpty ? .gray : .black)
                             .textFieldStyle(.plain)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding([.horizontal, .top])
                             .multilineTextAlignment(.leading)
                             .onTapGesture {
-                                searchData.currentlySelectedTextField = .to
-                                self.path.append(.citiesList)
+                                checkDataAndNavigate(.to)
                             }
                         
                         Spacer()
                     }
                     .frame(height: 96)
                     .background(Color.white.cornerRadius(20))
-                    .padding(.horizontal, 16) // Отступ слева
-                    
-                    
-                    
-                    
+                    .padding(.horizontal, 16)
                     Image("Refresh")
                         .renderingMode(.template).foregroundColor(.searchBackground)
                     
@@ -97,7 +87,7 @@ struct ScheduleView: View {
                     if (searchData.cityFrom == nil || searchData.cityTo == nil) {
                         return
                     }
-                    self.path.append(.searchResultsList)
+                    self.router.pushPath(.searchResultsList)
                 } label: {
                     Text("Найти")
                         .foregroundColor(.white)
@@ -112,7 +102,14 @@ struct ScheduleView: View {
             }
             Spacer()
             
-        }.background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
+        }
+        .background(Color.colorPrimary.edgesIgnoringSafeArea(.all))
+        .alert("Загрузка данных", isPresented: $showingAlert) {
+            Button("OK", role: .cancel) { }
+        } message: {
+            Text("Данные о станциях еще загружаются. Пожалуйста, подождите.")
+        }
+        .padding(.top, 24)
     }
 }
 
@@ -124,10 +121,30 @@ extension ScheduleView {
     }
 }
 
+extension ScheduleView {
+    private func checkIsStationsReady() async -> Bool {
+        return await viewModel.isDataLoaded()
+    }
+    
+    private func checkDataAndNavigate(_ textField: CurrentlySelectedTextField) {
+        Task {
+            let isReady = await checkIsStationsReady()
+            await MainActor.run {
+                if isReady {
+                    searchData.currentlySelectedTextField = textField
+                    self.router.pushPath(.citiesList)
+                } else {
+                    showingAlert = true
+                }
+            }
+        }
+    }
+}
+
 
 
 #Preview {
-    ScheduleView(path: .constant([]), stories: .constant(StoriesPack.stories),
+    ScheduleView(stories: .constant(StoriesPack.stories),
                  memo: .constant(StoriesMemoization())
     )
     .environmentObject(SearchData())

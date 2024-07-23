@@ -7,8 +7,10 @@
 
 import Foundation
 
+@MainActor
 class FilterViewModel: ObservableObject {
     @Published var settings: [SelectionModel] = generateSelection()
+    private let interactor = FilterInteractor()
     
     
     func configureConstraints(constraints: SearchConstraits) {
@@ -37,7 +39,7 @@ class FilterViewModel: ObservableObject {
     
     private static func generateConstraints(_ input: SearchConstraits) -> [SelectionModel] {
         return {
-            var result  = [
+            let result  = [
                 SelectionModel(name: .morning, isSelected: input.includingMorning, isRadio: false, section: .time),
                 SelectionModel(name: .day, isSelected: input.includingDay , isRadio: false, section: .time),
                 SelectionModel(name: .evening, isSelected: input.includingEvening, isRadio: false, section: .time),
@@ -108,7 +110,9 @@ class FilterViewModel: ObservableObject {
             result.includingNight = true
             
         }
-        
+        Task {
+            await interactor.setConstraints(result)
+        }
         return result
         
     }

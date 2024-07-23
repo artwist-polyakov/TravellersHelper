@@ -12,10 +12,10 @@ import OpenAPIURLSession
 typealias Routes = Components.Schemas.Routes
 
 protocol RoutesSearchProtocol {
-    func search(from: String, to: String, date: String) async throws -> Routes
+    func search(from: String, to: String, date: String, transfers: Bool) async throws -> Routes
 }
 
-final class RoutesSearchService: RoutesSearchProtocol {
+final class RoutesSearchService: RoutesSearchProtocol, @unchecked Sendable {
     private let client: Client
     private let apikey: String
     
@@ -24,14 +24,16 @@ final class RoutesSearchService: RoutesSearchProtocol {
         self.apikey = apikey
     }
     
-    func search(from: String, to: String, date: String) async throws -> Routes {
+    func search(from: String, to: String, date: String, transfers: Bool = false) async throws -> Routes {
         
         let response = try await client.search(query: .init(
             apikey: apikey,
             from: from,
             to: to,
-            date: date
+            date: date,
+            transfers: transfers
         ))
+        print (response)
         return try response.ok.body.json
     }
 }

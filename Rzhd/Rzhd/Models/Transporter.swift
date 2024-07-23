@@ -11,22 +11,19 @@ import SwiftUI
 struct Transporter: Hashable, Identifiable {
     var id = UUID()
     var name: String
-    var logoUri: String
+    var logoUrl: URL? = nil
+    var code: Int? = nil
     
-    
-    func getLogo() -> Image {
-        return Image.assetLogo(logoUri)
-    }
     
     static func generateRandom() -> Transporter {
         let transporters = [
-            Transporter(name: "Экспресс", logoUri: "Aeroexpress"),
-            Transporter(name: "Фликс", logoUri: "Flixbus"),
-            Transporter(name: "Поезд-корпорация", logoUri: "Poezd"),
-            Transporter(name: "Сапсан", logoUri: "Sapsan"),
-            Transporter(name: "Войяж", logoUri: "Voyage"),
-            Transporter(name: "Яндекс", logoUri: "Yandex"),
-            Transporter(name: "РЖД", logoUri: "RZHDLogo")
+            Transporter(name: "Экспресс"),
+            Transporter(name: "Фликс"),
+            Transporter(name: "Поезд-корпорация"),
+            Transporter(name: "Сапсан"),
+            Transporter(name: "Войяж"),
+            Transporter(name: "Яндекс"),
+            Transporter(name: "РЖД")
         ]
         return transporters.randomElement()!
     }
